@@ -145,6 +145,7 @@ html[data-pf] header nav{order:2;flex-basis:100%}html[data-pf] .accb{order:1}
 .lnk{padding:4px;border:0;background:none;border-radius:0;color:var(--ac);text-decoration:underline;font-family:var(--u-f,var(--t-f));font-size:inherit}.aem{font-weight:600;word-break:break-all}#amsg:empty,#cst:empty{display:none}
 @media(max-width:600px){header{padding-top:calc(6px + env(safe-area-inset-top));padding-bottom:6px}}
 #dacc:focus{outline:none}.adlg .row button{max-width:100%;overflow-wrap:anywhere}html[data-pf] .adlg .row button{font-size:calc(20px*var(--ts))}
+.qr{display:block;direction:ltr;text-align:center;font-family:var(--u-f,var(--t-f));font-size:calc(14px*var(--ts));font-weight:400;color:var(--mut);line-height:1.3}.qrp{margin-top:-18px;padding-bottom:12px}.opt.ok .qr,.opt.bad .qr,.sel .qr{color:inherit}td .qr{text-align:inherit}.card .qr{margin-top:6px;font-size:calc(17px*var(--ts))}
 </style></head><body>
 <header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="today">На сегодня</button><button data-v="words">Слова</button><button data-v="test">Тест</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
 <main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog>
@@ -180,7 +181,7 @@ const save=()=>{try{localStorage.setItem(K,JSON.stringify(words))}catch(e){}clou
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
-let view='home',q='',timer,tg='',nk=false,lv='m',curAll=false,curW=new Set(),ui={tr:1,ru:1,note:1,tag:1,pc:0,pos:'top',ca:0,nk:0,sl:'m',nw:10,theme:'',fu:'',fh:'',ts:100,hs:100};
+let view='home',q='',timer,tg='',nk=false,lv='m',curAll=false,curW=new Set(),ui={tr:1,ru:1,note:1,tag:1,pc:0,pos:'top',ca:0,nk:0,sl:'m',nw:10,qtr:1,theme:'',fu:'',fh:'',ts:100,hs:100};
 try{Object.assign(ui,JSON.parse(localStorage.getItem(K+'u'))||{})}catch(e){}
 nk=!!ui.nk;curAll=!!ui.ca;
 const saveU=()=>{try{localStorage.setItem(K+'u',JSON.stringify(ui))}catch(e){}},hcls=()=>['tr','ru','note','tag','pc'].filter(k=>!ui[k]).map(k=>'h-'+k).join(' ');
@@ -271,23 +272,23 @@ function bindWords(){let added=0,editI=-1,dupArm='';
 }
 const GP=[['אני','אֲנִי','ани','я (м.р. и ж.р.)','Для мужчины и для женщины форма одна'],['אתה','אַתָּה','ата','ты (м.р.)',''],['את','אַתְּ','ат','ты (ж.р.)',''],['הוא','הוּא','hу','он',''],['היא','הִיא','hи','она',''],['אנחנו','אֲנַחְנוּ','анахну','мы (м.р. и ж.р.)','Для мужчин и для женщин форма одна'],['אתם','אַתֶּם','атем','вы (м.р.)',''],['אתן','אַתֶּן','атен','вы (ж.р.)',''],['הם','הֵם','hем','они (м.р.)',''],['הן','הֵן','hен','они (ж.р.)','']].map(([he,nk,tr,ru,note])=>({he,nk,tr,ru,note}));
 const GROWS=[['אני','אני','אנחנו','אנחנו'],['אתה','את','אתם','אתן'],['הוא','היא','הם','הן']],GH=[['יחיד','единственное, м.р.'],['יחידה','единственное, ж.р.'],['רבים','множественное, м.р.'],['רבות','множественное, ж.р.']],GL=['1-е лицо','2-е лицо','3-е лицо'];
-const hw=s=>`<bdi class="hi" lang="he">${s}</bdi>`;
+const hw=(s,t)=>`<bdi class="hi" lang="he">${s}</bdi>${t?` (${t})`:''}`;
 const GX=[['ученик',"תלמיד;талмид|תלמידה;талмида|תלמידים;талмидим|תלמידות;талмидот"],['хороший',"טוב;тов|טובה;това|טובים;товим|טובות;товот"],['турист',"תייר;таяр|תיירת;таерет|תיירים;таярим|תיירות;таярот"],['израильтянин',"ישראלי;исраэли|ישראלית;исраэлит|ישראלים;исраэлим|ישראליות;исраэлиёт"],['учитель',"מורה;море|מורה;мора|מורים;морим|מורות;морот"],['большой',"גדול;гадоль|גדולה;гдола|גדולים;гдолим|גדולות;гдолот"],['учится',"לומד;ломед|לומדת;ломедет|לומדים;ломдим|לומדות;ломдот"],['говорит',"מדבר;медабер|מדברת;медаберет|מדברים;медабрим|מדברות;медаброт"],['живёт',"גר;гар|גרה;гара|גרים;гарим|גרות;гарот"],['хочет',"רוצה;роце|רוצה;роца|רוצים;роцим|רוצות;роцот"]];
 const GEXP=`<p>За основу берём форму для одного мужчины. От неё образуются остальные три.</p>
 <ul class="gr">
-<li><b>Женский род:</b> часто образуется с ${hw('ה')} (-а), особенно у прилагательных: ${hw('טוב')} → ${hw('טובה')}. У многих глаголов и некоторых существительных окончание ${hw('ת')} (-ет): ${hw('לומד')} → ${hw('לומדת')}. Слова на ${hw('י')} (-и) получают ${hw('ת')} (-т): ${hw('ישראלי')} → ${hw('ישראלית')}.</li>
-<li><b>Слова на ${hw('ה')} (-е):</b> в обоих родах пишутся одинаково, меняется только чтение: ${hw('רוֹצֶה')} — роце (м.р.), ${hw('רוֹצָה')} — роца (ж.р.). Так же ${hw('שותה')} (шоте / шота), ${hw('עושה')} (осе / оса), ${hw('מורה')} (море / мора). Без огласовок род виден только по контексту: ${hw('הוא רוצה')}, ${hw('היא רוצה')}.</li>
-<li><b>Множественное, м.р.:</b> добавляем ${hw('ים')} (-им): ${hw('תלמיד')} → ${hw('תלמידים')}. Конечная ${hw('ה')} при этом отпадает: ${hw('מורה')} → ${hw('מורים')}.</li>
-<li><b>Множественное, ж.р.:</b> у прилагательных и глаголов настоящего времени окончание почти всегда ${hw('ות')} (-от): ${hw('טובה')} → ${hw('טובות')}, ${hw('לומדת')} → ${hw('לומדות')}. У существительных обычно тоже: ${hw('תלמידה')} → ${hw('תלמידות')}, но замена не всегда механическая, поэтому форму лучше запоминать вместе со словом. Бывает окончание ${hw('ים')}: ${hw('מילה')} → ${hw('מילים')} (милим), ${hw('שנה')} → ${hw('שנים')} (шаним), ${hw('ביצה')} → ${hw('ביצים')} (бейцим). Бывает, что ${hw('ת')} остаётся: ${hw('דלת')} → ${hw('דלתות')} (длатот). Бывает, что меняется основа: ${hw('בת')} → ${hw('בנות')} (банот), ${hw('אחות')} → ${hw('אחיות')} (ахайот).</li>
+<li><b>Женский род:</b> часто образуется с ${hw('ה')} (-а), особенно у прилагательных: ${hw('טוב','тов')} → ${hw('טובה','това')}. У многих глаголов и некоторых существительных окончание ${hw('ת')} (-ет): ${hw('לומד','ломед')} → ${hw('לומדת','ломедет')}. Слова на ${hw('י')} (-и) получают ${hw('ת')} (-т): ${hw('ישראלי','исраэли')} → ${hw('ישראלית','исраэлит')}.</li>
+<li><b>Слова на ${hw('ה')} (-е):</b> в обоих родах пишутся одинаково, меняется только чтение: ${hw('רוֹצֶה')} — роце (м.р.), ${hw('רוֹצָה')} — роца (ж.р.). Так же ${hw('שותה')} (шоте / шота), ${hw('עושה')} (осе / оса), ${hw('מורה')} (море / мора). Без огласовок род виден только по контексту: ${hw('הוא רוצה','hу роце')}, ${hw('היא רוצה','hи роца')}.</li>
+<li><b>Множественное, м.р.:</b> добавляем ${hw('ים')} (-им): ${hw('תלמיד','талмид')} → ${hw('תלמידים','талмидим')}. Конечная ${hw('ה')} при этом отпадает: ${hw('מורה','море')} → ${hw('מורים','морим')}.</li>
+<li><b>Множественное, ж.р.:</b> у прилагательных и глаголов настоящего времени окончание почти всегда ${hw('ות')} (-от): ${hw('טובה','това')} → ${hw('טובות','товот')}, ${hw('לומדת','ломедет')} → ${hw('לומדות','ломдот')}. У существительных обычно тоже: ${hw('תלמידה','талмида')} → ${hw('תלמידות','талмидот')}, но замена не всегда механическая, поэтому форму лучше запоминать вместе со словом. Бывает окончание ${hw('ים')}: ${hw('מילה','мила')} → ${hw('מילים')} (милим), ${hw('שנה','шана')} → ${hw('שנים')} (шаним), ${hw('ביצה','бейца')} → ${hw('ביצים')} (бейцим). Бывает, что ${hw('ת')} остаётся: ${hw('דלת','делет')} → ${hw('דלתות')} (длатот). Бывает, что меняется основа: ${hw('בת','бат')} → ${hw('בנות')} (банот), ${hw('אחות','ахот')} → ${hw('אחיות')} (ахайот).</li>
 <li><b>Гласные внутри слова могут меняться:</b> ${hw('גדול')} (гадоль) → ${hw('גדולה')} (гдола), ${hw('לומד')} (ломед) → ${hw('לומדים')} (ломдим).</li>
-<li><b>Согласование:</b> прилагательное стоит после существительного и совпадает с ним в роде и числе: ${hw('ילד טוב')}, ${hw('ילדה טובה')}, ${hw('ילדים טובים')}, ${hw('ילדות טובות')}.</li>
-<li><b>Исключения:</b> окончание не всегда совпадает с родом: ${hw('שולחן')} (м.р.) → ${hw('שולחנות')}, ${hw('עיר')} (ж.р.) → ${hw('ערים')}. Некоторые слова меняются полностью: ${hw('איש')} → ${hw('אנשים')}, ${hw('אישה')} → ${hw('נשים')}.</li>
+<li><b>Согласование:</b> прилагательное стоит после существительного и совпадает с ним в роде и числе: ${hw('ילד טוב','йелед тов')}, ${hw('ילדה טובה','йальда това')}, ${hw('ילדים טובים','йеладим товим')}, ${hw('ילדות טובות','йеладот товот')}.</li>
+<li><b>Исключения:</b> окончание не всегда совпадает с родом: ${hw('שולחן','шульхан, м.р.')} → ${hw('שולחנות','шульханот')}, ${hw('עיר','ир, ж.р.')} → ${hw('ערים','арим')}. Некоторые слова меняются полностью: ${hw('איש','иш')} → ${hw('אנשים','анашим')}, ${hw('אישה','иша')} → ${hw('נשים','нашим')}.</li>
 </ul>
 <div class="gwrap"><table class="gt gx" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th class="rl"></th></tr></thead><tbody>${GX.map(([ru,s])=>`<tr>${s.split('|').map(x=>{const [he,tr]=x.split(';');return `<td><span class="heb">${he}</span><small class="mut">${tr}</small></td>`}).join('')}<td class="rl" dir="ltr">${ru}</td></tr>`).join('')}</tbody></table></div>`;
 let gnk=false,gcur=false,grd=true;
 const gby=he=>GP.find(x=>x.he===he);
 function gtable(fill){
- const opts=shuffle(GP.map(x=>x.he)).map(h=>`<option value="${h}">${h}</option>`).join('');
+ const opts=shuffle(GP.map(x=>x.he)).map(h=>`<option value="${h}">${h}${ui.qtr?' — '+gby(h).tr:''}</option>`).join('');
  const cell=he=>fill?`<td data-a="${he}"><select class="gs" aria-label="Форма">${'<option value="">?</option>'+opts}</select></td>`:`<td><span class="heb${gcur?' cur':''}">${esc(gnk?gby(he).nk:he)}</span><small class="rd mut">${esc(gby(he).tr)}</small></td>`;
  return `<table class="gt${grd?'':' nord'}" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th></th></tr></thead><tbody>${GROWS.map((r,i)=>`<tr>${r.map(cell).join('')}<td class="rl" dir="ltr">${GL[i]}</td></tr>`).join('')}</tbody></table>`;
 }
@@ -359,7 +360,7 @@ function session(q){
  function show(){
   if(i>=queue.length){const m=todayM();box.innerHTML=`<div class="score">На сегодня всё</div><p>Повторено слов: ${q.length}. Всего за сегодня: новых ${m.newN}, ответов ${m.revN}.</p><div class="tools"><button id="back" class="pri">К экрану «На сегодня»</button></div>`;$('#back').onclick=render;return}
   const it=queue[i],k=sk(it),isNew=!srs.c[k]&&!retry.has(k);
-  box.innerHTML=`<p class="mut">${isNew?'Новое слово':retry.has(k)?'Ещё раз':'Повторение'} · ${i+1} из ${queue.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb">${esc(it.he)}</span></button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
+  box.innerHTML=`<p class="mut">${isNew?'Новое слово':retry.has(k)?'Ещё раз':'Повторение'} · ${i+1} из ${queue.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb">${esc(it.he)}</span>${qrC(it)}</button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
   $('#cd').onclick=()=>{$('#cd').innerHTML=`<span class="heb">${esc(it.nk||it.he)}</span><br>${esc(it.tr)}<br><b>${esc(it.ru)}</b>${it.note?'<br><small class="mut">'+esc(it.note)+'</small>':''}`;$('#kb').hidden=false};
   const ans=ok=>{if(!retry.has(k))rate(it,ok);if(!ok){retry.add(k);queue.push(it)}i++;show()};
   $('#yes').onclick=()=>ans(true);$('#no').onclick=()=>ans(false);
@@ -406,7 +407,7 @@ function exam(qs,secs,i0,end0){
  clearInterval(timer);if(secs)timer=setInterval(()=>{left=Math.round((end-Date.now())/1000);paint();if(left<=0)finish()},1000);
  function show(){
   const x=qs[i];persist();
-  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${qs.length}${secs?' · осталось <b id="tm"></b>':''}</p><div class="qt">${qt(x.it,x.from,x.to)}</div><div class="prompt${H(x,x.from)}">${esc(x.it[x.from])}</div><div class="opts">${x.opts.map((o,k)=>`<button class="opt${H(x,x.to)}${x.pick===k?' sel':''}" data-k="${k}">${esc(o)}</button>`).join('')}</div><div class="tools"><button id="pv"${i?'':' disabled'}>Назад</button><button id="nx">${i+1<qs.length?'Дальше':'Завершить'}</button></div>`;
+  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${qs.length}${secs?' · осталось <b id="tm"></b>':''}</p><div class="qt">${qt(x.it,x.from,x.to)}</div><div class="prompt${H(x,x.from)}">${esc(x.it[x.from])}</div>${qrP(x.it,x.from,x.to)}<div class="opts">${x.opts.map((o,k)=>`<button class="opt${H(x,x.to)}${x.pick===k?' sel':''}" data-k="${k}">${esc(o)}${qrO(o,x.it,x.from,x.to)}</button>`).join('')}</div><div class="tools"><button id="pv"${i?'':' disabled'}>Назад</button><button id="nx">${i+1<qs.length?'Дальше':'Завершить'}</button></div>`;
   paint();
   box.querySelector('.opts').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;x.pick=+b.dataset.k;persist();box.querySelectorAll('.opt').forEach((y,k)=>y.classList.toggle('sel',k===x.pick))};
   $('#pv').onclick=()=>{i--;show()};
@@ -415,7 +416,7 @@ function exam(qs,secs,i0,end0){
  function finish(){
   clearInterval(timer);try{localStorage.removeItem(K+'x')}catch(e){}
   const ok=x=>x.opts[x.pick]===x.it[x.to],sc=qs.filter(ok).length;qs.forEach(x=>{if(x.pick>=0)rec(x.it,ok(x))});
-  box.innerHTML=`<div class="score">Результат: ${sc} из ${qs.length}</div><table><thead><tr><th>Вопрос</th><th>Ваш ответ</th><th>Верно</th></tr></thead><tbody>${qs.map(x=>`<tr><td class="${H(x,x.from).trim()}">${esc(x.it[x.from])}</td><td class="${ok(x)?'g':'r'}${H(x,x.to)}">${x.pick<0?'нет ответа':esc(x.opts[x.pick])} ${ok(x)?'✓':'✗'}</td><td class="${H(x,x.to).trim()}">${esc(x.it[x.to])}</td></tr>`).join('')}</tbody></table>`;
+  box.innerHTML=`<div class="score">Результат: ${sc} из ${qs.length}</div><table><thead><tr><th>Вопрос</th><th>Ваш ответ</th><th>Верно</th></tr></thead><tbody>${qs.map(x=>`<tr><td class="${H(x,x.from).trim()}">${esc(x.it[x.from])}${qrA(x.it[x.from],x.it,x.from)}</td><td class="${ok(x)?'g':'r'}${H(x,x.to)}">${x.pick<0?'нет ответа':esc(x.opts[x.pick])} ${ok(x)?'✓':'✗'}${x.pick<0?'':qrA(x.opts[x.pick],x.it,x.to)}</td><td class="${H(x,x.to).trim()}">${esc(x.it[x.to])}${qrA(x.it[x.to],x.it,x.to)}</td></tr>`).join('')}</tbody></table>`;
  }
  if(secs&&left<=0)finish();else show();
 }
@@ -424,7 +425,7 @@ function cards(items,sty){
  function show(){
   if(i>=items.length){box.innerHTML=`<div class="score">Знаю: ${items.length-miss.length} из ${items.length}</div>${miss.length?'<div class="tools"><button id="ag" class="pri">Повторить незнакомые</button></div>':''}`;const a=$('#ag');if(a)a.onclick=()=>cards(shuffle(miss),sty);return}
   const it=items[i],c=sty==='c'||sty==='m'&&Math.random()<.5;
-  box.innerHTML=`<p class="mut">Карточка ${i+1} из ${items.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb${c?' cur':''}">${esc(it.he)}</span></button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
+  box.innerHTML=`<p class="mut">Карточка ${i+1} из ${items.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb${c?' cur':''}">${esc(it.he)}</span>${qrC(it)}</button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
   $('#cd').onclick=()=>{$('#cd').innerHTML=`<span class="heb">${esc(it.nk||it.he)}</span><br>${esc(it.tr)}<br><b>${esc(it.ru)}</b>${it.note?'<br><small class="mut">'+esc(it.note)+'</small>':''}`;$('#kb').hidden=false};
   $('#yes').onclick=()=>{rec(it,1);i++;show()};$('#no').onclick=()=>{rec(it,0);miss.push(it);i++;show()};
  }
@@ -437,7 +438,7 @@ function run(items,pool,from,to,sty){
   if(i>=items.length)return done();
   const it=items[i],ans=it[to];locked=false;cur=sty==='c'||sty==='m'&&Math.random()<.5;
   const opts=shuffle([ans,...shuffle([...new Set(pool.filter(p=>!twin(it,p)).map(p=>p[to]).filter(x=>x!==ans))]).slice(0,3)]);
-  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from)}">${esc(it[from])}</div><div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to)}" data-k="${k}">${esc(o)}</button>`).join('')}</div><p id="fb"></p>`;
+  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from)}">${esc(it[from])}</div>${qrP(it,from,to)}<div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to)}" data-k="${k}">${esc(o)}${qrO(o,it,from,to)}</button>`).join('')}</div><p id="fb"></p>`;
   box.querySelector('.opts').onclick=e=>{
    const b=e.target.closest('.opt');if(!b||locked)return;locked=true;
    const ok=opts[b.dataset.k]===ans;rec(it,ok);
@@ -503,6 +504,7 @@ function bindAcc(){const d=$('#dacc'),msg=t=>{$('#amsg').textContent=t};d.queryS
  $('#atg').onclick=()=>{const em=$('#aem').value,pw=$('#apw').value;aMode=aMode==='up'?'in':'up';openAcc();$('#aem').value=em;$('#apw').value=pw};
  const fg=$('#afg');if(fg)fg.onclick=async()=>{const email=$('#aem').value.trim();if(!email){msg('Введите почту, и я отправлю письмо для сброса пароля.');return}msg('Подождите…');const sent='Если такой аккаунт есть, письмо для сброса пароля уже в пути. Проверьте и папку «Спам».';try{await authCall('sendOobCode',{requestType:'PASSWORD_RESET',email});msg(sent)}catch(err){const m=String(err.message).split(' ')[0];msg(m==='NET'||m==='INVALID_EMAIL'||m==='TOO_MANY_ATTEMPTS_TRY_LATER'?aerr(m):sent)}}}
 document.addEventListener('visibilitychange',()=>{if(!acc)return;if(document.hidden){if(firstD)syncNow()}else if(Date.now()-lastS>30000)syncNow()});addEventListener('online',()=>{if(acc)syncNow()});
+const HK=['he','m','f'];let TRM=null;const trOf=he=>{const u=words.find(w=>w.he===he);if(u&&u.tr)return u.tr;if(!TRM){TRM=new Map();[...DEF,...LIB.a,...LIB.b,...LIB.g,...letters,...GP].forEach(w=>{if(w.tr&&!TRM.has(w.he))TRM.set(w.he,w.tr)})}return TRM.get(he)||''},rdOf=(v,it,k)=>(v===it[k]&&it.tr)||trOf(v),qr=t=>t?`<small class="qr">${esc(t)}</small>`:'',qrP=(it,from,to)=>ui.qtr&&HK.includes(from)&&to!=='tr'?`<div class="qrp">${qr(rdOf(it[from],it,from))}</div>`:'',qrO=(o,it,from,to)=>ui.qtr&&HK.includes(to)&&from!=='tr'?qr(rdOf(o,it,to)):'',qrC=it=>ui.qtr?qr(it.tr||trOf(it.he)):'',qrA=(v,it,k)=>HK.includes(k)?qr(rdOf(v,it,k)):'';
 const THEMES=[{id:'white',n:'Чистый белый',d:'Воздух и один акцент'},{id:'graphite',n:'Графит',d:'Чёрный и спокойный'},{id:'glass',n:'Стекло',d:'Матовые карточки'},{id:'city',n:'Белый город',d:'Баухаус и плакат'},{id:'stone',n:'Камень и закат',d:'Тёплый и спокойный'},{id:'arcade',n:'Ночная аркада',d:'Тёмный и яркий'},{id:'console',n:'Карманная консоль',d:'Зелёный экран',px:1},{id:'quest',n:'Гранатовый квест',d:'Пиксельная RPG',px:1},{id:'dusk',n:'Пиксельный закат',d:'Город на закате',px:1}];
 const FU=[['','Как в теме',''],['sys','Системный','"Segoe UI",system-ui,sans-serif'],['inter','Inter','Inter,"Segoe UI",sans-serif'],['rubik','Rubik','Rubik,"Segoe UI",sans-serif'],['jost','Jost','Jost,"Segoe UI",sans-serif'],['ptserif','PT Serif','"PT Serif",Georgia,serif'],['exo','Exo 2','"Exo 2","Segoe UI",sans-serif'],['comfortaa','Comfortaa','Comfortaa,"Segoe UI",sans-serif'],['pixel','Tiny5 (пиксельный)','Tiny5,Consolas,monospace']];
 const FH=[['','Как в теме',''],['heebo','Heebo','Heebo,Arial,sans-serif'],['rubik','Rubik','Rubik,Arial,sans-serif'],['assistant','Assistant','Assistant,Arial,sans-serif'],['alef','Alef','Alef,Arial,sans-serif'],['frank','Frank Ruhl Libre','"Frank Ruhl Libre","Times New Roman",serif'],['david','David Libre','"David Libre",David,"Times New Roman",serif'],['arial','Arial','Arial,sans-serif']];
@@ -521,12 +523,13 @@ function sprites(){const r=document.documentElement,c=document.createElement('ca
 function setView(){
  const cur=curTheme(),opt=(a,v)=>a.map(([k,n])=>`<option value="${k}"${k===v?' selected':''}>${n}</option>`).join('');
  $('#app').innerHTML=`<h2>Тема</h2><div class="tgrid">${THEMES.map(t=>`<button class="tcard" data-th="${t.id}" aria-pressed="${t.id===cur}"><span class="tp" data-theme="${t.id}"${t.px?' data-pix':''}><span class="tp-h">Сегодня<span class="tp-i">${ICON(t.id)}</span></span><span class="tp-w" lang="he" dir="rtl">שלום</span><span class="tp-b"><i>Не знаю</i><i class="y">Знаю</i></span></span><span class="tn">${t.n}</span><span class="ts">${t.d}</span></button>`).join('')}</div>
+ <h2>Подсказки</h2><label><input type="checkbox" id="sqtr"${ui.qtr?' checked':''}> Транскрипция при вопросах</label><p class="mut">Чтение под словами на иврите в тестах и карточках. В заданиях на чтение оно скрыто, чтобы не выдавать ответ.</p>
  <h2>Шрифт</h2><div class="fg"><label>Текст<select id="sfu">${opt(FU,ui.fu)}</select></label><label>Иврит<select id="sfh">${opt(FH,ui.fh)}</select></label><label><span>Размер текста: <output id="ots"></output></span><input id="sts" type="range" min="85" max="130" step="5" value="${pct(ui.ts,85,130)}"></label><label><span>Размер иврита: <output id="ohs"></output></span><input id="shs" type="range" min="85" max="150" step="5" value="${pct(ui.hs,85,150)}"></label></div>
  <div class="fprev" id="fprev"></div><div class="tools"><button id="frs">Сбросить шрифт</button></div>
  <p class="mut">Тема и шрифт сохраняются в этом браузере, поэтому у каждого свои. Без интернета шрифты, которые ещё не загружались, заменятся системными.</p>`;
  const pv=()=>{$('#fprev').innerHTML=`<div class="fs-he heb" lang="he">שלום</div><div class="heb" lang="he">שָׁלוֹם, בֹּקֶר טוֹב</div><p>Так будет выглядеть текст: шалом значит «привет» и «мир».</p>`;$('#ots').textContent=pct(ui.ts,85,130)+'%';$('#ohs').textContent=pct(ui.hs,85,150)+'%'},upd=()=>{saveU();applyLook();pv()};
  document.querySelector('.tgrid').onclick=e=>{const b=e.target.closest('[data-th]');if(!b)return;ui.theme=b.dataset.th;document.querySelectorAll('[data-th]').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()};
- $('#sfu').onchange=e=>{ui.fu=e.target.value;upd()};$('#sfh').onchange=e=>{ui.fh=e.target.value;upd()};
+ $('#sqtr').onchange=e=>{ui.qtr=e.target.checked?1:0;saveU()};$('#sfu').onchange=e=>{ui.fu=e.target.value;upd()};$('#sfh').onchange=e=>{ui.fh=e.target.value;upd()};
  $('#sts').oninput=e=>{ui.ts=+e.target.value;upd()};$('#shs').oninput=e=>{ui.hs=+e.target.value;upd()};
  $('#frs').onclick=()=>{ui.fu=ui.fh='';ui.ts=ui.hs=100;saveU();applyLook();render()};
  pv();
