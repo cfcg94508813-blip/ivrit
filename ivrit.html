@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f5f5f7"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Иврит"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f5fbf'/%3E%3Ctext x='32' y='47' font-size='44' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3E%D7%A9%3C/text%3E%3C/svg%3E"><title>Иврит: мои слова</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gveret+Levin&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playpen+Sans+Hebrew&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@400;700&family=Comfortaa:wght@400;700&family=David+Libre:wght@400;700&family=Exo+2:wght@400;700&family=Frank+Ruhl+Libre:wght@400;700&family=Heebo:wght@300;400;700&family=Inter:wght@400;600&family=Jost:wght@400;700&family=PT+Serif:wght@400;700&family=Tiny5&family=Rubik:wght@400;700&display=swap">
+<script>(function(){try{var u=JSON.parse(localStorage.getItem('ivrit_v1u'))||{},t=['white','graphite','glass','city','stone','arcade','console','quest','dusk'];document.documentElement.dataset.theme=t.indexOf(u.theme)>=0?u.theme:matchMedia('(prefers-color-scheme: dark)').matches?'graphite':'white'}catch(e){}})()</script>
+<style>
+:root,[data-theme=white]{--bg:#f5f5f7;--fg:#1d1d1f;--mut:#6e6e73;--card:#fff;--line:#d9d9de;--ac:#0071e3;--on-ac:#fff;--ok:#1f7a35;--on-ok:#fff;--bad:#d70015;--on-bad:#fff;--r:999px;--r-i:10px;--r-l:18px;--bw:1px;--wb:300;--t-f:Inter,"Segoe UI",system-ui,sans-serif;--t-fb:Inter,"Segoe UI",system-ui,sans-serif;--t-he:Heebo,"Segoe UI",Arial,sans-serif;color-scheme:light}
+:root{--ts:1;--hs:1;--hair:var(--line)}
+[data-theme=graphite]{--bg:#000;--fg:#f5f5f7;--mut:#98989d;--card:#1c1c1e;--line:#38383a;--ac:#f5f5f7;--on-ac:#000;--ok:#30d158;--on-ok:#00210b;--bad:#ff453a;--on-bad:#2a0400;--r:999px;--r-i:10px;--r-l:18px;--bw:1px;--wb:300;--t-f:Inter,"Segoe UI",system-ui,sans-serif;--t-fb:Inter,"Segoe UI",system-ui,sans-serif;--t-he:Heebo,"Segoe UI",Arial,sans-serif;color-scheme:dark}
+[data-theme=glass]{--bg:#dce6f7;--fg:#14233f;--mut:#42536f;--card:rgba(255,255,255,.55);--line:rgba(255,255,255,.85);--hair:rgba(20,35,63,.14);--field:#f2f6fd;--dlg:rgba(255,255,255,.85);--bar:rgba(220,230,247,.75);--ac:#14233f;--on-ac:#fff;--ok:#146a3c;--on-ok:#fff;--bad:#ad1f44;--on-bad:#fff;--r:999px;--r-i:12px;--r-l:24px;--bw:1px;--wb:300;--t-f:Inter,"Segoe UI",system-ui,sans-serif;--t-fb:Inter,"Segoe UI",system-ui,sans-serif;--t-he:Heebo,"Segoe UI",Arial,sans-serif;color-scheme:light}
+[data-theme=city]{--bg:#f4f0e6;--fg:#1a1a1a;--mut:#5c574c;--card:#fbf8f0;--line:#1a1a1a;--ac:#1a1a1a;--on-ac:#f4f0e6;--ok:#1f7a3a;--on-ok:#fff;--bad:#c8341f;--on-bad:#fff;--r:0;--r-i:0;--r-l:0;--bw:2px;--wb:700;--t-f:Jost,"Segoe UI",sans-serif;--t-fb:Jost,"Segoe UI",sans-serif;--t-he:Heebo,"Segoe UI",Arial,sans-serif;color-scheme:light}
+[data-theme=stone]{--bg:#e6d5ba;--fg:#3b2a1c;--mut:#6a5540;--card:#f6eedf;--line:#cfbb98;--ac:#a2471f;--on-ac:#f6eedf;--ok:#56622f;--on-ok:#fff;--bad:#a8321f;--on-bad:#fff;--r:999px;--r-i:12px;--r-l:20px;--bw:1px;--wb:400;--t-f:"PT Serif",Georgia,serif;--t-fb:"PT Serif",Georgia,serif;--t-he:"Frank Ruhl Libre","Times New Roman",serif;color-scheme:light}
+[data-theme=arcade]{--bg:#12101f;--fg:#edeafb;--mut:#b5aedc;--card:#1e1a33;--line:#3a3362;--ac:#4df0b4;--on-ac:#06382a;--ok:#4df0b4;--on-ok:#06382a;--bad:#ff5c93;--on-bad:#3a0a1e;--r:10px;--r-i:10px;--r-l:14px;--bw:1px;--wb:700;--t-f:"Exo 2","Segoe UI",sans-serif;--t-fb:"Exo 2","Segoe UI",sans-serif;--t-he:Rubik,Arial,sans-serif;color-scheme:dark}
+[data-theme=console]{--bg:#c9d68f;--fg:#1f2b16;--mut:#3c5126;--card:#b7c77e;--line:#1f2b16;--hair:#8fa85a;--ac:#1f2b16;--on-ac:#c9d68f;--ok:#3f5428;--on-ok:#e4ecbc;--bad:#1f2b16;--on-bad:#e4ecbc;--r:0;--r-i:0;--r-l:0;--bw:3px;--wb:700;--t-f:Rubik,"Segoe UI",sans-serif;--t-fb:Tiny5,Consolas,monospace;--t-he:Rubik,Arial,sans-serif;color-scheme:light}
+[data-theme=quest]{--bg:#1b1f4b;--fg:#f4f1de;--mut:#b9bbdc;--card:#0e1130;--line:#f4f1de;--hair:#3b3f7a;--ac:#ffd166;--on-ac:#241a00;--ok:#6bbf59;--on-ok:#0b2606;--bad:#d42a45;--on-bad:#fff;--bad-t:#ff8fa0;--r:0;--r-i:0;--r-l:0;--bw:3px;--wb:700;--t-f:Rubik,"Segoe UI",sans-serif;--t-fb:Tiny5,Consolas,monospace;--t-he:Rubik,Arial,sans-serif;color-scheme:dark}
+[data-theme=dusk]{--bg:#2b1b3d;--fg:#fff3d6;--mut:#d6bfc0;--card:#3a2752;--line:#6b4a78;--ac:#ffc857;--on-ac:#3a2200;--ok:#7bd389;--on-ok:#0e2b14;--bad:#ff8a5c;--on-bad:#3a1000;--r:0;--r-i:0;--r-l:0;--bw:3px;--wb:700;--t-f:Rubik,"Segoe UI",sans-serif;--t-fb:Tiny5,Consolas,monospace;--t-he:Rubik,Arial,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--u-f,var(--t-f));font-size:calc(16px*var(--ts));line-height:1.5}
+header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 16px;border-bottom:1px solid var(--hair);max-width:820px;margin:0 auto}
+h1{font-size:calc(20px*var(--ts));margin:0 auto 0 0;cursor:pointer}h2{font-size:calc(17px*var(--ts));margin:20px 0 8px}
+main{max-width:820px;margin:0 auto;padding:0 16px 40px}
+button,.btn,select,input{font:inherit;color:var(--fg);background:var(--card);border:var(--bw) solid var(--line);padding:8px 12px}
+button,.btn{cursor:pointer;border-radius:var(--r)}select,input{border-radius:var(--r-i);background:var(--field,var(--card));accent-color:var(--ac)}
+h1,h2,button,.btn,.qt,.score{font-family:var(--u-f,var(--t-fb))}
+button:hover,.btn:hover{border-color:var(--ac)}
+button:focus-visible,input:focus-visible,select:focus-visible,.btn:focus-within{outline:2px solid var(--ac);outline-offset:2px}
+nav button[aria-current=true]{background:var(--ac);color:var(--on-ac);border-color:var(--ac)}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>input{flex:1 1 140px;min-width:0}
+.heb{font-size:calc(22px*var(--hs));direction:rtl;font-family:var(--u-he,var(--t-he))}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{padding:8px;border-bottom:1px solid var(--hair);text-align:left}
+td.heb{text-align:right}
+.mut{color:var(--mut)}.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.prompt{font-size:calc(32px*var(--ts));text-align:center;padding:24px 0}
+.prompt.heb{font-size:calc(32px*var(--hs));font-weight:var(--wb)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.opts{grid-template-columns:1fr}}
+.opt{padding:14px;text-align:center}
+.opt.ok{background:var(--ok);color:var(--on-ok);border-color:var(--ok)}.opt.bad{background:var(--bad);color:var(--on-bad);border-color:var(--bad)}
+.score{font-size:calc(24px*var(--ts));margin:16px 0}
+.cur{font-family:"Gveret Levin","Playpen Sans Hebrew","Segoe Script","Ink Free",cursive;font-size:calc(26px*var(--hs))}
+[data-cur]{cursor:pointer}
+th.heb{font-size:inherit;text-align:right}
+.prompt.cur{font-size:calc(42px*var(--hs));font-weight:400}
+.sel{background:var(--ac);color:var(--on-ac);border-color:var(--ac)}
+.g{color:var(--ok-t,var(--ok))}.r{color:var(--bad-t,var(--bad))}
+label{display:inline-flex;gap:6px;align-items:center}
+h2+.row,.row+.row{margin-top:8px}
+[hidden]{display:none!important}
+.launch{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+.big{display:flex;flex-direction:column;gap:8px;align-items:flex-start;text-align:left;padding:28px 22px;min-height:160px;border-radius:var(--r-l);font-size:calc(15px*var(--ts));transition:transform .15s,border-color .15s}
+.big b{font-size:calc(28px*var(--ts))}.big span{color:var(--mut)}.big:hover{transform:translateY(-2px)}
+dialog{width:min(560px,calc(100% - 32px));padding:0;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--dlg,var(--card));color:var(--fg)}
+dialog::backdrop{background:rgba(5,10,20,.6);backdrop-filter:blur(3px)}
+.dlg{display:flex;flex-direction:column;gap:14px;padding:24px}.dlg h2{margin:0;font-size:calc(24px*var(--ts))}.dlg p{margin:0}
+.dlg .row{align-items:center;margin:0}.dlg select{flex:1 1 200px}
+.end{justify-content:flex-end}.pri{background:var(--ac);color:var(--on-ac);border-color:var(--ac);font-weight:600}
+#bar{margin:16px 0 0}
+.h-tr .c-tr,.h-ru .c-ru,.h-pc .c-pc,.h-note .n-note,.h-tag .n-tag{display:none}
+small.mut{display:block}
+.wl{display:flex;flex-direction:column;gap:12px}.wmain{min-width:0;overflow-x:auto}
+.vb{display:flex;gap:8px;flex-wrap:wrap}
+.pos-top .vb{order:-1;position:sticky;top:0;z-index:5;background:var(--bar,var(--bg));padding:10px 0;border-bottom:1px solid var(--hair)}
+.pos-bottom .vb{order:2;position:sticky;bottom:0;z-index:5;background:var(--bar,var(--bg));padding:10px 0;border-top:1px solid var(--hair)}
+.pos-right{flex-direction:row;align-items:flex-start}.pos-right .wmain{flex:1}
+.pos-right .vb{flex:0 0 190px;flex-direction:column;position:sticky;top:12px}
+@media(max-width:700px){.pos-right{flex-direction:column}.pos-right .vb{flex:none;flex-direction:row;position:static}}
+#dadd,#ded{width:min(620px,calc(100% - 32px))}#dadd .row>input,#ded .row>input{flex:1 1 100%}
+.del.arm{background:var(--bad);color:var(--on-bad);border-color:var(--bad)}.act{white-space:nowrap}
+.resume{border:var(--bw) solid var(--ac);border-radius:var(--r-l);padding:14px 18px;margin-top:16px;background:var(--card)}.resume p{margin:0 0 10px}
+.ad.arm{background:var(--ok);color:var(--on-ok);border-color:var(--ok)}.added{color:var(--ok-t,var(--ok));font-size:calc(22px*var(--ts));font-weight:700;padding:0 14px}
+.seg{margin:12px 0 4px}.seg button.pri{font-weight:600}
+.card{display:block;width:100%;min-height:220px;margin:12px 0;padding:24px;font-size:calc(20px*var(--ts));line-height:1.7;border-radius:var(--r-l)}.card .heb{font-size:calc(44px*var(--hs));font-weight:var(--wb)}
+textarea{font:inherit;color:var(--fg);background:var(--field,var(--card));border:var(--bw) solid var(--line);border-radius:var(--r-i);padding:8px}
+details{margin-top:12px}summary{cursor:pointer}small{font-size:calc(13px*var(--ts))}
+.qt{font-size:calc(20px*var(--ts));font-weight:600;text-align:center;color:var(--ac);margin-top:12px}
+@media(max-width:520px){.launch{grid-template-columns:1fr}}
+.gwrap{overflow-x:auto}.gt{table-layout:fixed;min-width:460px}.gt th,.gt td{text-align:center;border:1px solid var(--hair);padding:10px 6px}.gt td .heb{font-size:calc(28px*var(--hs));display:block}.gt th small{display:block;font-weight:400}.gt .rl{font-size:calc(12px*var(--ts));color:var(--mut);width:64px}.gs{font-size:calc(20px*var(--hs));font-family:var(--u-he,var(--t-he));direction:rtl;width:100%;padding:6px 2px}.nord .rd{display:none}.gt td.okc{background:color-mix(in srgb,var(--ok) 28%,transparent)}.gt td.badc{background:color-mix(in srgb,var(--bad) 28%,transparent)}
+.home{position:relative;display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 150px);min-height:calc(100dvh - 150px);overflow:hidden}.map{position:absolute;left:50%;top:50%;height:min(92%,560px);width:auto;transform:translate(-50%,-50%);fill:color-mix(in srgb,var(--ac) 12%,transparent);stroke:var(--ac);stroke-opacity:.5;stroke-width:1.6;stroke-linejoin:round}.shalom{position:relative;direction:rtl;font-family:var(--u-he,var(--t-he));font-size:calc(clamp(64px,22vw,150px)*var(--hs));font-weight:var(--wb);line-height:1.1}
+.chev{width:12px;height:12px;margin-left:8px;vertical-align:-1px;transition:transform .15s}[aria-expanded=true] .chev{transform:rotate(180deg)}.gexp{margin-top:12px;padding:14px 16px;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--card)}.gexp p{margin:0 0 8px}.gr{margin:0;padding-left:20px}.gr li{margin:6px 0}.hi{font-size:calc(19px*var(--hs));font-family:var(--u-he,var(--t-he))}.gx{margin-top:12px;min-width:560px}.gx td .heb{font-size:calc(20px*var(--hs))}.gx .rl{width:96px}
+.pxw{image-rendering:pixelated;max-width:100%;height:auto;vertical-align:middle}
+.tgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}@media(max-width:520px){.tgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tcard{display:flex;flex-direction:column;gap:2px;padding:8px;text-align:left;border-radius:var(--r-l);font-family:var(--u-f,var(--t-f))}
+.tcard[aria-pressed=true]{border-color:var(--ac);outline:2px solid var(--ac)}.tcard[aria-pressed=true] .tn::after{content:" ✓"}
+.tp{position:relative;display:flex;flex-direction:column;justify-content:space-between;height:128px;padding:10px;overflow:hidden;background:var(--bg);color:var(--fg);border:var(--bw) solid var(--line);border-radius:calc(var(--r-l)*.6);font-family:var(--t-fb);font-size:12px}
+.tp-h,.tp-w,.tp-b{position:relative}.tp-w{display:block;text-align:center;font-family:var(--t-he);font-size:34px;line-height:1.1;font-weight:var(--wb)}
+.tp-b{display:flex;gap:4px}.tp-b i{flex:1;padding:3px 0;font-style:normal;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}.tp-b i.y{background:var(--ac);color:var(--on-ac);border-color:var(--ac)}
+.tp[data-theme=city]::before{content:"";position:absolute;width:86px;height:86px;border-radius:50%;background:#d8402b;right:-26px;top:-26px}
+.tp[data-theme=stone] .tp-w{background:var(--card);border-radius:60px 60px 8px 8px;padding-top:6px;color:var(--ac)}
+.tp[data-theme=glass]{background:radial-gradient(circle at 15% 10%,#7fb2ff 0,transparent 55%),radial-gradient(circle at 90% 50%,#f5a8c8 0,transparent 55%),radial-gradient(circle at 25% 100%,#ffd79a 0,transparent 50%),var(--bg)}
+.tp[data-theme=arcade] .tp-w{color:var(--ac)}.tp[data-theme=quest] .tp-w{color:var(--ac)}
+.tp[data-theme=dusk]{background:var(--scene) center top/auto 28px repeat-x,var(--bg);image-rendering:pixelated}.tp[data-theme=dusk] .tp-w{margin-top:14px}
+.tn{font-weight:600;margin-top:6px}.ts{color:var(--mut);font-size:calc(13px*var(--ts))}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fg label{display:flex;flex-direction:column;align-items:stretch;gap:4px}@media(max-width:520px){.fg{grid-template-columns:1fr}}
+input[type=range]{padding:0;border:0;background:none;width:100%}
+.fprev{margin-top:12px;padding:14px 16px;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--card)}.fprev p{margin:8px 0 0}.fs-he{font-size:calc(44px*var(--hs));line-height:1.2;font-weight:var(--wb)}
+html[data-theme=glass] body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 15% 10%,#7fb2ff 0,transparent 42%),radial-gradient(circle at 85% 45%,#f5a8c8 0,transparent 42%),radial-gradient(circle at 25% 95%,#ffd79a 0,transparent 40%)}
+html[data-theme=glass] :is(.card,.big,.resume,.gexp,.fprev,dialog){backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}html[data-theme=glass] .vb{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+html[data-theme=city] body::before{content:"";position:fixed;width:340px;height:340px;border-radius:50%;background:#d8402b;right:-110px;top:-110px;z-index:-1}
+html[data-theme=stone] .card{border-radius:140px 140px 18px 18px;padding-top:44px}
+html[data-theme=stone] :is(.prompt.heb,.card .heb,.shalom),html[data-theme=arcade] :is(.prompt.heb,.card .heb,.shalom),html[data-theme=quest] :is(.prompt.heb,.card .heb,.shalom){color:var(--ac)}
+html[data-theme=console]{background:#3a3f4a}html[data-theme=console] body{margin:14px auto;max-width:980px;min-height:calc(100vh - 28px);border:4px solid #1f2b16}html[data-theme=console] .home{min-height:calc(100vh - 190px)}html[data-theme=console] .opt.bad{background:repeating-linear-gradient(45deg,var(--bad) 0 6px,#4a6130 6px 12px)}
+html[data-theme=quest] h1::before{content:"";display:inline-block;width:26px;height:24px;margin-right:8px;background:var(--pom) center/contain no-repeat;image-rendering:pixelated;vertical-align:-4px}
+html[data-theme=quest] :is(.card,.big,dialog,.resume,.gexp,.fprev){box-shadow:inset 0 0 0 2px var(--card),inset 0 0 0 4px var(--line)}
+html[data-theme=dusk] body::before{content:"";display:block;height:96px;background:var(--scene) center top/auto 100% repeat-x;image-rendering:pixelated}html[data-theme=dusk] .home{min-height:calc(100vh - 250px)}
+html[data-pf] :is(h1,h2,button:not(.big,.heb,.tcard,.card),.btn){font-size:calc(24px*var(--ts));line-height:1.15}
+html[data-pf] .dlg h2{font-size:calc(32px*var(--ts))}html[data-pf] .qt{font-size:calc(28px*var(--ts))}html[data-pf] .score{font-size:calc(36px*var(--ts))}html[data-pf] .big b{font-size:calc(40px*var(--ts));line-height:1.1}html[data-pf] .card{font-size:calc(28px*var(--ts));line-height:1.35}
+.big span,.card small{font-family:var(--u-f,var(--t-f))}.tp[data-pix]{font-size:16px}
+html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}button,.btn,select,input,label,summary,[data-cur]{touch-action:manipulation}
+@media(hover:none){button:hover,.btn:hover{border-color:var(--line)}.big:hover{transform:none}.pri:hover,.sel:hover,nav button[aria-current=true]:hover{border-color:var(--ac)}}
+@media(max-width:600px){
+header{padding:calc(10px + env(safe-area-inset-top)) 16px 10px}
+nav.row{position:fixed;z-index:20;left:0;right:0;bottom:0;display:flex;flex-wrap:nowrap;gap:4px;padding:6px 6px calc(6px + env(safe-area-inset-bottom));background:var(--bar,var(--bg));border-top:1px solid var(--hair)}
+nav.row button{flex:1 1 auto;min-width:0;min-height:40px;padding:6px 3px;white-space:nowrap;font-size:12px;line-height:1.2;border-width:1px}
+html[data-pf] nav.row button{font-size:16px;line-height:1.1}
+main{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+.pos-bottom .vb{bottom:calc(53px + env(safe-area-inset-bottom))}
+th,td{padding:8px 4px}.act button{padding:6px 8px}.opt{min-height:48px}
+.home,html[data-theme=console] .home{min-height:calc(100vh - 170px);min-height:calc(100dvh - 170px)}
+html[data-theme=console] body{margin:0;min-height:100vh;min-height:100dvh;border-width:0}
+html[data-theme=dusk] body::before{height:60px}html[data-theme=dusk] .home{min-height:calc(100vh - 230px);min-height:calc(100dvh - 230px)}
+html[data-theme=glass] nav.row{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+html[data-theme=city] body::before{width:220px;height:220px;right:-90px;top:-90px}
+}
+@media(max-width:600px){
+html[data-pf] nav.row{gap:2px;padding-left:3px;padding-right:3px}html[data-pf] nav.row button{padding-left:1px;padding-right:1px}
+#wt,#wt tbody{display:block}#wt thead{display:none}
+#wt tr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--hair)}
+#wt td{border:0;padding:1px 0;grid-column:1;min-width:0}
+#wt td.heb{text-align:left;font-size:calc(26px*var(--hs))}
+#wt td.act{grid-column:2;grid-row:1/span 4}
+}
+@media(max-width:350px){nav.row button{font-size:11px}html[data-pf] nav.row button{font-size:14px}}
+</style></head><body>
+<header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="today">На сегодня</button><button data-v="words">Слова</button><button data-v="test">Тест</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav></header>
+<main id="app"></main>
+<script>
+const K='ivrit_v1';
+const W=[["בוקר טוב","бокер тов","доброе утро"],["נעים מאוד","наим меод","очень приятно"],["תודה","тода","спасибо"],["כן","кен","да"],["לא","ло","нет"],["אני","ани","я"],["אתה","ата","ты (м.)"],["את","ат","ты (ж.)"],["הוא","hу","он"],["היא","hи","она"],["מי","ми","кто"],["מה","ма","что"],["מורה","море / мора","учитель / учительница"],["תלמיד","талмид","ученик"],["תלמידה","талмида","ученица"],["טוב","тов","хороший"],["טובה","това","хорошая"],["עולה חדש","оле хадаш","новый репатриант"],["עולה חדשה","ола хадаша","новая репатриантка"],["תייר","таяр","турист"],["תיירת","таерет","туристка"],["חבר","хавер","друг"],["חברה","хавера","подруга"],["גר","гар","живёт (м.)"],["גרה","гара","живёт (ж.)"],["לומד","ломед","учится (м.)"],["מדבר","медабер","говорит (м.)"],["מדברת","медаберет","говорит (ж.)"],["איפה","эйфо","где"],["מאיפה","меэйфо","откуда"],["מאין","меаин","откуда (книжное)"],["ב","бе","в"],["גם","гам","тоже"],["רחוב","рехов","улица"],["כיתה","кита","класс"],["אמא","има","мама"],["אבא","аба","папа"]];
+const L=[["א","алеф","не звучит, читается только гласная","0"],["ב","бет","в (без точки) или б (с точкой)","b v"],["ג","гимель","г",""],["ד","далет","д",""],["ה","hей","h (лёгкий выдох)",""],["ו","вав","о, у или в","v"],["ז","зайн","з",""],["ח","хет","х (как в «хлеб»)","h"],["ט","тет","т","t"],["י","юд","й или и",""],["כ","каф","к (с точкой) или х (без точки)","k h"],["ך","каф софит","х (в конце слова)","h"],["ל","ламед","л",""],["מ","мем","м","m"],["ם","мем софит","м (в конце слова)","m"],["נ","нун","н","n"],["ן","нун софит","н (в конце слова)","n"],["ס","самех","с","s"],["ע","айн","не звучит, как א","0"],["פ","пей","п (с точкой) или ф (без точки)","p f"],["ף","пей софит","ф (в конце слова)","f"],["צ","цади","ц","ts"],["ץ","цади софит","ц (в конце слова)","ts"],["ק","куф","к","k"],["ר","реш","р",""],["ש","шин / син","ш (точка справа) или с (точка слева)","s"],["ת","таф","т","t"]];
+const NK="בֹּקֶר טוֹב|נָעִים מְאֹד|תּוֹדָה|כֵּן|לֹא|אֲנִי|אַתָּה|אַתְּ|הוּא|הִיא|מִי|מָה|מוֹרֶה|תַּלְמִיד|תַּלְמִידָה|טוֹב|טוֹבָה|עוֹלֶה חָדָשׁ|עוֹלָה חֲדָשָׁה|תַּיָּר|תַּיֶּרֶת|חָבֵר|חֲבֵרָה|גָּר|גָּרָה|לוֹמֵד|מְדַבֵּר|מְדַבֶּרֶת|אֵיפֹה|מֵאֵיפֹה|מֵאַיִן|בְּ|גַּם|רְחוֹב|כִּתָּה|אִמָּא|אַבָּא".split('|');
+const NOTE={1:"«меод» ≈ «мёд»",6:"«ата-та!» — грозят пальцем тебе",9:"«хи-хи» — смеётся она",11:"«что, ма?»",13:"«Талмуд» — книга для учеников",19:"турист «тает» на солнце",23:"«гар» ≈ «гараж»",26:"«дебаты»",28:"«эйфория»: где она?",29:"«ме» = «из», «эйфо» = «где»",32:"«и шум, и гам»",34:"«класс» и «кита» на «К»"};
+const tagOf=i=>i<5?'Знакомство':i<12?'Местоимения':i<23?'Люди':i<28?'Глаголы':i<35?'Места и вопросы':'Люди';
+const mk=a=>a.map(([he,tr,ru],i)=>({he,tr,ru,nk:NK[i],note:NOTE[i]||'',tag:tagOf(i)}));
+const letters=L.map(([he,ru,tr,g])=>({he,tr,ru,g}));
+const pairs=[["תלמיד","תלמידה","ученик / ученица"],["טוב","טובה","хороший / хорошая"],["עולה חדש","עולה חדשה","репатриант / репатриантка"],["תייר","תיירת","турист / туристка"],["חבר","חברה","друг / подруга"],["גר","גרה","живёт"],["מדבר","מדברת","говорит"],["אתה","את","ты"],["הוא","היא","он / она"]].map(([m,f,ru])=>({m,f,he:m,tr:'',ru}));
+const DEF=mk(W);let words;try{words=JSON.parse(localStorage.getItem(K))}catch(e){}
+if(!Array.isArray(words))words=mk(W);
+words.forEach(w=>{const d=DEF.find(x=>x.he===w.he);if(d){w.nk=w.nk||d.nk;w.note=w.note||d.note;w.tag=w.tag||d.tag}});
+let st={};try{st=JSON.parse(localStorage.getItem(K+'s'))||{}}catch(e){}
+const sk=it=>it.m?'P'+it.he:letters.includes(it)?'L'+it.he:'W'+it.he+'|'+it.ru,saveS=()=>{try{localStorage.setItem(K+'s',JSON.stringify(st))}catch(e){}};
+const rec=(it,ok)=>{const s=st[sk(it)]||(st[sk(it)]={ok:0,bad:0});s[ok?'ok':'bad']++;saveS()};
+const pc=it=>{const s=st[sk(it)];return s&&s.ok+s.bad?Math.round(100*s.ok/(s.ok+s.bad)):null};
+const known=it=>{const s=st[sk(it)];return !!s&&s.ok>=3&&s.ok/(s.ok+s.bad)>=.8};
+const twin=(a,b)=>a!==b&&!!a.g&&!!b.g&&a.g.split(' ').some(t=>b.g.split(' ').includes(t));
+const wt=it=>{const s=st[sk(it)];return s?(s.bad+1)/(s.ok+s.bad+2):.5};
+const smart=(a,f=x=>x)=>a.map(x=>[x,wt(f(x))+Math.random()*.5]).sort((p,q)=>q[1]-p[1]).map(p=>p[0]);
+const parse=s=>{let t='';return s.split('|').map(x=>x[0]==='#'?(t=x.slice(1),null):(([he,tr,ru])=>({he,tr,ru,tag:t}))(x.split(';'))).filter(Boolean)};
+const LIB={a:parse("#Базовое|שלום;шалом;привет, пока|להתראות;леhитраот;до свидания|בבקשה;бевакаша;пожалуйста|סליחה;слиха;извините|תודה רבה;тода раба;большое спасибо|בסדר;беседер;хорошо, ладно|מצוין;мецуян;отлично|#Числа|אחת;ахат;один (ж.)|שתיים;штаим;два (ж.)|שלוש;шалош;три (ж.)|ארבע;арба;четыре (ж.)|חמש;хамеш;пять (ж.)|שש;шеш;шесть (ж.)|שבע;шева;семь (ж.)|שמונה;шмоне;восемь (ж.)|תשע;теша;девять (ж.)|עשר;эсер;десять (ж.)|#Семья|אח;ах;брат|אחות;ахот;сестра|בן;бен;сын|בת;бат;дочь|משפחה;мишпаха;семья|ילד;йелед;мальчик, ребёнок|ילדה;йальда;девочка|#Еда и напитки|מים;маим;вода|לחם;лехем;хлеб|חלב;халав;молоко|קפה;кафе;кофе|ביצה;бейца;яйцо|תפוח;тапуах;яблоко|גבינה;гвина;сыр|בשר;басар;мясо|דג;даг;рыба|אוכל;охель;еда|#Места|בית;баит;дом|בית ספר;бейт сефер;школа|עיר;ир;город|חנות;ханут;магазин|מסעדה;мисъада;ресторан|תחנה;тахана;остановка|אוטובוס;отобус;автобус|ישראל;исраэль;Израиль|#Время|יום;йом;день|לילה;лайла;ночь|בוקר;бокер;утро|ערב;эрев;вечер|היום;hайом;сегодня|מחר;махар;завтра|אתמול;этмоль;вчера|שבוע;шавуа;неделя|שעה;шаа;час|#Глаголы|שותה;шоте;пьёт|הולך;hолех;идёт|בא;ба;приходит|רוצה;роце;хочет|יודע;ёдеа;знает|אוהב;оhев;любит|קורא;коре;читает|כותב;котев;пишет|עובד;овед;работает|#Описания|גדול;гадоль;большой|קטן;катан;маленький|חדש;хадаш;новый|יפה;яфе;красивый|רע;ра;плохой|חם;хам;горячий, жаркий|קר;кар;холодный|#Вопросы|למה;лама;почему|מתי;матай;когда|איך;эйх;как|כמה;кама;сколько"),b:parse("#Покупки|כסף;кесеф;деньги|מחיר;мехир;цена|יקר;якар;дорогой|זול;золь;дешёвый|לקנות;ликнот;покупать|למכור;лимкор;продавать|לשלם;лешалем;платить|בגד;бегед;одежда|נעליים;наалаим;туфли, обувь|#Дом|דירה;дира;квартира|חדר;хедер;комната|מטבח;митбах;кухня|דלת;делет;дверь|חלון;халон;окно|שולחן;шульхан;стол|כיסא;кисэ;стул|מיטה;мита;кровать|מקרר;мекарер;холодильник|#Работа и учёба|עבודה;авода;работа|ספר;сефер;книга|מחברת;махберет;тетрадь|עט;эт;ручка|שיעור;шиур;урок|מבחן;мивхан;экзамен, тест|שאלה;шеела;вопрос|תשובה;тшува;ответ|מילה;мила;слово|משפט;мишпат;предложение|#Транспорт|רכבת;ракевет;поезд|מונית;монит;такси|מכונית;мехонит;машина|נהג;наhаг;водитель|כביש;квиш;дорога, шоссе|#Здоровье|רופא;рофе;врач|בית חולים;бейт холим;больница|תרופה;труфа;лекарство|כאב;кеэв;боль|בריא;бари;здоровый|חולה;холе;больной|#Погода|גשם;гешем;дождь|שמש;шемеш;солнце|רוח;руах;ветер|#Глаголы (инфинитив)|ללמוד;лилмод;учиться|לדבר;ледабер;говорить|לעבוד;лаавод;работать|לאכול;леэхоль;есть|לשתות;лиштот;пить|ללכת;лалехет;идти|לבוא;лаво;приходить|לדעת;ладаат;знать|לרצות;лирцот;хотеть|להבין;леhавин;понимать|לקרוא;ликро;читать|לכתוב;ликтов;писать|לראות;лиръот;видеть|לשמוע;лишмоа;слышать"),g:parse("#Связки и наречия|אולי;улай;может быть|בטח;бетах;конечно|כמובן;камуван;разумеется|למשל;лемашаль;например|בגלל;биглаль;из-за|אבל;аваль;но|אז;аз;тогда|כי;ки;потому что|כבר;квар;уже|עדיין;адаин;всё ещё|תמיד;тамид;всегда|אף פעם;аф паам;никогда|לפעמים;лифамим;иногда|בדרך כלל;бедерех клаль;обычно|#Документы и быт|אזרח;эзрах;гражданин|תושב;тошав;житель|זכות;зхут;право|חובה;хова;обязанность|ביטוח;битуах;страховка|ביטוח לאומי;битуах леуми;национальное страхование|משרד;мисрад;офис, министерство|טופס;тофес;бланк, форма|תור;тор;очередь|פגישה;пгиша;встреча|הזמנה;hазмана;заказ, приглашение|עירייה;ирия;мэрия|#Работа и карьера|אוניברסיטה;университа;университет|תואר;тоар;учёная степень|מקצוע;микцоа;профессия|ניסיון;нисайон;опыт|משכורת;маскорет;зарплата|מנהל;менаhель;руководитель|חוזה;хозе;договор|ראיון;реайон;собеседование, интервью|קורות חיים;корот хаим;резюме|#Идеи и мысли|רעיון;раайон;идея|בעיה;беайя;проблема|פתרון;питрон;решение (проблемы)|סיבה;сиба;причина|תוצאה;тоца'а;результат|הבדל;hевдель;различие|דוגמה;дугма;пример|חלום;халом;мечта, сон|תקווה;тиква;надежда|זיכרון;зикарон;память|החלטה;hахлата;принятое решение|#Глаголы (инфинитив)|להחליט;леhахлит;решить|להסביר;леhасбир;объяснить|לנסות;ленасот;пробовать|להצליח;леhацлиах;преуспеть|לשכוח;лишкоах;забыть|לזכור;лизкор;помнить|לחשוב;лахшов;думать|להרגיש;леhаргиш;чувствовать|לפגוש;лифгош;встретить|להתחיל;леhатхиль;начать|לסיים;лесайем;закончить")};
+const X={a:"#Местоимения|אני;ани;я|אתה;ата;ты (м.)|את;ат;ты (ж.)|הוא;hу;он|היא;hи;она|אנחנו;анахну;мы|אתם;атем;вы (м.)|אתן;атен;вы (ж.)|הם;hем;они (м.)|הן;hен;они (ж.)|#Базовое|כן;кен;да|לא;ло;нет|תודה;тода;спасибо|בוקר טוב;бокер тов;доброе утро|ערב טוב;эрев тов;добрый вечер|לילה טוב;лайла тов;спокойной ночи|נעים מאוד;наим меод;очень приятно|קוראים לי;корим ли;меня зовут|#Числа|אפס;эфес;ноль|עשרים;эсрим;двадцать|שלושים;шлошим;тридцать|ארבעים;арбаим;сорок|חמישים;хамишим;пятьдесят|מאה;меа;сто|אלף;элеф;тысяча|#Цвета|אדום;адом;красный|כחול;кахоль;синий|ירוק;ярок;зелёный|צהוב;цаhов;жёлтый|שחור;шахор;чёрный|לבן;лаван;белый|#Тело|ראש;рош;голова|יד;яд;рука|רגל;регель;нога|עין;аин;глаз|אוזן;озен;ухо|לב;лев;сердце|#Дни недели|יום ראשון;йом ришон;воскресенье|יום שני;йом шени;понедельник|יום שלישי;йом шлиши;вторник|יום רביעי;йом реви'и;среда|יום חמישי;йом хамиши;четверг|יום שישי;йом шиши;пятница|שבת;шабат;суббота|#Еда и напитки|אורז;орез;рис|עוף;оф;курица|פירות;перот;фрукты|ירקות;йеракот;овощи|עגבנייה;агвания;помидор|מלפפון;мелафефон;огурец|סלט;салат;салат|פיתה;пита;пита|שוקולד;шоколад;шоколад|עוגה;уга;торт, пирог|מיץ;миц;сок|בירה;бира;пиво|יין;яин;вино|#Направления|כאן;каан;здесь|שם;шам;там|ימין;ямин;правая сторона|שמאל;смоль;левая сторона|ישר;яшар;прямо|#Люди|איש;иш;мужчина|אישה;иша;женщина|חבר;хавер;друг|חברה;хавера;подруга|אדם;адам;человек|#Глаголы|עושה;осе;делает|אומר;омер;говорит (сообщает)|נותן;нотен;даёт|לוקח;локеах;берёт|יושב;ёшев;сидит|עומד;омед;стоит|ישן;яшен;спит|גר;гар;живёт|לומד;ломед;учится|מדבר;медабер;говорит|רואה;роэ;видит|שומע;шомеа;слышит|מבין;мевин;понимает|צריך;царих;нужно|יכול;яхоль;может",b:"#Одежда|חולצה;хульца;рубашка, блузка|מכנסיים;михнасаим;брюки|שמלה;симла;платье|כובע;кова;шапка, шляпа|מעיל;меиль;пальто, куртка|גרביים;гарбаим;носки|#Город и услуги|בנק;банк;банк|דואר;доар;почта|בית מרקחת;бейт миркахат;аптека|בית קפה;бейт кафе;кафе|מלון;малон;отель|ספרייה;сифрия;библиотека|גן;ган;сад|פארק;парк;парк|קניון;каньон;торговый центр|שוק;шук;рынок|#Время|חודש;ходеш;месяц|שנה;шана;год|דקה;дака;минута|שנייה;шния;секунда|עכשיו;ахшав;сейчас|אחר כך;ахар ках;потом|לפני;лифней;до, перед|אחרי;ахарей;после|בקרוב;бекаров;скоро|מאוחר;меухар;поздно|מוקדם;мукдам;рано|#Времена года|חורף;хореф;зима|קיץ;каиц;лето|אביב;авив;весна|סתיו;став;осень|#Семья|סבא;саба;дедушка|סבתא;савта;бабушка|דוד;дод;дядя|דודה;дода;тётя|בעל;бааль;муж|תינוק;тинок;малыш|הורים;hорим;родители|#Чувства|שמח;самеах;радостный|עצוב;ацув;грустный|עייף;айеф;уставший|רעב;раэв;голодный|צמא;цамэ;испытывающий жажду|כועס;коэс;сердитый|מפחד;мефахед;боится|#Предлоги|עם;им;с|בלי;бли;без|על;аль;на, о|אל;эль;к|#Глаголы (инфинитив)|לעשות;лаасот;делать|לתת;латет;давать|לקחת;лакахат;брать|לשבת;лашевет;сидеть|לעמוד;лаамод;стоять|לישון;лишон;спать|לקום;лакум;вставать|לגור;лагур;жить|לפתוח;лифтоах;открывать|לסגור;лисгор;закрывать|לשאול;лишоль;спрашивать|לענות;лаанот;отвечать|לעזור;лаазор;помогать|לנסוע;линсоа;ехать|לחכות;лехакот;ждать|לשלוח;лишлоах;отправлять|להתקשר;леhиткашер;звонить",g:"#Документы и быт|תעודת זהות;теудат зеhут;удостоверение личности|דרכון;даркон;заграничный паспорт|כתובת;ктовет;адрес|מספר טלפון;миспар телефон;номер телефона|חשבון;хешбон;счёт|מס;мас;налог|הכנסה;hахнаса;доход|שכר דירה;сехар дира;арендная плата|חוזה שכירות;хозе схирут;договор аренды|בעל בית;баал баит;хозяин квартиры|#Технологии|אינטרנט;интернет;интернет|מחשב;махшев;компьютер|טלפון נייד;телефон найяд;мобильный телефон|הודעה;hодаа;сообщение|סיסמה;сисма;пароль|אתר;атар;сайт|קובץ;ковец;файл|תוכנית;тохнит;программа, план|#Учёба|שפה;сафа;язык|ספרות;сифрут;литература|היסטוריה;hистория;история|מתמטיקה;математика;математика|פיזיקה;физика;физика|רפואה;рефуа;медицина|הנדסה;hандаса;инженерия|כלכלה;калькала;экономика|פסיכומטרי;психометри;психометрический экзамен|הרשמה;hаршама;регистрация|ציון;циюн;оценка, балл|קורס;курс;курс|מרצה;марце;лектор|סטודנט;студент;студент|מכינה;мехина;подготовительная программа|מלגה;милга;стипендия|#Описания|חשוב;хашув;важный|קל;каль;лёгкий|קשה;каше;трудный|אפשרי;эфшари;возможный|בטוח;батуах;уверенный, безопасный|מסוכן;месукан;опасный|נכון;нахон;верный, правильный|חופשי;хофши;свободный|עסוק;асук;занятый|פנוי;пануй;незанятый|מוכן;мухан;готовый|אחראי;ахраи;ответственный|#Связки и наречия|לכן;лахен;поэтому|אם;им;если|או;о;или|רק;рак;только|בעצם;беэцем;на самом деле|ממש;мамаш;действительно|פתאום;питом;вдруг|בינתיים;бейнтаим;пока что|אחרת;ахерет;иначе|בכל זאת;бехоль зот;всё же|#Глаголы (инфинитив)|להתכונן;леhитконен;готовиться|להירשם;леhирашем;регистрироваться|לבקש;левакеш;просить|לקבל;лекабель;получать|להחזיר;леhахзир;возвращать|לבדוק;ливдок;проверять|לתקן;летакен;исправлять|לבחור;ливхор;выбирать|להזמין;леhазмин;заказывать, приглашать|לבטל;леватель;отменять|לשנות;лешанот;менять"};for(const k in X)LIB[k].push(...parse(X[k]));
+const LV=lv=>{if(lv==='all'){const s=new Set();return [...words,...LIB.a,...LIB.b,...LIB.g].filter(w=>{const k=w.he+'|'+w.ru;return s.has(k)?0:(s.add(k),1)})}return lv==='m'?words:LIB[lv]||words},cur=()=>LV(lv),pickW=(l,t)=>{const a=LV(l);return t?a.filter(w=>w.tag===t):a};
+const themes=()=>[...new Set([...words,...LIB.a,...LIB.b,...LIB.g].map(w=>w.tag).filter(Boolean))];
+const LSEL=id=>`<select id="${id}" aria-label="Уровень слов"><option value="m">Свои слова</option><option value="a">Алеф</option><option value="b">Бет</option><option value="g">Гимель</option><option value="all">Все слова</option></select>`;
+const TSEL=id=>`<select id="${id}" aria-label="Тема"><option value="">Все темы</option>${themes().map(t=>`<option>${esc(t)}</option>`).join('')}</select>`;
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(words))}catch(e){}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let view='home',q='',timer,tg='',nk=false,lv='m',curAll=false,curW=new Set(),ui={tr:1,ru:1,note:1,tag:1,pc:0,pos:'top',ca:0,nk:0,sl:'m',nw:10,theme:'',fu:'',fh:'',ts:100,hs:100};
+try{Object.assign(ui,JSON.parse(localStorage.getItem(K+'u'))||{})}catch(e){}
+nk=!!ui.nk;curAll=!!ui.ca;
+const saveU=()=>{try{localStorage.setItem(K+'u',JSON.stringify(ui))}catch(e){}},hcls=()=>['tr','ru','note','tag','pc'].filter(k=>!ui[k]).map(k=>'h-'+k).join(' ');
+const STY=id=>`<select id="${id}" aria-label="Начертание букв"><option value="p">печатные буквы</option><option value="c">письменные буквы</option><option value="m">вперемешку</option></select>`;
+const isCur=w=>curAll!==curW.has(w.he+'|'+w.ru);
+let armed=null,armT;const disarm=()=>{clearTimeout(armT);armed=null;document.querySelectorAll('.arm').forEach(b=>{b.classList.remove('arm');if(b.classList.contains('ad'))b.textContent='+ в свои'})};
+const rows=()=>{disarm();const s=q.toLowerCase();return cur().map((w,i)=>[w,i]).filter(([w])=>(w.he+w.tr+w.ru).toLowerCase().includes(s)&&(!tg||w.tag===tg)).map(([w,i])=>`<tr><td class="heb${isCur(w)?' cur':''}" data-cur data-w="${esc(w.he+'|'+w.ru)}" title="Нажмите: печатные и письменные буквы">${esc(nk&&w.nk?w.nk:w.he)}</td><td class="c-tr">${esc(w.tr)}</td><td class="c-ru">${esc(w.ru)}${w.note?`<small class="mut n-note">${esc(w.note)}</small>`:''}${w.tag?`<small class="mut n-tag">${esc(w.tag)}</small>`:''}</td><td class="c-pc">${pc(w)===null?'—':pc(w)+'%'}</td><td class="act">${lv==='m'?`<button data-ed="${i}" aria-label="Изменить слово ${esc(w.ru)}" title="Изменить слово">⚙</button> <button class="del" data-del="${i}" aria-label="Удалить слово ${esc(w.ru)}" title="Нажмите дважды, чтобы удалить">×</button>`:`${words.some(x=>x.he===w.he&&x.ru===w.ru)?'<span class="added" role="img" aria-label="Уже в ваших словах" title="Уже в ваших словах">✓</span>':`<button class="ad" data-add="${i}" aria-label="Добавить в свои слова" title="Нажмите дважды, чтобы добавить">+ в свои</button>`}`}</td></tr>`).join('')||'<tr><td colspan="5" class="mut">Ничего не найдено. Добавьте слово выше.</td></tr>'};
+function render(){clearInterval(timer);
+ document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.v===view));
+ if(view==='set'){setView();return}
+ if(view==='gram'){gramView();return}
+ if(view==='home'){homeView();return}
+ if(view==='today'){todayView();return}
+ $('#app').innerHTML=view==='words'?`
+ <div class="wl pos-${ui.pos}"><div class="vb"><button id="addb" class="pri"${lv==='m'?'':' disabled'}>+ Добавить слова</button><button id="all" class="${curAll?'pri':''}">Печатные ↔ письменные</button><button id="nkb" class="${nk?'pri':''}">Огласовки</button><button id="gear">⚙ Настроить вид</button></div><div class="wmain">
+ <div class="row seg" role="group" aria-label="Список слов">${[['m','Свои слова'],['a','Алеф'],['b','Бет'],['g','Гимель']].map(([k,n])=>`<button data-lv="${k}" aria-pressed="${lv===k}" class="${lv===k?'pri':''}">${n}${k==='m'?'':' ('+LV(k).length+')'}</button>`).join('')}<button id="addall"${lv==='m'?' hidden':''}>+ Весь уровень в свои слова</button></div>
+ <h2>Все слова (<span id="cnt">${cur().length}</span>)${ui.pc?', уверенно знаете: '+cur().filter(known).length:''}</h2>
+ <div class="row"><input id="sq" placeholder="Поиск по словам" value="${esc(q)}" aria-label="Поиск">${TSEL('tgs')}</div>
+ <p id="msg" class="mut" aria-live="polite">Нажмите на слово на иврите, и печатные буквы сменятся письменными (и обратно).</p>
+ <table id="wt" class="${hcls()}"><thead><tr><th class="heb">Иврит</th><th class="c-tr">Читается</th><th class="c-ru">Перевод</th><th class="c-pc">Знаю</th><th></th></tr></thead><tbody id="tb">${rows()}</tbody></table>
+ <div class="tools"${lv==='m'?'':' hidden'}><button id="exp" title="Слова, статистика и настройки">Сохранить полную копию</button><label class="btn">Загрузить копию<input id="imp" type="file" accept=".json,application/json" hidden></label><button id="rst">Вернуть удалённые стартовые слова</button></div></div></div>
+ <dialog id="ded"><div class="dlg"><h2>Изменить слово</h2>
+ <div class="row"><input id="ehe" class="heb" placeholder="Иврит" aria-label="Иврит"><input id="enk" class="heb" placeholder="С огласовками (необязательно)" aria-label="Иврит с огласовками"><input id="etr" placeholder="Как читается" aria-label="Как читается"><input id="eru" placeholder="Перевод" aria-label="Перевод"><input id="etg" list="tl" placeholder="Тема" aria-label="Тема"><input id="ent" placeholder="Зацепка" aria-label="Зацепка"></div>
+ <p id="emsg" class="mut" aria-live="polite"></p><div class="row end"><button data-close>Отмена</button><button id="esv" class="pri">Сохранить</button></div></div></dialog>
+ <dialog id="dadd"><div class="dlg"><h2>Добавить слова</h2>
+ <div class="row"><input id="nhe" class="heb" placeholder="Иврит" aria-label="Слово на иврите"><input id="ntr" placeholder="Как читается" aria-label="Как читается"><input id="nru" placeholder="Перевод" aria-label="Перевод"><input id="ntg" list="tl" placeholder="Тема (необязательно)" aria-label="Тема"><datalist id="tl">${themes().map(t=>`<option value="${esc(t)}">`).join('')}</datalist><input id="nnt" placeholder="Зацепка (необязательно)" aria-label="Зацепка"><button id="add" class="pri">Добавить слово</button></div>
+ <details><summary>Добавить сразу много слов</summary><p class="mut">Каждая строка: иврит; как читается; перевод; тема; зацепка (тема и зацепка необязательны).</p><textarea id="bt" rows="6" style="width:100%" placeholder="תודה; тода; спасибо; Знакомство"></textarea><div class="row"><button id="bk">Добавить все строки</button></div></details>
+ <p id="dmsg" class="mut" aria-live="polite"></p><div class="row end"><button data-close class="pri">Готово</button></div></div></dialog>
+ <dialog id="dui"><div class="dlg"><h2>Настройка вида</h2><p class="mut">Что показывать в таблице слов и где держать кнопки «Печатные ↔ письменные» и «Огласовки».</p>
+ <div class="row"><b>Столбцы:</b><label><input type="checkbox" data-c="tr"> читается</label><label><input type="checkbox" data-c="ru"> перевод</label><label><input type="checkbox" data-c="note"> зацепка</label><label><input type="checkbox" data-c="tag"> тема</label><label><input type="checkbox" data-c="pc"> знаю (%)</label></div>
+ <div class="row"><b>Кнопки вида:</b><select id="upos" aria-label="Где держать кнопки"><option value="top">сверху</option><option value="bottom">снизу</option><option value="right">справа сбоку</option></select></div>
+ <div class="row end"><button data-close class="pri">Готово</button></div></div></dialog>`
+ :`<div class="launch"><button class="big" id="mt"><b>Тест</b><span>Ответ виден сразу после каждого вопроса</span></button><button class="big" id="me"><b>Экзамен</b><span>Своё время и вопросы, результат только в конце</span></button><button class="big" id="mc"><b>Карточки</b><span>Листайте и отмечайте «знаю» или «не знаю»</span></button></div>
+ <div id="resume"></div>
+ <dialog id="dtest"><div class="dlg"><h2>Тест</h2><p class="mut">Ответ виден сразу после каждого вопроса.</p>
+ <div class="row">
+ <select id="src" aria-label="Откуда вопросы"><option value="w">Слова</option><option value="l">Буквы</option><option value="a">Слова и буквы</option><option value="p">Пары: мужской и женский род</option></select>${LSEL('lvt')}${TSEL('tgt')}
+ <select id="dir" aria-label="Направление"><option value="he>ru">иврит → перевод или название</option><option value="he>tr">иврит → чтение или звук</option><option value="ru>he">перевод или название → иврит</option><option value="tr>he">чтение или звук → иврит</option><option value="m>f">род: мужская → женская форма</option><option value="f>m">род: женская → мужская форма</option></select>
+ <input id="n" type="number" min="3" max="100" value="10" aria-label="Число вопросов" style="width:90px">${STY('sty')}</div>
+ <div class="row end"><button data-close>Отмена</button><button id="go" class="pri">Начать тест</button></div></div></dialog>
+ <dialog id="dexam"><div class="dlg"><h2>Экзамен</h2><p class="mut">Верно или неверно вы узнаете только в конце, после всех вопросов.</p>
+ <div class="row"><label>Время, минут (0 — без ограничения) <input id="xt" type="number" min="0" max="180" value="10" style="width:80px"></label><label>Вопросов <input id="xn" type="number" min="3" max="200" value="20" style="width:80px"></label>${STY('xsty')}</div>
+ <div class="row"><b>Что спрашивать:</b><label><input type="checkbox" class="xs" value="l" checked> буквы</label><label><input type="checkbox" class="xs" value="w" checked> слова</label><label><input type="checkbox" class="xs" value="p"> пары (род)</label>${LSEL('xlv')}${TSEL('xtg')}</div>
+ <div class="row"><b>Как спрашивать:</b><label><input type="checkbox" class="xd" value="he>ru" checked> иврит → перевод или название</label><label><input type="checkbox" class="xd" value="he>tr" checked> иврит → чтение или звук</label><label><input type="checkbox" class="xd" value="ru>he" checked> перевод или название → иврит</label><label><input type="checkbox" class="xd" value="tr>he" checked> чтение или звук → иврит</label><label><input type="checkbox" class="xd" value="m>f"> род: муж. → жен.</label><label><input type="checkbox" class="xd" value="f>m"> род: жен. → муж.</label></div>
+ <div class="row end"><button data-close>Отмена</button><button id="ex" class="pri">Начать экзамен</button></div></div></dialog>
+ <dialog id="dcard"><div class="dlg"><h2>Карточки</h2><p class="mut">Нажмите на карточку, чтобы перевернуть, и отметьте «знаю» или «не знаю». Слабые слова попадаются первыми.</p>
+ <div class="row"><select id="csrc" aria-label="Что показывать"><option value="w">Слова</option><option value="l">Буквы</option><option value="a">Слова и буквы</option></select>${LSEL('clv')}${TSEL('ctg')}${STY('csty')}<input id="cn" type="number" min="3" max="100" value="10" aria-label="Число карточек" style="width:90px"></div>
+ <div class="row end"><button data-close>Отмена</button><button id="cgo" class="pri">Начать</button></div></div></dialog>
+ <div id="bar" hidden><button id="out">← К выбору</button></div>
+ <div id="quiz" aria-live="polite"></div>`;
+ view==='words'?bindWords():bindTest();
+}
+function say(t,u){const m=$('#msg');if(!m)return;m.innerHTML=esc(t)+(u?' <button id="undo">Вернуть слово</button>':'');if(u)$('#undo').onclick=()=>{words.splice(u.i,0,u.w);save();render();say('Слово возвращено.')}}
+function bindWords(){let added=0,editI=-1,dupArm='';
+ $('#add').onclick=()=>{const he=$('#nhe').value.trim(),tr=$('#ntr').value.trim(),ru=$('#nru').value.trim();
+  if(!he||!tr||!ru){$('#dmsg').textContent='Заполните три поля: иврит, как читается и перевод.';return}
+  const dp=words.find(w=>w.he===he);if(dp){if(dp.ru===ru){$('#dmsg').textContent='Такое слово уже есть: '+he+' — '+ru+'.';return}if(dupArm!==he+'|'+ru){dupArm=he+'|'+ru;$('#dmsg').textContent='Слово «'+he+'» уже есть с переводом «'+dp.ru+'». Нажмите «Добавить слово» ещё раз, чтобы добавить его как другое значение.';return}}dupArm='';
+  words.push({he,tr,ru,tag:$('#ntg').value.trim(),note:$('#nnt').value.trim()});save();added=1;$('#tb').innerHTML=rows();$('#cnt').textContent=words.length;['#nhe','#ntr','#nru','#nnt'].forEach(x=>$(x).value='');$('#dmsg').textContent='Добавлено: '+he+'. Можно вводить следующее слово.';$('#nhe').focus()};
+ $('#sq').oninput=e=>{q=e.target.value;$('#tb').innerHTML=rows()};
+ $('#tgs').value=tg;$('#tgs').onchange=e=>{tg=e.target.value;$('#tb').innerHTML=rows()};
+ $('#nkb').onclick=()=>{nk=!nk;ui.nk=nk?1:0;saveU();$('#nkb').classList.toggle('pri',nk);$('#tb').innerHTML=rows()};
+ $('#gear').onclick=()=>$('#dui').showModal();
+ document.querySelectorAll('[data-lv]').forEach(b=>b.onclick=()=>{lv=b.dataset.lv;render()});
+ $('#addall').onclick=()=>{let n=0;LV(lv).forEach(w=>{if(!words.some(x=>x.he===w.he&&x.ru===w.ru)){words.push({...w});n++}});save();render();say(n?'Добавлено в «Свои слова»: '+n+'.':'Все слова этого уровня уже у вас.')};
+ $('#esv').onclick=()=>{const he=$('#ehe').value.trim(),tr=$('#etr').value.trim(),ru=$('#eru').value.trim();if(!he||!tr||!ru){$('#emsg').textContent='Иврит, чтение и перевод должны быть заполнены.';return}
+  if(words.some((x,k)=>k!==editI&&x.he===he&&x.ru===ru)){$('#emsg').textContent='Такое слово уже есть в списке.';return}
+  const w=words[editI],o=sk(w);w.he=he;w.tr=tr;w.ru=ru;w.nk=$('#enk').value.trim();w.tag=$('#etg').value.trim();w.note=$('#ent').value.trim();
+  const n=sk(w);if(o!==n){if(st[o]){st[n]=st[o];delete st[o];saveS()}if(srs.c[o]){srs.c[n]=srs.c[o];delete srs.c[o];saveR()}}save();render();say('Изменено: '+he+'.')};
+ $('#addb').onclick=()=>$('#dadd').showModal();$('#dadd').onclose=()=>{if(added){added=0;render()}};
+ document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+ document.querySelectorAll('[data-c]').forEach(c=>{c.checked=!!ui[c.dataset.c];c.onchange=()=>{ui[c.dataset.c]=c.checked?1:0;saveU();$('#wt').className=hcls();const h=$('#cnt').parentNode;h.innerHTML='Все слова (<span id="cnt">'+cur().length+'</span>)'+(ui.pc?', уверенно знаете: '+cur().filter(known).length:'')}});
+ $('#upos').value=ui.pos;$('#upos').onchange=e=>{ui.pos=e.target.value;saveU();document.querySelector('.wl').className='wl pos-'+ui.pos};
+ $('#bk').onclick=()=>{let n=0,skp=0;$('#bt').value.split('\n').forEach(l=>{const p=l.split(/;|\t/).map(x=>x.trim());if(p.length>=3&&p[0]&&p[1]&&p[2]){if(words.some(w=>w.he===p[0]&&w.ru===p[2])){skp++;return}words.push({he:p[0],tr:p[1],ru:p[2],tag:p[3]||'',note:p[4]||''});n++}});save();render();say((n?'Добавлено слов: '+n+'.':'Не нашёл новых строк в формате: иврит; чтение; перевод.')+(skp?' Пропущено повторов: '+skp+'.':''))};
+ $('#all').onclick=()=>{curAll=!curAll;curW.clear();ui.ca=curAll?1:0;saveU();$('#all').classList.toggle('pri',curAll);$('#tb').innerHTML=rows()};
+ $('#tb').onclick=e=>{const c=e.target.closest('[data-cur]');if(c){const k=c.dataset.w;curW.has(k)?curW.delete(k):curW.add(k);c.classList.toggle('cur');return}const ad=e.target.closest('[data-add]');if(ad){const k='a'+ad.dataset.add,w=cur()[+ad.dataset.add];
+  if(armed!==k){disarm();armed=k;ad.classList.add('arm');ad.textContent='Ещё раз';armT=setTimeout(disarm,3000);say('Нажмите ещё раз, чтобы добавить слово в «Свои слова».');return}
+  disarm();if(!words.some(x=>x.he===w.he&&x.ru===w.ru)){words.push({...w});save()}
+  const m=document.createElement('span');m.className='added';m.textContent='✓';m.title='Уже в ваших словах';ad.replaceWith(m);say('Добавлено в «Свои слова»: '+w.he+' — '+w.ru+'.');return}
+  const g=e.target.closest('[data-ed]');if(g){const k=+g.dataset.ed,w=words[k];editI=k;$('#ehe').value=w.he;$('#enk').value=w.nk||'';$('#etr').value=w.tr;$('#eru').value=w.ru;$('#etg').value=w.tag||'';$('#ent').value=w.note||'';$('#emsg').textContent='';$('#ded').showModal();return}
+  const d=e.target.closest('[data-del]');if(!d)return;const i=+d.dataset.del;
+  if(armed!==i){disarm();armed=i;d.classList.add('arm');armT=setTimeout(disarm,3000);say('Нажмите × ещё раз, чтобы удалить слово.');return}
+  disarm();const w=words.splice(i,1)[0];save();$('#tb').innerHTML=rows();$('#cnt').textContent=words.length;say('Удалено: '+w.he+' — '+w.ru+'.',{i:+i,w})};
+ $('#exp').onclick=()=>{const n='ivrit-slova.json',f=new File([JSON.stringify({v:2,words,st,ui,srs},null,1)],n,{type:'application/json'});if(matchMedia('(pointer:coarse)').matches&&navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:n}).catch(()=>{});return}const a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=n;a.click()};
+ $('#imp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;f.text().then(t=>{const d0=JSON.parse(t),d=Array.isArray(d0)?d0:d0.words;if(!Array.isArray(d)||!d.every(x=>x.he&&x.tr&&x.ru))throw 0;words=d.map(({he,tr,ru,tag,note,nk})=>({he,tr,ru,tag:tag||'',note:note||'',nk:nk||''}));
+  if(!Array.isArray(d0)){if(d0.st&&typeof d0.st==='object'){st=d0.st;saveS()}if(d0.ui&&typeof d0.ui==='object'){Object.assign(ui,d0.ui);saveU();applyLook();nk=!!ui.nk;curAll=!!ui.ca;curW.clear()}if(d0.srs&&d0.srs.c){srs=d0.srs;saveR()}}
+  migr();save();render();say('Загружено слов: '+words.length+(Array.isArray(d0)?'.':', статистика и настройки тоже.'))}).catch(()=>say('Не удалось загрузить: нужен файл, сохранённый кнопкой «Сохранить копию».'))};
+ $('#rst').onclick=()=>{const have=new Set(words.map(w=>w.he)),add=mk(W).filter(w=>!have.has(w.he));words.push(...add);save();render();say(add.length?'Вернул стартовых слов: '+add.length+'. Ваши слова не тронуты.':'Все стартовые слова уже в списке.')};
+}
+const GP=[['אני','אֲנִי','ани','я (м.р. и ж.р.)','Для мужчины и для женщины форма одна'],['אתה','אַתָּה','ата','ты (м.р.)',''],['את','אַתְּ','ат','ты (ж.р.)',''],['הוא','הוּא','hу','он',''],['היא','הִיא','hи','она',''],['אנחנו','אֲנַחְנוּ','анахну','мы (м.р. и ж.р.)','Для мужчин и для женщин форма одна'],['אתם','אַתֶּם','атем','вы (м.р.)',''],['אתן','אַתֶּן','атен','вы (ж.р.)',''],['הם','הֵם','hем','они (м.р.)',''],['הן','הֵן','hен','они (ж.р.)','']].map(([he,nk,tr,ru,note])=>({he,nk,tr,ru,note}));
+const GROWS=[['אני','אני','אנחנו','אנחנו'],['אתה','את','אתם','אתן'],['הוא','היא','הם','הן']],GH=[['יחיד','единственное, м.р.'],['יחידה','единственное, ж.р.'],['רבים','множественное, м.р.'],['רבות','множественное, ж.р.']],GL=['1-е лицо','2-е лицо','3-е лицо'];
+const hw=s=>`<bdi class="hi" lang="he">${s}</bdi>`;
+const GX=[['ученик',"תלמיד;талмид|תלמידה;талмида|תלמידים;талмидим|תלמידות;талмидот"],['хороший',"טוב;тов|טובה;това|טובים;товим|טובות;товот"],['турист',"תייר;таяр|תיירת;таерет|תיירים;таярим|תיירות;таярот"],['израильтянин',"ישראלי;исраэли|ישראלית;исраэлит|ישראלים;исраэлим|ישראליות;исраэлиёт"],['учитель',"מורה;море|מורה;мора|מורים;морим|מורות;морот"],['большой',"גדול;гадоль|גדולה;гдола|גדולים;гдолим|גדולות;гдолот"],['учится',"לומד;ломед|לומדת;ломедет|לומדים;ломдим|לומדות;ломдот"],['говорит',"מדבר;медабер|מדברת;медаберет|מדברים;медабрим|מדברות;медаброт"],['живёт',"גר;гар|גרה;гара|גרים;гарим|גרות;гарот"],['хочет',"רוצה;роце|רוצה;роца|רוצים;роцим|רוצות;роцот"]];
+const GEXP=`<p>За основу берём форму для одного мужчины. От неё образуются остальные три.</p>
+<ul class="gr">
+<li><b>Женский род:</b> часто образуется с ${hw('ה')} (-а), особенно у прилагательных: ${hw('טוב')} → ${hw('טובה')}. У многих глаголов и некоторых существительных окончание ${hw('ת')} (-ет): ${hw('לומד')} → ${hw('לומדת')}. Слова на ${hw('י')} (-и) получают ${hw('ת')} (-т): ${hw('ישראלי')} → ${hw('ישראלית')}.</li>
+<li><b>Слова на ${hw('ה')} (-е):</b> в обоих родах пишутся одинаково, меняется только чтение: ${hw('רוֹצֶה')} — роце (м.р.), ${hw('רוֹצָה')} — роца (ж.р.). Так же ${hw('שותה')} (шоте / шота), ${hw('עושה')} (осе / оса), ${hw('מורה')} (море / мора). Без огласовок род виден только по контексту: ${hw('הוא רוצה')}, ${hw('היא רוצה')}.</li>
+<li><b>Множественное, м.р.:</b> добавляем ${hw('ים')} (-им): ${hw('תלמיד')} → ${hw('תלמידים')}. Конечная ${hw('ה')} при этом отпадает: ${hw('מורה')} → ${hw('מורים')}.</li>
+<li><b>Множественное, ж.р.:</b> у прилагательных и глаголов настоящего времени окончание почти всегда ${hw('ות')} (-от): ${hw('טובה')} → ${hw('טובות')}, ${hw('לומדת')} → ${hw('לומדות')}. У существительных обычно тоже: ${hw('תלמידה')} → ${hw('תלמידות')}, но замена не всегда механическая, поэтому форму лучше запоминать вместе со словом. Бывает окончание ${hw('ים')}: ${hw('מילה')} → ${hw('מילים')} (милим), ${hw('שנה')} → ${hw('שנים')} (шаним), ${hw('ביצה')} → ${hw('ביצים')} (бейцим). Бывает, что ${hw('ת')} остаётся: ${hw('דלת')} → ${hw('דלתות')} (длатот). Бывает, что меняется основа: ${hw('בת')} → ${hw('בנות')} (банот), ${hw('אחות')} → ${hw('אחיות')} (ахайот).</li>
+<li><b>Гласные внутри слова могут меняться:</b> ${hw('גדול')} (гадоль) → ${hw('גדולה')} (гдола), ${hw('לומד')} (ломед) → ${hw('לומדים')} (ломдим).</li>
+<li><b>Согласование:</b> прилагательное стоит после существительного и совпадает с ним в роде и числе: ${hw('ילד טוב')}, ${hw('ילדה טובה')}, ${hw('ילדים טובים')}, ${hw('ילדות טובות')}.</li>
+<li><b>Исключения:</b> окончание не всегда совпадает с родом: ${hw('שולחן')} (м.р.) → ${hw('שולחנות')}, ${hw('עיר')} (ж.р.) → ${hw('ערים')}. Некоторые слова меняются полностью: ${hw('איש')} → ${hw('אנשים')}, ${hw('אישה')} → ${hw('נשים')}.</li>
+</ul>
+<div class="gwrap"><table class="gt gx" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th class="rl"></th></tr></thead><tbody>${GX.map(([ru,s])=>`<tr>${s.split('|').map(x=>{const [he,tr]=x.split(';');return `<td><span class="heb">${he}</span><small class="mut">${tr}</small></td>`}).join('')}<td class="rl" dir="ltr">${ru}</td></tr>`).join('')}</tbody></table></div>`;
+let gnk=false,gcur=false,grd=true;
+const gby=he=>GP.find(x=>x.he===he);
+function gtable(fill){
+ const opts=shuffle(GP.map(x=>x.he)).map(h=>`<option value="${h}">${h}</option>`).join('');
+ const cell=he=>fill?`<td data-a="${he}"><select class="gs" aria-label="Форма">${'<option value="">?</option>'+opts}</select></td>`:`<td><span class="heb${gcur?' cur':''}">${esc(gnk?gby(he).nk:he)}</span><small class="rd mut">${esc(gby(he).tr)}</small></td>`;
+ return `<table class="gt${grd?'':' nord'}" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th></th></tr></thead><tbody>${GROWS.map((r,i)=>`<tr>${r.map(cell).join('')}<td class="rl" dir="ltr">${GL[i]}</td></tr>`).join('')}</tbody></table>`;
+}
+function gramView(){
+ $('#app').innerHTML=`<div id="gbody"><h2>Личные местоимения <span class="heb">שמות גוף</span></h2>
+ <div class="row"><button id="gnk" class="${gnk?'pri':''}">Огласовки</button><button id="gcu" class="${gcur?'pri':''}">Письменные буквы</button><button id="grd" class="${grd?'pri':''}">Чтение</button></div>
+ <div id="gt" class="gwrap">${gtable(false)}</div>
+ <p class="mut">Таблица читается справа налево, как в тетради. В 1-м лице форма для мужчины и женщины одна и та же. Кнопка «Чтение» скрывает подписи, чтобы проверить себя.</p>
+ <h2>Потренироваться</h2>
+ <div class="row"><button id="ghelp" aria-expanded="false" aria-controls="gexp">Как менять род и число<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="gopen" class="pri">Начать тест</button><button id="gfill">Заполнить таблицу</button></div>
+ <div id="gexp" class="gexp" hidden>${GEXP}</div>
+ <dialog id="dgram"><div class="dlg"><h2>Тест</h2><p class="mut">Ответ виден сразу после каждого вопроса.</p>
+ <div class="row"><select id="gdir" aria-label="Направление"><option value="he>ru">иврит → перевод</option><option value="ru>he">перевод → иврит</option><option value="he>tr">иврит → чтение</option><option value="tr>he">чтение → иврит</option></select>${STY('gsty')}<label>Вопросов <input id="gn" type="number" min="3" max="30" value="10" style="width:80px"></label></div>
+ <div class="row end"><button data-close>Отмена</button><button id="ggo" class="pri">Начать тест</button></div></div></dialog></div>
+ <div id="bar" hidden><button id="out">← К правилу</button></div><div id="quiz" aria-live="polite"></div>`;
+ const redraw=()=>{$('#gt').innerHTML=gtable(false)};
+ $('#gnk').onclick=()=>{gnk=!gnk;$('#gnk').classList.toggle('pri',gnk);redraw()};
+ $('#gcu').onclick=()=>{gcur=!gcur;$('#gcu').classList.toggle('pri',gcur);redraw()};
+ $('#grd').onclick=()=>{grd=!grd;$('#grd').classList.toggle('pri',grd);redraw()};
+ $('#out').onclick=render;
+ const gbegin=()=>{$('#gbody').hidden=true;$('#bar').hidden=false};
+ $('#ghelp').onclick=()=>{const open=$('#gexp').hidden;$('#gexp').hidden=!open;$('#ghelp').setAttribute('aria-expanded',open)};
+ $('#gopen').onclick=()=>$('#dgram').showModal();
+ document.querySelectorAll('#dgram [data-close]').forEach(b=>b.onclick=()=>$('#dgram').close());
+ $('#ggo').onclick=()=>{$('#dgram').close();gbegin();const [from,to]=$('#gdir').value.split('>'),n=Math.max(3,Math.min(+$('#gn').value||10,30));let its=smart(GP);while(its.length<n)its=its.concat(smart(GP));run(its.slice(0,n),GP,from,to,$('#gsty').value)};
+ $('#gfill').onclick=()=>{gbegin();$('#quiz').innerHTML=`<p class="mut">Выберите форму для каждой клетки. Колонки идут справа налево.</p><div class="gwrap">${gtable(true)}</div><div class="tools"><button id="gchk" class="pri">Проверить</button><button id="gagain">Заново</button></div><p id="gres" aria-live="polite"></p>`;
+  $('#gchk').onclick=()=>{let ok=0,all=0;document.querySelectorAll('td[data-a]').forEach(td=>{all++;const g=td.querySelector('select').value===td.dataset.a;if(g)ok++;td.classList.toggle('okc',g);td.classList.toggle('badc',!g)});$('#gres').textContent='Верно: '+ok+' из '+all+(ok===all?'. Отлично!':'. Неверные клетки подсвечены.')};
+  $('#gagain').onclick=()=>$('#gfill').onclick()};
+}
+const INT=[0,1,3,7,14,30];
+let srs={m:{day:0,newN:0,revN:0},c:{}};try{const o=JSON.parse(localStorage.getItem(K+'r'));if(o&&o.c)srs=Object.assign(srs,o)}catch(e){}
+const saveR=()=>{try{localStorage.setItem(K+'r',JSON.stringify(srs))}catch(e){}};
+const dayNo=()=>{const d=new Date();return Math.floor((d.getTime()-d.getTimezoneOffset()*6e4)/864e5)};
+function todayM(){if(!srs.m||srs.m.day!==dayNo())srs.m={day:dayNo(),newN:0,revN:0};return srs.m}
+const FIXT=[["מאין","меайн","меаин"],["תשע","тея","теша"],["מתי","мати","матай"],["למכור","лимхор","лимкор"],["לוקח","локах","локеах"],["עגבנייה","агванья","агвания"],["קיץ","кайц","каиц"],["בעל","баль","бааль"],["בלי","била","бли"],["כמובן","кемуван","камуван"],["עדיין","адайн","адаин"],["מקצוע","мигцоа","микцоа"],["ניסיון","ниясон","нисайон"],["ראיון","раяон","реайон"],["בעיה","баая","беайя"],["פתרון","птарон","питрон"],["היסטוריה","хисторья","hистория"],["הרשמה","hиршама","hаршама"],["מרצה","мартсе","марце"],["בינתיים","бейнатаим","бейнтаим"]],FIXR=[["ימין","право","правая сторона"],["שמאל","лево","левая сторона"],["אומר","говорит, сказал","говорит (сообщает)"]];
+function fixData(){let ch=0;for(const w of words)for(const [he,o,n] of FIXT)if(w.he===he&&w.tr===o){w.tr=n;ch=1}
+ for(const [he,o,n] of FIXR){const a='W'+he+'|'+o,b='W'+he+'|'+n;for(const w of words)if(w.he===he&&w.ru===o){w.ru=n;ch=1}if(st[a]){if(!st[b])st[b]=st[a];delete st[a];saveS()}if(srs.c[a]){if(!srs.c[b])srs.c[b]=srs.c[a];delete srs.c[a];saveR()}}
+ if(ch)save()}
+function migr(){fixData();let ch=0;const all=[...words,...LIB.a,...LIB.b,...LIB.g];for(const k of Object.keys(st)){if(k[0]==='W'&&!k.includes('|')){const w=all.find(x=>x.he===k.slice(1));if(w){const n=sk(w);if(!st[n])st[n]=st[k];else{st[n].ok+=st[k].ok;st[n].bad+=st[k].bad}delete st[k];ch=1}}}if(ch)saveS()}
+const allMap=()=>{const m=new Map();[...words,...LIB.a,...LIB.b,...LIB.g].forEach(w=>{const k=sk(w);if(!m.has(k))m.set(k,w)});return m};
+function plan(){const m=todayM(),map=allMap(),t=dayNo(),due=[];for(const k in srs.c){if(srs.c[k].d<=t&&map.has(k))due.push(map.get(k))}
+ const lim=Math.max(0,+ui.nw||0),left=Math.max(0,lim-m.newN),pool=LV(ui.sl||'m').filter(w=>!srs.c[sk(w)]);
+ return{due:shuffle(due),fresh:pool.slice(0,left),pool:pool.length,lim,m}}
+function rate(it,ok){const k=sk(it),m=todayM();let e=srs.c[k];if(!e){e={b:1,d:0};m.newN++}
+ e.b=ok?Math.min(e.b+1,5):1;e.d=dayNo()+INT[e.b];srs.c[k]=e;m.revN++;saveR();rec(it,ok)}
+function homeView(){
+ $('#app').innerHTML=`<div class="home"><svg class="map" viewBox="-5 -5 154 410" aria-hidden="true"><path d="M76.5 31.0 L73.9 47.0 L64.6 57.0 L61.2 80.0 L57.8 100.0 L51.0 125.0 L45.9 140.0 L37.4 158.0 L30.6 174.0 L28.9 184.0 L21.2 190.0 L12.7 200.0 L1.7 210.0 L6.0 218.0 L17.0 260.0 L29.7 300.0 L49.3 340.0 L58.6 391.0 L63.7 385.0 L68.0 355.0 L76.5 315.0 L85.0 280.0 L89.2 255.0 L102.0 235.0 L106.2 210.0 L108.8 185.0 L114.7 165.0 L114.7 135.0 L114.7 100.0 L115.6 80.0 L116.4 70.0 L123.2 72.0 L140.2 65.0 L137.7 35.0 L140.2 10.0 L117.3 13.0 L106.2 31.0 L93.5 32.0Z"/></svg><div class="shalom" lang="he">שלום</div></div>`;
+}
+function todayView(){
+ const p=plan(),n=p.due.length+p.fresh.length,map=allMap(),bx=[0,0,0,0,0,0];for(const k in srs.c)if(map.has(k))bx[srs.c[k].b]++;
+ $('#app').innerHTML=`<div id="gbody"><h2>На сегодня</h2>
+ <p>К повторению: <b>${p.due.length}</b> · Новых слов: <b>${p.fresh.length}</b> <span class="mut">(лимит ${p.lim} в день, сегодня уже ${p.m.newN})</span></p>
+ <div class="row"><button id="tgo" class="pri"${n?'':' disabled'}>${n?'Начать ('+n+')':'На сегодня всё'}</button></div>
+ ${n?'':'<p class="mut">Всё повторено. Возвращайтесь завтра: слова вернутся по расписанию. Если хочется ещё, поднимите лимит новых слов ниже.</p>'}
+ <h2>Настройки</h2>
+ <div class="row"><label>Новые слова брать из: <select id="tsl" aria-label="Откуда новые слова">${LSEL('tsl0').replace(/^<select id="tsl0"[^>]*>/,'').replace('</select>','')}</select></label><label>Новых в день <input id="tnw" type="number" min="0" max="50" value="${p.lim}" style="width:80px"></label></div>
+ <p class="mut">Осталось новых в этом списке: ${p.pool}. Слова идут по порядку списка.</p>
+ <h2>Как идёт</h2>
+ <p class="mut">В работе: ${bx[1]+bx[2]+bx[3]+bx[4]+bx[5]} слов. Начинаю учить: ${bx[1]} · пару дней: ${bx[2]} · неделя: ${bx[3]} · две недели: ${bx[4]} · месяц: ${bx[5]}. Повторено сегодня: ${p.m.revN}.</p>
+ <p class="mut">Верно: слово вернётся через 3, 7, 14, 30 дней. Неверно: вернётся завтра.</p></div>
+ <div id="bar" hidden><button id="out">← К экрану «На сегодня»</button></div><div id="quiz" aria-live="polite"></div>`;
+ $('#tsl').value=ui.sl||'m';$('#tsl').onchange=e=>{ui.sl=e.target.value;saveU();render()};
+ $('#tnw').onchange=e=>{ui.nw=Math.max(0,Math.min(+e.target.value||0,50));saveU();render()};
+ $('#out').onclick=render;
+ $('#tgo').onclick=()=>{$('#gbody').hidden=true;$('#bar').hidden=false;session([...p.due,...p.fresh])};
+}
+function session(q){
+ let i=0;const queue=[...q],retry=new Set(),box=$('#quiz'),done0={n:0,w:0};
+ function show(){
+  if(i>=queue.length){const m=todayM();box.innerHTML=`<div class="score">На сегодня всё</div><p>Повторено слов: ${q.length}. Всего за сегодня: новых ${m.newN}, ответов ${m.revN}.</p><div class="tools"><button id="back" class="pri">К экрану «На сегодня»</button></div>`;$('#back').onclick=render;return}
+  const it=queue[i],k=sk(it),isNew=!srs.c[k]&&!retry.has(k);
+  box.innerHTML=`<p class="mut">${isNew?'Новое слово':retry.has(k)?'Ещё раз':'Повторение'} · ${i+1} из ${queue.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb">${esc(it.he)}</span></button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
+  $('#cd').onclick=()=>{$('#cd').innerHTML=`<span class="heb">${esc(it.nk||it.he)}</span><br>${esc(it.tr)}<br><b>${esc(it.ru)}</b>${it.note?'<br><small class="mut">'+esc(it.note)+'</small>':''}`;$('#kb').hidden=false};
+  const ans=ok=>{if(!retry.has(k))rate(it,ok);if(!ok){retry.add(k);queue.push(it)}i++;show()};
+  $('#yes').onclick=()=>ans(true);$('#no').onclick=()=>ans(false);
+ }
+ show();
+}
+const QT={'he>ru':['Как переводится?','Как называется эта буква?'],'he>tr':['Как читается?','Какой звук даёт эта буква?'],'ru>he':['Как пишется на иврите?','Как пишется эта буква?'],'tr>he':['Какое слово так читается?','Какая буква даёт такой звук?'],'m>f':['Выберите женскую форму','-'],'f>m':['Выберите мужскую форму','-']};
+const qt=(it,from,to)=>QT[from+'>'+to][letters.includes(it)?1:0];
+function loadX(){try{const o=JSON.parse(localStorage.getItem(K+'x'));if(!o||!Array.isArray(o.qs)||!o.qs.length)return null;const all=[...words,...LIB.a,...LIB.b,...LIB.g],qs=[];for(const x of o.qs){const it=x.t==='l'?letters.find(l=>l.he===x.he):x.t==='p'?pairs.find(p=>p.m===x.he):all.find(w=>w.he===x.he&&w.ru===x.ru);if(!it)return null;qs.push({it,from:x.from,to:x.to,pick:x.pick,cur:x.cur,opts:x.opts})}return{qs,secs:o.secs,end:o.end,i:o.i||0}}catch(e){return null}}
+function begin(){document.querySelectorAll('dialog').forEach(d=>d.close());document.querySelector('.launch').hidden=true;$('#resume').hidden=true;$('#bar').hidden=false}
+function bindTest(){
+ $('#mt').onclick=()=>$('#dtest').showModal();$('#me').onclick=()=>$('#dexam').showModal();
+ document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+ $('#out').onclick=render;
+ const sx=loadX();if(sx){const lf=sx.secs?Math.max(0,Math.round((sx.end-Date.now())/1000)):0;$('#resume').innerHTML=`<div class="resume"><p><b>Есть незавершённый экзамен:</b> вопрос ${sx.i+1} из ${sx.qs.length}${sx.secs?', осталось '+Math.floor(lf/60)+':'+String(lf%60).padStart(2,'0'):''}</p><div class="row"><button id="rx" class="pri">Продолжить</button><button id="dx">Сбросить</button></div></div>`;
+  $('#rx').onclick=()=>{begin();exam(sx.qs,sx.secs,sx.i,sx.end)};$('#dx').onclick=()=>{try{localStorage.removeItem(K+'x')}catch(e){}$('#resume').innerHTML=''}}
+ $('#mc').onclick=()=>$('#dcard').showModal();
+ $('#cgo').onclick=()=>{begin();const s=$('#csrc').value,t=$('#ctg').value,W2=pickW($('#clv').value,t),pool=s==='w'?W2:s==='l'?letters:[...W2,...letters];cards(smart(pool).slice(0,Math.max(3,Math.min(+$('#cn').value||10,100))),$('#csty').value)};
+ $('#go').onclick=()=>{begin();
+  const s=$('#src').value,t=$('#tgt').value,W2=pickW($('#lvt').value,t),pool=s==='w'?W2:s==='l'?letters:s==='p'?pairs:[...W2,...letters],[from,to]=$('#dir').value.split('>');
+  if((s==='p')!=='mf'.includes(from)){$('#quiz').innerHTML='<p>Для пар выберите направление «род: …», для остальных источников — другое.</p>';return}
+  if(new Set(pool.map(p=>p[to])).size<4){$('#quiz').innerHTML='<p>Для теста нужно хотя бы 4 разных ответа. Добавьте слова.</p>';return}
+  const sty0=$('#sty').value,want=Math.max(3,Math.min(+$('#n').value||10,100)),n=sty0==='m'?want:Math.min(want,pool.length);let its=smart(pool);while(its.length<n)its=its.concat(smart(pool));
+  run(its.slice(0,n),pool,from,to,sty0);
+ };
+ $('#ex').onclick=()=>{begin();
+  const src=[...document.querySelectorAll('.xs:checked')].map(c=>c.value),dirs=[...document.querySelectorAll('.xd:checked')].map(c=>c.value),box=$('#quiz');
+  if(!src.length||!dirs.length){box.innerHTML='<p>Отметьте хотя бы один тип вопросов и один способ спрашивать.</p>';return}
+  const P={l:letters,w:pickW($('#xlv').value,$('#xtg').value),p:pairs},all=smart(src.flatMap(k=>P[k].map(it=>[it,P[k]])),x=>x[0]).filter(([,p])=>dirs.some(d=>'mf'.includes(d[0])===(p===pairs)));
+  if(!all.length){box.innerHTML='<p>Для выбранных типов нет подходящих способов спрашивать.</p>';return}
+  if(all.some(([,p])=>p.length<4)){box.innerHTML='<p>Для экзамена в каждом типе нужно хотя бы 4 элемента. Добавьте слова.</p>';return}
+  const n=Math.max(3,Math.min(+$('#xn').value||20,200)),sty=$('#xsty').value,qs=[];
+  for(let j=0;j<n;j++){
+   const [it,p]=all[j%all.length],ds=dirs.filter(d=>'mf'.includes(d[0])===(p===pairs)),[from,to]=ds[Math.random()*ds.length|0].split('>'),ans=it[to];
+   qs.push({it,from,to,pick:-1,cur:sty==='c'||sty==='m'&&Math.random()<.5,opts:shuffle([ans,...shuffle([...new Set(p.filter(y=>!twin(it,y)).map(x=>x[to]).filter(x=>x!==ans))]).slice(0,3)])});
+  }
+  exam(qs,Math.max(0,+$('#xt').value||0)*60);
+ };
+}
+function exam(qs,secs,i0,end0){
+ let i=i0||0,end=secs?(end0||Date.now()+secs*1000):0,left=secs?Math.max(0,Math.round((end-Date.now())/1000)):0;const box=$('#quiz'),H=(x,k)=>['he','m','f'].includes(k)?' heb'+(x.cur?' cur':''):'';
+ const paint=()=>{const m=$('#tm');if(m)m.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0')};
+ const persist=()=>{try{localStorage.setItem(K+'x',JSON.stringify({secs,end,i,qs:qs.map(x=>({t:x.it.m?'p':letters.includes(x.it)?'l':'w',he:x.it.he,ru:x.it.ru,from:x.from,to:x.to,pick:x.pick,cur:x.cur,opts:x.opts}))}))}catch(e){}};
+ clearInterval(timer);if(secs)timer=setInterval(()=>{left=Math.round((end-Date.now())/1000);paint();if(left<=0)finish()},1000);
+ function show(){
+  const x=qs[i];persist();
+  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${qs.length}${secs?' · осталось <b id="tm"></b>':''}</p><div class="qt">${qt(x.it,x.from,x.to)}</div><div class="prompt${H(x,x.from)}">${esc(x.it[x.from])}</div><div class="opts">${x.opts.map((o,k)=>`<button class="opt${H(x,x.to)}${x.pick===k?' sel':''}" data-k="${k}">${esc(o)}</button>`).join('')}</div><div class="tools"><button id="pv"${i?'':' disabled'}>Назад</button><button id="nx">${i+1<qs.length?'Дальше':'Завершить'}</button></div>`;
+  paint();
+  box.querySelector('.opts').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;x.pick=+b.dataset.k;persist();box.querySelectorAll('.opt').forEach((y,k)=>y.classList.toggle('sel',k===x.pick))};
+  $('#pv').onclick=()=>{i--;show()};
+  $('#nx').onclick=()=>{if(i+1<qs.length){i++;show()}else finish()};
+ }
+ function finish(){
+  clearInterval(timer);try{localStorage.removeItem(K+'x')}catch(e){}
+  const ok=x=>x.opts[x.pick]===x.it[x.to],sc=qs.filter(ok).length;qs.forEach(x=>{if(x.pick>=0)rec(x.it,ok(x))});
+  box.innerHTML=`<div class="score">Результат: ${sc} из ${qs.length}</div><table><thead><tr><th>Вопрос</th><th>Ваш ответ</th><th>Верно</th></tr></thead><tbody>${qs.map(x=>`<tr><td class="${H(x,x.from).trim()}">${esc(x.it[x.from])}</td><td class="${ok(x)?'g':'r'}${H(x,x.to)}">${x.pick<0?'нет ответа':esc(x.opts[x.pick])} ${ok(x)?'✓':'✗'}</td><td class="${H(x,x.to).trim()}">${esc(x.it[x.to])}</td></tr>`).join('')}</tbody></table>`;
+ }
+ if(secs&&left<=0)finish();else show();
+}
+function cards(items,sty){
+ let i=0,miss=[];const box=$('#quiz');
+ function show(){
+  if(i>=items.length){box.innerHTML=`<div class="score">Знаю: ${items.length-miss.length} из ${items.length}</div>${miss.length?'<div class="tools"><button id="ag" class="pri">Повторить незнакомые</button></div>':''}`;const a=$('#ag');if(a)a.onclick=()=>cards(shuffle(miss),sty);return}
+  const it=items[i],c=sty==='c'||sty==='m'&&Math.random()<.5;
+  box.innerHTML=`<p class="mut">Карточка ${i+1} из ${items.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb${c?' cur':''}">${esc(it.he)}</span></button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
+  $('#cd').onclick=()=>{$('#cd').innerHTML=`<span class="heb">${esc(it.nk||it.he)}</span><br>${esc(it.tr)}<br><b>${esc(it.ru)}</b>${it.note?'<br><small class="mut">'+esc(it.note)+'</small>':''}`;$('#kb').hidden=false};
+  $('#yes').onclick=()=>{rec(it,1);i++;show()};$('#no').onclick=()=>{rec(it,0);miss.push(it);i++;show()};
+ }
+ show();
+}
+function run(items,pool,from,to,sty){
+ let i=0,wrong=[],locked=false;const box=$('#quiz');
+ let cur=false;const isH=k=>['he','m','f'].includes(k)?' heb'+(cur?' cur':''):'';const fb=it=>`<b class="heb">${esc(it.nk||it.he)}</b>${it.f?' ↔ <b class="heb">'+esc(it.f)+'</b>':''} — ${[it.tr,it.ru].filter(Boolean).map(esc).join(' — ')}${it.note?' · '+esc(it.note):''}`;
+ function next(){
+  if(i>=items.length)return done();
+  const it=items[i],ans=it[to];locked=false;cur=sty==='c'||sty==='m'&&Math.random()<.5;
+  const opts=shuffle([ans,...shuffle([...new Set(pool.filter(p=>!twin(it,p)).map(p=>p[to]).filter(x=>x!==ans))]).slice(0,3)]);
+  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from)}">${esc(it[from])}</div><div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to)}" data-k="${k}">${esc(o)}</button>`).join('')}</div><p id="fb"></p>`;
+  box.querySelector('.opts').onclick=e=>{
+   const b=e.target.closest('.opt');if(!b||locked)return;locked=true;
+   const ok=opts[b.dataset.k]===ans;rec(it,ok);
+   box.querySelectorAll('.opt').forEach((x,k)=>{if(opts[k]===ans)x.classList.add('ok')});
+   if(!ok){b.classList.add('bad');wrong.push(it)}
+   $('#fb').innerHTML=`${ok?'Верно.':'Неверно.'} ${fb(it)} <button id="nx">${i+1<items.length?'Дальше':'Результат'}</button>`;
+   $('#nx').focus();$('#nx').onclick=()=>{i++;next()};
+  };
+ }
+ function done(){
+  const sc=items.length-wrong.length;
+  box.innerHTML=`<div class="score">Результат: ${sc} из ${items.length}</div>${wrong.length?`<h2>Над чем поработать</h2><table><tbody>${wrong.map(w=>`<tr><td class="heb">${esc(w.he)}</td><td>${esc(w.tr)}</td><td>${esc(w.ru)}</td></tr>`).join('')}</tbody></table><div class="tools"><button id="again">Повторить ошибки</button></div>`:'<p>Без ошибок. Можно добавлять новые слова.</p>'}`;
+  const a=$('#again');if(a)a.onclick=()=>run(shuffle(wrong),pool,from,to,sty);
+ }
+ next();
+}
+const THEMES=[{id:'white',n:'Чистый белый',d:'Воздух и один акцент'},{id:'graphite',n:'Графит',d:'Чёрный и спокойный'},{id:'glass',n:'Стекло',d:'Матовые карточки'},{id:'city',n:'Белый город',d:'Баухаус и плакат'},{id:'stone',n:'Камень и закат',d:'Тёплый и спокойный'},{id:'arcade',n:'Ночная аркада',d:'Тёмный и яркий'},{id:'console',n:'Карманная консоль',d:'Зелёный экран',px:1},{id:'quest',n:'Гранатовый квест',d:'Пиксельная RPG',px:1},{id:'dusk',n:'Пиксельный закат',d:'Город на закате',px:1}];
+const FU=[['','Как в теме',''],['sys','Системный','"Segoe UI",system-ui,sans-serif'],['inter','Inter','Inter,"Segoe UI",sans-serif'],['rubik','Rubik','Rubik,"Segoe UI",sans-serif'],['jost','Jost','Jost,"Segoe UI",sans-serif'],['ptserif','PT Serif','"PT Serif",Georgia,serif'],['exo','Exo 2','"Exo 2","Segoe UI",sans-serif'],['comfortaa','Comfortaa','Comfortaa,"Segoe UI",sans-serif'],['pixel','Tiny5 (пиксельный)','Tiny5,Consolas,monospace']];
+const FH=[['','Как в теме',''],['heebo','Heebo','Heebo,Arial,sans-serif'],['rubik','Rubik','Rubik,Arial,sans-serif'],['assistant','Assistant','Assistant,Arial,sans-serif'],['alef','Alef','Alef,Arial,sans-serif'],['frank','Frank Ruhl Libre','"Frank Ruhl Libre","Times New Roman",serif'],['david','David Libre','"David Libre",David,"Times New Roman",serif'],['arial','Arial','Arial,sans-serif']];
+const fval=(a,k)=>(a.find(x=>x[0]===k)||[])[2]||'',pct=(v,lo,hi)=>Math.max(lo,Math.min(hi,+v||100)),DARK=matchMedia('(prefers-color-scheme: dark)');
+const curTheme=()=>THEMES.some(t=>t.id===ui.theme)?ui.theme:DARK.matches?'graphite':'white',isPx=()=>!ui.fh&&!!THEMES.find(t=>t.id===curTheme()).px;
+function applyLook(){const r=document.documentElement,f=fval(FU,ui.fu),h=fval(FH,ui.fh);r.dataset.theme=curTheme();const tc=document.querySelector('meta[name=theme-color]');if(tc)tc.content=getComputedStyle(r).getPropertyValue('--bg').trim();f?r.style.setProperty('--u-f',f):r.style.removeProperty('--u-f');h?r.style.setProperty('--u-he',h):r.style.removeProperty('--u-he');r.toggleAttribute('data-pf',!ui.fu&&!!THEMES.find(t=>t.id===curTheme()).px);r.style.setProperty('--ts',pct(ui.ts,85,130)/100*(ui.fu==='pixel'?1.45:1));r.style.setProperty('--hs',pct(ui.hs,85,150)/100)}
+function pxEl(el){const t=el.textContent.trim();if(!t||/[֑-ׇ]/.test(t))return;const cs=getComputedStyle(el),src=16,font='bold '+src+'px Arial,sans-serif',m=document.createElement('canvas').getContext('2d');m.font=font;
+ const w=Math.ceil(m.measureText(t).width)+4,h=Math.ceil(src*1.4),o=document.createElement('canvas');o.width=w;o.height=h;const g=o.getContext('2d',{willReadFrequently:true});g.font=font;g.textAlign='center';g.textBaseline='middle';g.direction='rtl';g.fillText(t,w/2,h/2+1);
+ const d=g.getImageData(0,0,w,h).data,c=document.createElement('canvas');c.width=w;c.height=h;c.className='pxw';const x=c.getContext('2d');x.fillStyle=cs.color;for(let i=0;i<h;i++)for(let j=0;j<w;j++)if(d[(i*w+j)*4+3]>110)x.fillRect(j,i,1,1);
+ const k=Math.max(2,Math.round(parseFloat(cs.fontSize)/src));c.style.width=w*k+'px';c.setAttribute('role','img');c.setAttribute('aria-label',t);el.dataset.px='1';el.replaceChildren(c)}
+function pxScan(){document.querySelectorAll('.tp[data-pix] .tp-w:not([data-px])').forEach(pxEl);if(isPx())document.querySelectorAll('#app :is(.prompt.heb:not(.cur),.card .heb:not(.cur),.shalom,.fs-he):not([data-px])').forEach(pxEl)}
+function sprites(){const r=document.documentElement,c=document.createElement('canvas'),x=c.getContext('2d'),P=['.....g.g.....','......g......','....bbbbb....','..rrrrrrrrr..','.rrpprrrrrrr.','.rpprrrrrrrd.','.rrrrkrrkrrd.','.rrrrrrrrrrd.','.rrrrrkkrrdd.','..rrrrrrrdd..','...rrrrddd...','.....ddd.....'],C={g:'#6bbf59',b:'#7a1f33',r:'#d1344f',p:'#f28ca0',d:'#8e1f3a',k:'#2a0e17'},R=(f,a,b,w,h)=>{x.fillStyle=f;x.fillRect(a,b,w,h)};
+ c.width=13;c.height=12;P.forEach((s,i)=>[...s].forEach((k,j)=>{if(C[k])R(C[k],j,i,1,1)}));r.style.setProperty('--pom','url('+c.toDataURL()+')');
+ c.width=320;c.height=32;[['#3a2257',0,6],['#6b2d6b',6,5],['#b23a6b',11,5],['#e8615a',16,5],['#f79a4e',21,5],['#ffc857',26,6]].forEach(([f,y,h])=>R(f,0,y,320,h));[[20,2],[61,4],[103,1],[148,5],[188,2],[231,4],[276,1],[309,5]].forEach(([a,b])=>R('#fff3d6',a,b,1,1));[[156,12,8],[154,13,12],[153,14,14],[152,15,16],[152,17,16],[152,19,16],[153,21,14],[154,23,12]].forEach(([a,b,w])=>R('#ffe9a8',a,b,w,2));
+ [[0,18,22],[18,14,18],[32,20,24],[52,12,20],[64,22,25],[86,10,17],[96,24,23],[120,14,20],[134,16,25],[150,20,26],[170,14,21],[184,10,25],[194,22,23],[197,16,20],[199,12,18],[202,6,16],[204,2,13],[216,16,19],[232,20,24],[252,12,21],[264,20,25],[284,14,18],[298,22,23]].forEach(([a,w,y])=>R('#2b1b3d',a,y,w,32-y));[[5,25],[23,21],[40,27],[57,23],[90,20],[103,26],[125,23],[176,24],[205,25],[222,22],[240,27],[257,24],[289,21],[306,26]].forEach(([a,b])=>R('#ffc857',a,b,2,2));r.style.setProperty('--scene','url('+c.toDataURL()+')')}
+function setView(){
+ const cur=curTheme(),opt=(a,v)=>a.map(([k,n])=>`<option value="${k}"${k===v?' selected':''}>${n}</option>`).join('');
+ $('#app').innerHTML=`<h2>Тема</h2><div class="tgrid">${THEMES.map(t=>`<button class="tcard" data-th="${t.id}" aria-pressed="${t.id===cur}"><span class="tp" data-theme="${t.id}"${t.px?' data-pix':''}><span class="tp-h">Сегодня</span><span class="tp-w" lang="he" dir="rtl">שלום</span><span class="tp-b"><i>Не знаю</i><i class="y">Знаю</i></span></span><span class="tn">${t.n}</span><span class="ts">${t.d}</span></button>`).join('')}</div>
+ <h2>Шрифт</h2><div class="fg"><label>Текст<select id="sfu">${opt(FU,ui.fu)}</select></label><label>Иврит<select id="sfh">${opt(FH,ui.fh)}</select></label><label><span>Размер текста: <output id="ots"></output></span><input id="sts" type="range" min="85" max="130" step="5" value="${pct(ui.ts,85,130)}"></label><label><span>Размер иврита: <output id="ohs"></output></span><input id="shs" type="range" min="85" max="150" step="5" value="${pct(ui.hs,85,150)}"></label></div>
+ <div class="fprev" id="fprev"></div><div class="tools"><button id="frs">Сбросить шрифт</button></div>
+ <p class="mut">Тема и шрифт сохраняются в этом браузере, поэтому у каждого свои. Без интернета шрифты, которые ещё не загружались, заменятся системными.</p>`;
+ const pv=()=>{$('#fprev').innerHTML=`<div class="fs-he heb" lang="he">שלום</div><div class="heb" lang="he">שָׁלוֹם, בֹּקֶר טוֹב</div><p>Так будет выглядеть текст: шалом значит «привет» и «мир».</p>`;$('#ots').textContent=pct(ui.ts,85,130)+'%';$('#ohs').textContent=pct(ui.hs,85,150)+'%'},upd=()=>{saveU();applyLook();pv()};
+ document.querySelector('.tgrid').onclick=e=>{const b=e.target.closest('[data-th]');if(!b)return;ui.theme=b.dataset.th;document.querySelectorAll('[data-th]').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()};
+ $('#sfu').onchange=e=>{ui.fu=e.target.value;upd()};$('#sfh').onchange=e=>{ui.fh=e.target.value;upd()};
+ $('#sts').oninput=e=>{ui.ts=+e.target.value;upd()};$('#shs').oninput=e=>{ui.hs=+e.target.value;upd()};
+ $('#frs').onclick=()=>{ui.fu=ui.fh='';ui.ts=ui.hs=100;saveU();applyLook();render()};
+ pv();
+}
+if(location.protocol==='https:'||location.hostname==='localhost'){const m=document.createElement('link');m.rel='manifest';m.href='manifest.webmanifest';document.head.appendChild(m);if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})}
+applyLook();sprites();DARK.addEventListener('change',()=>{if(!ui.theme)applyLook()});new MutationObserver(pxScan).observe($('#app'),{childList:true,subtree:true});
+document.querySelector('h1').onclick=()=>{view='home';render()};document.querySelector('nav').onclick=e=>{if(e.target.dataset.v){view=e.target.dataset.v;render()}};
+document.addEventListener('click',e=>{if(!e.target.closest('.del,.ad'))disarm()});
+migr();render();
+</script></body></html>
