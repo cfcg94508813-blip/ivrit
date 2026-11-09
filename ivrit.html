@@ -103,7 +103,7 @@ html[data-theme=console]{background:#3a3f4a}html[data-theme=console] body{margin
 html[data-theme=quest] h1::before{content:"";display:inline-block;width:26px;height:24px;margin-right:8px;background:var(--pom) center/contain no-repeat;image-rendering:pixelated;vertical-align:-4px}
 html[data-theme=quest] :is(.card,.big,dialog,.resume,.gexp,.fprev){box-shadow:inset 0 0 0 2px var(--card),inset 0 0 0 4px var(--line)}
 html[data-theme=dusk] body::before{content:"";display:block;height:96px;background:var(--scene) center top/auto 100% repeat-x;image-rendering:pixelated}html[data-theme=dusk] .home{min-height:calc(100vh - 250px)}
-html[data-pf] :is(h1,h2,button:not(.big,.heb,.tcard,.card,.accb,.aclose,.lnk),.btn){font-size:calc(24px*var(--ts));line-height:1.15}
+html[data-pf] :is(h1,h2,button:not(.big,.heb,.tcard,.card,.accb,.aclose,.lnk,.chip,.sb),.btn){font-size:calc(24px*var(--ts));line-height:1.15}
 html[data-pf] .dlg h2{font-size:calc(32px*var(--ts))}html[data-pf] .qt{font-size:calc(28px*var(--ts))}html[data-pf] .score{font-size:calc(36px*var(--ts))}html[data-pf] .big b{font-size:calc(40px*var(--ts));line-height:1.1}html[data-pf] .card{font-size:calc(28px*var(--ts));line-height:1.35}
 .big span,.card small{font-family:var(--u-f,var(--t-f))}.tp[data-pix]{font-size:16px}
 html{-webkit-text-size-adjust:100%}body{-webkit-tap-highlight-color:transparent}button,.btn,select,input,label,summary,[data-cur]{touch-action:manipulation}
@@ -146,9 +146,17 @@ html[data-pf] header nav{order:2;flex-basis:100%}html[data-pf] .accb{order:1}
 @media(max-width:600px){header{padding-top:calc(6px + env(safe-area-inset-top));padding-bottom:6px}}
 #dacc:focus{outline:none}.adlg .row button{max-width:100%;overflow-wrap:anywhere}html[data-pf] .adlg .row button{font-size:calc(20px*var(--ts))}
 .qr{display:block;direction:ltr;text-align:center;font-family:var(--u-f,var(--t-f));font-size:calc(14px*var(--ts));font-weight:400;color:var(--mut);line-height:1.3}.qrp{margin-top:-18px;padding-bottom:12px}.opt.ok .qr,.opt.bad .qr,.sel .qr{color:inherit}td .qr{text-align:inherit}.card .qr{margin-top:6px;font-size:calc(17px*var(--ts))}
+#dq{width:min(600px,calc(100% - 32px))}#dq:focus{outline:none}.qd{position:relative;gap:16px}.qd h2{padding-right:34px}.qs{display:grid;grid-template-columns:118px minmax(0,1fr);gap:6px 14px;align-items:start}.ql{padding-top:6px;font-size:calc(14px*var(--ts));font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:6px 12px;border-width:1px;font-family:var(--u-f,var(--t-f));font-size:calc(14px*var(--ts));line-height:1.3}.chip small{font-size:.85em;color:var(--mut)}.chip[aria-pressed=true]{background:var(--ac);color:var(--on-ac);border-color:var(--ac)}.chip[aria-pressed=true] small{color:inherit}#qtg{width:100%;margin-top:8px}
+.stp{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.stp input{width:70px;padding:6px 4px;text-align:center}.sb{width:36px;height:36px;padding:0;border-width:1px;font-family:var(--u-f,var(--t-f));font-size:20px;line-height:1}.stp .chips{margin-left:6px}
+.sw{display:inline-flex;align-items:center;gap:10px;cursor:pointer}.sw input{position:absolute;width:1px;height:1px;opacity:0}.swt{position:relative;flex:none;width:42px;height:24px;border-radius:var(--r);background:var(--mut);transition:background-color .15s}.swt::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:var(--r);background:var(--bg);transition:transform .15s}.sw input:checked+.swt{background:var(--ac)}.sw input:checked+.swt::after{transform:translateX(18px);background:var(--on-ac)}.sw input:focus-visible+.swt{outline:2px solid var(--ac);outline-offset:2px}.qh{margin-top:4px}
+.qerr{color:var(--bad-t,var(--bad))}.qf{position:sticky;bottom:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;padding:10px 0 0;background:var(--dlg,var(--card))}.qsum{margin-right:auto;color:var(--mut);font-size:calc(14px*var(--ts))}.pri:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:520px){.qs{grid-template-columns:minmax(0,1fr)}.ql{padding-top:0}.qsum{flex:1 1 100%}.stp .chips{margin-left:0}}
+.qd h2{overflow-wrap:anywhere}
+html[data-pf] .qf button{font-size:calc(18px*var(--ts))}html[data-theme=glass] #dq,html[data-theme=glass] .qf{background:#eef3fb}
 </style></head><body>
 <header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="today">На сегодня</button><button data-v="words">Слова</button><button data-v="test">Тест</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
-<main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog>
+<main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog><dialog id="dq" aria-label="Настройки теста"></dialog>
 <script>
 const K='ivrit_v1';
 const W=[["בוקר טוב","бокер тов","доброе утро"],["נעים מאוד","наим меод","очень приятно"],["תודה","тода","спасибо"],["כן","кен","да"],["לא","ло","нет"],["אני","ани","я"],["אתה","ата","ты (м.)"],["את","ат","ты (ж.)"],["הוא","hу","он"],["היא","hи","она"],["מי","ми","кто"],["מה","ма","что"],["מורה","море / мора","учитель / учительница"],["תלמיד","талмид","ученик"],["תלמידה","талмида","ученица"],["טוב","тов","хороший"],["טובה","това","хорошая"],["עולה חדש","оле хадаш","новый репатриант"],["עולה חדשה","ола хадаша","новая репатриантка"],["תייר","таяр","турист"],["תיירת","таерет","туристка"],["חבר","хавер","друг"],["חברה","хавера","подруга"],["גר","гар","живёт (м.)"],["גרה","гара","живёт (ж.)"],["לומד","ломед","учится (м.)"],["מדבר","медабер","говорит (м.)"],["מדברת","медаберет","говорит (ж.)"],["איפה","эйфо","где"],["מאיפה","меэйфо","откуда"],["מאין","меаин","откуда (книжное)"],["ב","бе","в"],["גם","гам","тоже"],["רחוב","рехов","улица"],["כיתה","кита","класс"],["אמא","има","мама"],["אבא","аба","папа"]];
@@ -185,7 +193,6 @@ let view='home',q='',timer,tg='',nk=false,lv='m',curAll=false,curW=new Set(),ui=
 try{Object.assign(ui,JSON.parse(localStorage.getItem(K+'u'))||{})}catch(e){}
 nk=!!ui.nk;curAll=!!ui.ca;
 const saveU=()=>{try{localStorage.setItem(K+'u',JSON.stringify(ui))}catch(e){}},hcls=()=>['tr','ru','note','tag','pc'].filter(k=>!ui[k]).map(k=>'h-'+k).join(' ');
-const STY=id=>`<select id="${id}" aria-label="Начертание букв"><option value="p">печатные буквы</option><option value="c">письменные буквы</option><option value="m">вперемешку</option></select>`;
 const isCur=w=>curAll!==curW.has(w.he+'|'+w.ru);
 let armed=null,armT;const disarm=()=>{clearTimeout(armT);armed=null;document.querySelectorAll('.arm').forEach(b=>{b.classList.remove('arm');if(b.classList.contains('ad'))b.textContent='+ в свои'})};
 const rows=()=>{disarm();const s=q.toLowerCase();return cur().map((w,i)=>[w,i]).filter(([w])=>(w.he+w.tr+w.ru).toLowerCase().includes(s)&&(!tg||w.tag===tg)).map(([w,i])=>`<tr><td class="heb${isCur(w)?' cur':''}" data-cur data-w="${esc(w.he+'|'+w.ru)}" title="Нажмите: печатные и письменные буквы">${esc(nk&&w.nk?w.nk:w.he)}</td><td class="c-tr">${esc(w.tr)}</td><td class="c-ru">${esc(w.ru)}${w.note?`<small class="mut n-note">${esc(w.note)}</small>`:''}${w.tag?`<small class="mut n-tag">${esc(w.tag)}</small>`:''}</td><td class="c-pc">${pc(w)===null?'—':pc(w)+'%'}</td><td class="act">${lv==='m'?`<button data-ed="${i}" aria-label="Изменить слово ${esc(w.ru)}" title="Изменить слово">⚙</button> <button class="del" data-del="${i}" aria-label="Удалить слово ${esc(w.ru)}" title="Нажмите дважды, чтобы удалить">×</button>`:`${words.some(x=>x.he===w.he&&x.ru===w.ru)?'<span class="added" role="img" aria-label="Уже в ваших словах" title="Уже в ваших словах">✓</span>':`<button class="ad" data-add="${i}" aria-label="Добавить в свои слова" title="Нажмите дважды, чтобы добавить">+ в свои</button>`}`}</td></tr>`).join('')||'<tr><td colspan="5" class="mut">Ничего не найдено. Добавьте слово выше.</td></tr>'};
@@ -216,20 +223,6 @@ function render(){clearInterval(timer);
  <div class="row end"><button data-close class="pri">Готово</button></div></div></dialog>`
  :`<div class="launch"><button class="big" id="mt"><b>Тест</b><span>Ответ виден сразу после каждого вопроса</span></button><button class="big" id="me"><b>Экзамен</b><span>Своё время и вопросы, результат только в конце</span></button><button class="big" id="mc"><b>Карточки</b><span>Листайте и отмечайте «знаю» или «не знаю»</span></button></div>
  <div id="resume"></div>
- <dialog id="dtest"><div class="dlg"><h2>Тест</h2><p class="mut">Ответ виден сразу после каждого вопроса.</p>
- <div class="row">
- <select id="src" aria-label="Откуда вопросы"><option value="w">Слова</option><option value="l">Буквы</option><option value="a">Слова и буквы</option><option value="p">Пары: мужской и женский род</option></select>${LSEL('lvt')}${TSEL('tgt')}
- <select id="dir" aria-label="Направление"><option value="he>ru">иврит → перевод или название</option><option value="he>tr">иврит → чтение или звук</option><option value="ru>he">перевод или название → иврит</option><option value="tr>he">чтение или звук → иврит</option><option value="m>f">род: мужская → женская форма</option><option value="f>m">род: женская → мужская форма</option></select>
- <input id="n" type="number" min="3" max="100" value="10" aria-label="Число вопросов" style="width:90px">${STY('sty')}</div>
- <div class="row end"><button data-close>Отмена</button><button id="go" class="pri">Начать тест</button></div></div></dialog>
- <dialog id="dexam"><div class="dlg"><h2>Экзамен</h2><p class="mut">Верно или неверно вы узнаете только в конце, после всех вопросов.</p>
- <div class="row"><label>Время, минут (0 — без ограничения) <input id="xt" type="number" min="0" max="180" value="10" style="width:80px"></label><label>Вопросов <input id="xn" type="number" min="3" max="200" value="20" style="width:80px"></label>${STY('xsty')}</div>
- <div class="row"><b>Что спрашивать:</b><label><input type="checkbox" class="xs" value="l" checked> буквы</label><label><input type="checkbox" class="xs" value="w" checked> слова</label><label><input type="checkbox" class="xs" value="p"> пары (род)</label>${LSEL('xlv')}${TSEL('xtg')}</div>
- <div class="row"><b>Как спрашивать:</b><label><input type="checkbox" class="xd" value="he>ru" checked> иврит → перевод или название</label><label><input type="checkbox" class="xd" value="he>tr" checked> иврит → чтение или звук</label><label><input type="checkbox" class="xd" value="ru>he" checked> перевод или название → иврит</label><label><input type="checkbox" class="xd" value="tr>he" checked> чтение или звук → иврит</label><label><input type="checkbox" class="xd" value="m>f"> род: муж. → жен.</label><label><input type="checkbox" class="xd" value="f>m"> род: жен. → муж.</label></div>
- <div class="row end"><button data-close>Отмена</button><button id="ex" class="pri">Начать экзамен</button></div></div></dialog>
- <dialog id="dcard"><div class="dlg"><h2>Карточки</h2><p class="mut">Нажмите на карточку, чтобы перевернуть, и отметьте «знаю» или «не знаю». Слабые слова попадаются первыми.</p>
- <div class="row"><select id="csrc" aria-label="Что показывать"><option value="w">Слова</option><option value="l">Буквы</option><option value="a">Слова и буквы</option></select>${LSEL('clv')}${TSEL('ctg')}${STY('csty')}<input id="cn" type="number" min="3" max="100" value="10" aria-label="Число карточек" style="width:90px"></div>
- <div class="row end"><button data-close>Отмена</button><button id="cgo" class="pri">Начать</button></div></div></dialog>
  <div id="bar" hidden><button id="out">← К выбору</button></div>
  <div id="quiz" aria-live="polite"></div>`;
  view==='words'?bindWords():bindTest();
@@ -300,9 +293,7 @@ function gramView(){
  <h2>Потренироваться</h2>
  <div class="row"><button id="ghelp" aria-expanded="false" aria-controls="gexp">Как менять род и число<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="gopen" class="pri">Начать тест</button><button id="gfill">Заполнить таблицу</button></div>
  <div id="gexp" class="gexp" hidden>${GEXP}</div>
- <dialog id="dgram"><div class="dlg"><h2>Тест</h2><p class="mut">Ответ виден сразу после каждого вопроса.</p>
- <div class="row"><select id="gdir" aria-label="Направление"><option value="he>ru">иврит → перевод</option><option value="ru>he">перевод → иврит</option><option value="he>tr">иврит → чтение</option><option value="tr>he">чтение → иврит</option></select>${STY('gsty')}<label>Вопросов <input id="gn" type="number" min="3" max="30" value="10" style="width:80px"></label></div>
- <div class="row end"><button data-close>Отмена</button><button id="ggo" class="pri">Начать тест</button></div></div></dialog></div>
+ </div>
  <div id="bar" hidden><button id="out">← К правилу</button></div><div id="quiz" aria-live="polite"></div>`;
  const redraw=()=>{$('#gt').innerHTML=gtable(false)};
  $('#gnk').onclick=()=>{gnk=!gnk;$('#gnk').classList.toggle('pri',gnk);redraw()};
@@ -311,9 +302,7 @@ function gramView(){
  $('#out').onclick=render;
  const gbegin=()=>{$('#gbody').hidden=true;$('#bar').hidden=false};
  $('#ghelp').onclick=()=>{const open=$('#gexp').hidden;$('#gexp').hidden=!open;$('#ghelp').setAttribute('aria-expanded',open)};
- $('#gopen').onclick=()=>$('#dgram').showModal();
- document.querySelectorAll('#dgram [data-close]').forEach(b=>b.onclick=()=>$('#dgram').close());
- $('#ggo').onclick=()=>{$('#dgram').close();gbegin();const [from,to]=$('#gdir').value.split('>'),n=Math.max(3,Math.min(+$('#gn').value||10,30));let its=smart(GP);while(its.length<n)its=its.concat(smart(GP));run(its.slice(0,n),GP,from,to,$('#gsty').value)};
+ $('#gopen').onclick=()=>openQ('gram',c=>{gbegin();startGram(c)});
  $('#gfill').onclick=()=>{gbegin();$('#quiz').innerHTML=`<p class="mut">Выберите форму для каждой клетки. Колонки идут справа налево.</p><div class="gwrap">${gtable(true)}</div><div class="tools"><button id="gchk" class="pri">Проверить</button><button id="gagain">Заново</button></div><p id="gres" aria-live="polite"></p>`;
   $('#gchk').onclick=()=>{let ok=0,all=0;document.querySelectorAll('td[data-a]').forEach(td=>{all++;const g=td.querySelector('select').value===td.dataset.a;if(g)ok++;td.classList.toggle('okc',g);td.classList.toggle('badc',!g)});$('#gres').textContent='Верно: '+ok+' из '+all+(ok===all?'. Отлично!':'. Неверные клетки подсвечены.')};
   $('#gagain').onclick=()=>$('#gfill').onclick()};
@@ -345,13 +334,14 @@ function todayView(){
  ${n?'':'<p class="mut">Всё повторено. Возвращайтесь завтра: слова вернутся по расписанию. Если хочется ещё, поднимите лимит новых слов ниже.</p>'}
  <h2>Настройки</h2>
  <div class="row"><label>Новые слова брать из: <select id="tsl" aria-label="Откуда новые слова">${LSEL('tsl0').replace(/^<select id="tsl0"[^>]*>/,'').replace('</select>','')}</select></label><label>Новых в день <input id="tnw" type="number" min="0" max="50" value="${p.lim}" style="width:80px"></label></div>
+ <div class="row">${qrSw('ttr','Показывать транскрипцию на карточках')}</div>
  <p class="mut">Осталось новых в этом списке: ${p.pool}. Слова идут по порядку списка.</p>
  <h2>Как идёт</h2>
  <p class="mut">В работе: ${bx[1]+bx[2]+bx[3]+bx[4]+bx[5]} слов. Начинаю учить: ${bx[1]} · пару дней: ${bx[2]} · неделя: ${bx[3]} · две недели: ${bx[4]} · месяц: ${bx[5]}. Повторено сегодня: ${p.m.revN}.</p>
  <p class="mut">Верно: слово вернётся через 3, 7, 14, 30 дней. Неверно: вернётся завтра.</p></div>
  <div id="bar" hidden><button id="out">← К экрану «На сегодня»</button></div><div id="quiz" aria-live="polite"></div>`;
  $('#tsl').value=ui.sl||'m';$('#tsl').onchange=e=>{ui.sl=e.target.value;saveU();render()};
- $('#tnw').onchange=e=>{ui.nw=Math.max(0,Math.min(+e.target.value||0,50));saveU();render()};
+ $('#ttr').onchange=e=>{ui.qtr=e.target.checked?1:0;saveU()};$('#tnw').onchange=e=>{ui.nw=Math.max(0,Math.min(+e.target.value||0,50));saveU();render()};
  $('#out').onclick=render;
  $('#tgo').onclick=()=>{$('#gbody').hidden=true;$('#bar').hidden=false;session([...p.due,...p.fresh])};
 }
@@ -372,33 +362,12 @@ const qt=(it,from,to)=>QT[from+'>'+to][letters.includes(it)?1:0];
 function loadX(){try{const o=JSON.parse(localStorage.getItem(K+'x'));if(!o||!Array.isArray(o.qs)||!o.qs.length)return null;const all=[...words,...LIB.a,...LIB.b,...LIB.g],qs=[];for(const x of o.qs){const it=x.t==='l'?letters.find(l=>l.he===x.he):x.t==='p'?pairs.find(p=>p.m===x.he):all.find(w=>w.he===x.he&&w.ru===x.ru);if(!it)return null;qs.push({it,from:x.from,to:x.to,pick:x.pick,cur:x.cur,opts:x.opts})}return{qs,secs:o.secs,end:o.end,i:o.i||0}}catch(e){return null}}
 function begin(){document.querySelectorAll('dialog').forEach(d=>d.close());document.querySelector('.launch').hidden=true;$('#resume').hidden=true;$('#bar').hidden=false}
 function bindTest(){
- $('#mt').onclick=()=>$('#dtest').showModal();$('#me').onclick=()=>$('#dexam').showModal();
+ $('#mt').onclick=()=>openQ('test',c=>{begin();startTest(c)});$('#me').onclick=()=>openQ('exam',c=>{begin();startExam(c)});
  document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
  $('#out').onclick=render;
  const sx=loadX();if(sx){const lf=sx.secs?Math.max(0,Math.round((sx.end-Date.now())/1000)):0;$('#resume').innerHTML=`<div class="resume"><p><b>Есть незавершённый экзамен:</b> вопрос ${sx.i+1} из ${sx.qs.length}${sx.secs?', осталось '+Math.floor(lf/60)+':'+String(lf%60).padStart(2,'0'):''}</p><div class="row"><button id="rx" class="pri">Продолжить</button><button id="dx">Сбросить</button></div></div>`;
   $('#rx').onclick=()=>{begin();exam(sx.qs,sx.secs,sx.i,sx.end)};$('#dx').onclick=()=>{try{localStorage.removeItem(K+'x')}catch(e){}$('#resume').innerHTML=''}}
- $('#mc').onclick=()=>$('#dcard').showModal();
- $('#cgo').onclick=()=>{begin();const s=$('#csrc').value,t=$('#ctg').value,W2=pickW($('#clv').value,t),pool=s==='w'?W2:s==='l'?letters:[...W2,...letters];cards(smart(pool).slice(0,Math.max(3,Math.min(+$('#cn').value||10,100))),$('#csty').value)};
- $('#go').onclick=()=>{begin();
-  const s=$('#src').value,t=$('#tgt').value,W2=pickW($('#lvt').value,t),pool=s==='w'?W2:s==='l'?letters:s==='p'?pairs:[...W2,...letters],[from,to]=$('#dir').value.split('>');
-  if((s==='p')!=='mf'.includes(from)){$('#quiz').innerHTML='<p>Для пар выберите направление «род: …», для остальных источников — другое.</p>';return}
-  if(new Set(pool.map(p=>p[to])).size<4){$('#quiz').innerHTML='<p>Для теста нужно хотя бы 4 разных ответа. Добавьте слова.</p>';return}
-  const sty0=$('#sty').value,want=Math.max(3,Math.min(+$('#n').value||10,100)),n=sty0==='m'?want:Math.min(want,pool.length);let its=smart(pool);while(its.length<n)its=its.concat(smart(pool));
-  run(its.slice(0,n),pool,from,to,sty0);
- };
- $('#ex').onclick=()=>{begin();
-  const src=[...document.querySelectorAll('.xs:checked')].map(c=>c.value),dirs=[...document.querySelectorAll('.xd:checked')].map(c=>c.value),box=$('#quiz');
-  if(!src.length||!dirs.length){box.innerHTML='<p>Отметьте хотя бы один тип вопросов и один способ спрашивать.</p>';return}
-  const P={l:letters,w:pickW($('#xlv').value,$('#xtg').value),p:pairs},all=smart(src.flatMap(k=>P[k].map(it=>[it,P[k]])),x=>x[0]).filter(([,p])=>dirs.some(d=>'mf'.includes(d[0])===(p===pairs)));
-  if(!all.length){box.innerHTML='<p>Для выбранных типов нет подходящих способов спрашивать.</p>';return}
-  if(all.some(([,p])=>p.length<4)){box.innerHTML='<p>Для экзамена в каждом типе нужно хотя бы 4 элемента. Добавьте слова.</p>';return}
-  const n=Math.max(3,Math.min(+$('#xn').value||20,200)),sty=$('#xsty').value,qs=[];
-  for(let j=0;j<n;j++){
-   const [it,p]=all[j%all.length],ds=dirs.filter(d=>'mf'.includes(d[0])===(p===pairs)),[from,to]=ds[Math.random()*ds.length|0].split('>'),ans=it[to];
-   qs.push({it,from,to,pick:-1,cur:sty==='c'||sty==='m'&&Math.random()<.5,opts:shuffle([ans,...shuffle([...new Set(p.filter(y=>!twin(it,y)).map(x=>x[to]).filter(x=>x!==ans))]).slice(0,3)])});
-  }
-  exam(qs,Math.max(0,+$('#xt').value||0)*60);
- };
+ $('#mc').onclick=()=>openQ('cards',c=>{begin();startCards(c)});
 }
 function exam(qs,secs,i0,end0){
  let i=i0||0,end=secs?(end0||Date.now()+secs*1000):0,left=secs?Math.max(0,Math.round((end-Date.now())/1000)):0;const box=$('#quiz'),H=(x,k)=>['he','m','f'].includes(k)?' heb'+(x.cur?' cur':''):'';
@@ -431,13 +400,13 @@ function cards(items,sty){
  }
  show();
 }
-function run(items,pool,from,to,sty){
+function run(items,pool,from0,to0,sty){
  let i=0,wrong=[],locked=false;const box=$('#quiz');
  let cur=false;const isH=k=>['he','m','f'].includes(k)?' heb'+(cur?' cur':''):'';const fb=it=>`<b class="heb">${esc(it.nk||it.he)}</b>${it.f?' ↔ <b class="heb">'+esc(it.f)+'</b>':''} — ${[it.tr,it.ru].filter(Boolean).map(esc).join(' — ')}${it.note?' · '+esc(it.note):''}`;
  function next(){
   if(i>=items.length)return done();
-  const it=items[i],ans=it[to];locked=false;cur=sty==='c'||sty==='m'&&Math.random()<.5;
-  const opts=shuffle([ans,...shuffle([...new Set(pool.filter(p=>!twin(it,p)).map(p=>p[to]).filter(x=>x!==ans))]).slice(0,3)]);
+  const it=items[i],d=typeof from0==='function'?from0(it):[from0,to0],from=d[0],to=d[1],P=typeof pool==='function'?pool(it):pool,ans=it[to];locked=false;cur=sty==='c'||sty==='m'&&Math.random()<.5;
+  const opts=shuffle([ans,...shuffle([...new Set(P.filter(p=>!twin(it,p)).map(p=>p[to]).filter(x=>x!==ans))]).slice(0,3)]);
   box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from)}">${esc(it[from])}</div>${qrP(it,from,to)}<div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to)}" data-k="${k}">${esc(o)}${qrO(o,it,from,to)}</button>`).join('')}</div><p id="fb"></p>`;
   box.querySelector('.opts').onclick=e=>{
    const b=e.target.closest('.opt');if(!b||locked)return;locked=true;
@@ -451,7 +420,7 @@ function run(items,pool,from,to,sty){
  function done(){
   const sc=items.length-wrong.length;
   box.innerHTML=`<div class="score">Результат: ${sc} из ${items.length}</div>${wrong.length?`<h2>Над чем поработать</h2><table><tbody>${wrong.map(w=>`<tr><td class="heb">${esc(w.he)}</td><td>${esc(w.tr)}</td><td>${esc(w.ru)}</td></tr>`).join('')}</tbody></table><div class="tools"><button id="again">Повторить ошибки</button></div>`:'<p>Без ошибок. Можно добавлять новые слова.</p>'}`;
-  const a=$('#again');if(a)a.onclick=()=>run(shuffle(wrong),pool,from,to,sty);
+  const a=$('#again');if(a)a.onclick=()=>run(shuffle(wrong),pool,from0,to0,sty);
  }
  next();
 }
@@ -505,6 +474,26 @@ function bindAcc(){const d=$('#dacc'),msg=t=>{$('#amsg').textContent=t};d.queryS
  const fg=$('#afg');if(fg)fg.onclick=async()=>{const email=$('#aem').value.trim();if(!email){msg('Введите почту, и я отправлю письмо для сброса пароля.');return}msg('Подождите…');const sent='Если такой аккаунт есть, письмо для сброса пароля уже в пути. Проверьте и папку «Спам».';try{await authCall('sendOobCode',{requestType:'PASSWORD_RESET',email});msg(sent)}catch(err){const m=String(err.message).split(' ')[0];msg(m==='NET'||m==='INVALID_EMAIL'||m==='TOO_MANY_ATTEMPTS_TRY_LATER'?aerr(m):sent)}}}
 document.addEventListener('visibilitychange',()=>{if(!acc)return;if(document.hidden){if(firstD)syncNow()}else if(Date.now()-lastS>30000)syncNow()});addEventListener('online',()=>{if(acc)syncNow()});
 const HK=['he','m','f'];let TRM=null;const trOf=he=>{const u=words.find(w=>w.he===he);if(u&&u.tr)return u.tr;if(!TRM){TRM=new Map();[...DEF,...LIB.a,...LIB.b,...LIB.g,...letters,...GP].forEach(w=>{if(w.tr&&!TRM.has(w.he))TRM.set(w.he,w.tr)})}return TRM.get(he)||''},rdOf=(v,it,k)=>(v===it[k]&&it.tr)||trOf(v),qr=t=>t?`<small class="qr">${esc(t)}</small>`:'',qrP=(it,from,to)=>ui.qtr&&HK.includes(from)&&to!=='tr'?`<div class="qrp">${qr(rdOf(it[from],it,from))}</div>`:'',qrO=(o,it,from,to)=>ui.qtr&&HK.includes(to)&&from!=='tr'?qr(rdOf(o,it,to)):'',qrC=it=>ui.qtr?qr(it.tr||trOf(it.he)):'',qrA=(v,it,k)=>HK.includes(k)?qr(rdOf(v,it,k)):'';
+const QDIR=[['he>ru','Иврит → перевод'],['ru>he','Перевод → иврит'],['he>tr','Иврит → чтение'],['tr>he','Чтение → иврит']],QDIRL=[['he>ru','Буква → название'],['ru>he','Название → буква'],['he>tr','Буква → звук'],['tr>he','Звук → буква']],QGEN=[['m>f','Муж. → жен.'],['f>m','Жен. → муж.']],isGen=d=>'mf'.includes(d[0]),QU=['вопрос','вопроса','вопросов'],QSRC=[['w','Слова'],['l','Буквы'],['p','Род (пары)']];
+const QK={test:{t:'Тест',d:'Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:100,src:QSRC,dirs:1,def:{src:['w'],dirs:['he>ru'],n:10},pre:[10,20,30,50]},exam:{t:'Экзамен',d:'Результат только в конце, после всех вопросов.',go:'Начать экзамен',cnt:'Вопросов',unit:QU,max:200,src:QSRC,dirs:1,timer:1,def:{src:['l','w'],dirs:['he>ru','ru>he','he>tr','tr>he'],n:20,min:10},pre:[10,20,50,100]},cards:{t:'Карточки',d:'Слабые слова попадаются первыми.',go:'Начать',cnt:'Карточек',unit:['карточка','карточки','карточек'],max:100,src:QSRC.slice(0,2),def:{src:['w'],n:10},pre:[10,20,30,50]},gram:{t:'Тест',d:'Личные местоимения. Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:30,dirs:1,def:{dirs:['he>ru'],n:10},pre:[5,10,20,30]}},QMIN=[[0,'Без таймера'],[5,'5 мин'],[10,'10 мин'],[15,'15 мин'],[30,'30 мин'],[60,'60 мин']],QSTY=[['p','Печатные'],['c','Письменные'],['m','Вперемешку']],QLV=[['m','Свои'],['a','Алеф'],['b','Бет'],['g','Гимель'],['all','Все']];
+let qk='',qc=null,qgo=null;
+const pl=(n,u)=>{const a=n%100,b=n%10;return u[a>10&&a<20?2:b===1?0:b>1&&b<5?1:2]},qPool=c=>({w:pickW(c.lv,c.tg),l:letters,p:pairs}),qAvail=c=>{const P=qPool(c);return (c.src||[]).reduce((s,k)=>s+P[k].length,0)},qN=(n,k)=>Math.max(3,Math.min(+n||QK[k].def.n,QK[k].max));
+const qrSw=(id,t)=>`<label class="sw"><input type="checkbox" id="${id}"${ui.qtr?' checked':''}><span class="swt"></span><span>${t}</span></label>`;
+function qEff(k,c){if(k==='gram'||k==='exam'||(k==='test'&&c.sty==='m'))return c.n;return Math.min(c.n,qAvail(c))}
+function qErr(k,c){if(k==='gram')return c.dirs.length?'':'Выберите, как спрашивать.';if(!c.src.length)return 'Выберите, что спрашивать.';const P=qPool(c);if(c.src.includes('w')&&!P.w.length)return 'В этом списке пока нет слов. Выберите другой или добавьте слова.';if(k==='cards')return '';const reg=c.dirs.filter(d=>!isGen(d)),gen=c.dirs.filter(isGen);for(const s of c.src){const ds=s==='p'?gen:reg;if(!ds.length)return s==='p'?'Для пар выберите, какую форму спрашивать.':'Выберите, как спрашивать.';for(const d of ds)if(new Set(P[s].map(x=>x[d.split('>')[1]])).size<4)return 'Нужно хотя бы 4 разных ответа. Добавьте слова или выберите другой список.'}return ''}
+const qChips=(g,a,on)=>'<div class="chips">'+a.map(([v,t])=>`<button type="button" class="chip" data-g="${g}" data-v="${v}" data-f="${g}:${v}" aria-pressed="${!!on(v)}">${t}</button>`).join('')+'</div>';
+function qHtml(){const K=QK[qk],c=qc,has=s=>(c.src||[]).includes(s),S=(l,b)=>`<div class="qs"><div class="ql">${l}</div><div>${b}</div></div>`,letOnly=K.src&&c.src.length===1&&c.src[0]==='l',DL=[...(qk==='gram'||(c.src||[]).some(s=>s!=='p')?(letOnly?QDIRL:QDIR):[]),...(K.src&&has('p')?QGEN:[])],err=qErr(qk,c),eff=qEff(qk,c);
+ return `<div class="dlg qd"><button class="aclose" type="button" data-cl aria-label="Закрыть">×</button><h2>${K.t}</h2><p class="mut">${K.d}</p>`+(K.src?S('Что спрашивать',qChips('src',K.src,has)):'')+(K.src&&has('w')?S('Какие слова',qChips('lv',QLV.map(([v,t])=>[v,`${t} <small>${LV(v).length}</small>`]),v=>c.lv===v)+TSEL('qtg')):'')+(K.dirs&&DL.length?S('Как спрашивать',qChips('dirs',DL,v=>c.dirs.includes(v))):'')+S(K.cnt,`<div class="stp"><button type="button" class="sb" data-st="-5" aria-label="Меньше">−</button><input id="qn" type="number" inputmode="numeric" min="3" max="${K.max}" value="${c.n}" aria-label="${K.cnt}"><button type="button" class="sb" data-st="5" aria-label="Больше">+</button>${qChips('n',K.pre.map(v=>[v,v]),v=>c.n===v)}</div>`)+(K.timer?S('Время',qChips('min',QMIN,v=>c.min===v)):'')+S('Буквы',qChips('sty',QSTY,v=>c.sty===v))+S('Подсказка',qrSw('qtr','Показывать транскрипцию')+'<small class="mut qh">В заданиях на чтение скрыта, чтобы не выдавать ответ.</small>')+(err?`<p class="qerr" role="alert">${err}</p>`:'')+`<div class="qf"><span class="qsum">${err?'':eff+' '+pl(eff,K.unit)+(K.timer?' · '+(c.min?c.min+' мин':'без таймера'):'')}</span><button type="button" data-cl>Отмена</button><button type="button" id="qgo" class="pri"${err?' disabled':''}>${K.go}</button></div></div>`}
+function drawQ(){const d=$('#dq'),st=d.scrollTop,f=document.activeElement&&document.activeElement.dataset?document.activeElement.dataset.f:'';d.innerHTML=qHtml();const s=$('#qtg');if(s)s.value=qc.tg;d.scrollTop=st;if(f){const e=d.querySelector(`[data-f="${f}"]`);if(e)e.focus()}}
+function openQ(k,go){const K=QK[k],sv=(ui.qc&&ui.qc[k])||{},c=Object.assign({lv:'m',tg:'',sty:'p'},JSON.parse(JSON.stringify(K.def)),JSON.parse(JSON.stringify(sv)));if(!QLV.some(x=>x[0]===c.lv))c.lv='m';if(c.tg&&!themes().includes(c.tg))c.tg='';if(!QSTY.some(x=>x[0]===c.sty))c.sty='p';if(K.src)c.src=(Array.isArray(c.src)?c.src:[]).filter(s=>K.src.some(x=>x[0]===s));if(K.dirs)c.dirs=(Array.isArray(c.dirs)?c.dirs:[]).filter(d=>[...QDIR,...QGEN].some(x=>x[0]===d));c.n=qN(c.n,k);if(K.timer&&!QMIN.some(x=>x[0]===c.min))c.min=K.def.min;qk=k;qc=c;qgo=go;const d=$('#dq');d.innerHTML=qHtml();const s=$('#qtg');if(s)s.value=c.tg;
+ d.onclick=e=>{if(e.target===d||e.target.closest('[data-cl]')){d.close();return}if(e.target.closest('#qgo')){if(qErr(qk,qc))return;const kk=qk,cc=qc;d.close();ui.qc=ui.qc||{};ui.qc[kk]=cc;saveU();qgo(cc);return}const st=e.target.closest('[data-st]');if(st){qc.n=qN(qc.n+(+st.dataset.st),qk);drawQ();return}const b=e.target.closest('.chip');if(!b)return;const g=b.dataset.g,v=b.dataset.v;if(g==='src'||g==='dirs'){const a=qc[g],i=a.indexOf(v);i>=0?a.splice(i,1):a.push(v);if(g==='src'&&i<0&&QK[qk].dirs){if(v==='p'&&!qc.dirs.some(isGen))qc.dirs.push('m>f');if(v!=='p'&&!qc.dirs.some(x=>!isGen(x)))qc.dirs.push('he>ru')}}else if(g==='n'||g==='min')qc[g]=+v;else qc[g]=v;drawQ()};
+ d.onchange=e=>{const t=e.target;if(t.id==='qtr'){ui.qtr=t.checked?1:0;saveU()}else if(t.id==='qtg'){qc.tg=t.value;drawQ()}else if(t.id==='qn'){qc.n=qN(t.value,qk);drawQ()}};
+ if(!d.open)d.showModal();d.tabIndex=-1;d.focus()}
+const qDirFn=c=>it=>{const g=!!it.m,ds=c.dirs.filter(d=>isGen(d)===g);return ds[Math.random()*ds.length|0].split('>')};
+function startTest(c){const P=qPool(c),all=smart(c.src.flatMap(s=>P[s])),n=qEff('test',c);let its=all;while(its.length<n)its=its.concat(all);run(its.slice(0,n),it=>it.m?pairs:letters.includes(it)?letters:P.w,qDirFn(c),null,c.sty)}
+function startExam(c){const P=qPool(c),all=smart(c.src.flatMap(k=>P[k].map(it=>[it,P[k]])),x=>x[0]),df=qDirFn(c),qs=[];for(let j=0;j<c.n;j++){const [it,p]=all[j%all.length],[from,to]=df(it),ans=it[to];qs.push({it,from,to,pick:-1,cur:c.sty==='c'||c.sty==='m'&&Math.random()<.5,opts:shuffle([ans,...shuffle([...new Set(p.filter(y=>!twin(it,y)).map(x=>x[to]).filter(x=>x!==ans))]).slice(0,3)])})}exam(qs,c.min*60)}
+function startCards(c){const P=qPool(c);cards(smart(c.src.flatMap(s=>P[s])).slice(0,c.n),c.sty)}
+function startGram(c){let its=smart(GP);while(its.length<c.n)its=its.concat(smart(GP));run(its.slice(0,c.n),GP,qDirFn(c),null,c.sty)}
 const THEMES=[{id:'white',n:'Чистый белый',d:'Воздух и один акцент'},{id:'graphite',n:'Графит',d:'Чёрный и спокойный'},{id:'glass',n:'Стекло',d:'Матовые карточки'},{id:'city',n:'Белый город',d:'Баухаус и плакат'},{id:'stone',n:'Камень и закат',d:'Тёплый и спокойный'},{id:'arcade',n:'Ночная аркада',d:'Тёмный и яркий'},{id:'console',n:'Карманная консоль',d:'Зелёный экран',px:1},{id:'quest',n:'Гранатовый квест',d:'Пиксельная RPG',px:1},{id:'dusk',n:'Пиксельный закат',d:'Город на закате',px:1}];
 const FU=[['','Как в теме',''],['sys','Системный','"Segoe UI",system-ui,sans-serif'],['inter','Inter','Inter,"Segoe UI",sans-serif'],['rubik','Rubik','Rubik,"Segoe UI",sans-serif'],['jost','Jost','Jost,"Segoe UI",sans-serif'],['ptserif','PT Serif','"PT Serif",Georgia,serif'],['exo','Exo 2','"Exo 2","Segoe UI",sans-serif'],['comfortaa','Comfortaa','Comfortaa,"Segoe UI",sans-serif'],['pixel','Tiny5 (пиксельный)','Tiny5,Consolas,monospace']];
 const FH=[['','Как в теме',''],['heebo','Heebo','Heebo,Arial,sans-serif'],['rubik','Rubik','Rubik,Arial,sans-serif'],['assistant','Assistant','Assistant,Arial,sans-serif'],['alef','Alef','Alef,Arial,sans-serif'],['frank','Frank Ruhl Libre','"Frank Ruhl Libre","Times New Roman",serif'],['david','David Libre','"David Libre",David,"Times New Roman",serif'],['arial','Arial','Arial,sans-serif']];
@@ -523,13 +512,12 @@ function sprites(){const r=document.documentElement,c=document.createElement('ca
 function setView(){
  const cur=curTheme(),opt=(a,v)=>a.map(([k,n])=>`<option value="${k}"${k===v?' selected':''}>${n}</option>`).join('');
  $('#app').innerHTML=`<h2>Тема</h2><div class="tgrid">${THEMES.map(t=>`<button class="tcard" data-th="${t.id}" aria-pressed="${t.id===cur}"><span class="tp" data-theme="${t.id}"${t.px?' data-pix':''}><span class="tp-h">Сегодня<span class="tp-i">${ICON(t.id)}</span></span><span class="tp-w" lang="he" dir="rtl">שלום</span><span class="tp-b"><i>Не знаю</i><i class="y">Знаю</i></span></span><span class="tn">${t.n}</span><span class="ts">${t.d}</span></button>`).join('')}</div>
- <h2>Подсказки</h2><label><input type="checkbox" id="sqtr"${ui.qtr?' checked':''}> Транскрипция при вопросах</label><p class="mut">Чтение под словами на иврите в тестах и карточках. В заданиях на чтение оно скрыто, чтобы не выдавать ответ.</p>
  <h2>Шрифт</h2><div class="fg"><label>Текст<select id="sfu">${opt(FU,ui.fu)}</select></label><label>Иврит<select id="sfh">${opt(FH,ui.fh)}</select></label><label><span>Размер текста: <output id="ots"></output></span><input id="sts" type="range" min="85" max="130" step="5" value="${pct(ui.ts,85,130)}"></label><label><span>Размер иврита: <output id="ohs"></output></span><input id="shs" type="range" min="85" max="150" step="5" value="${pct(ui.hs,85,150)}"></label></div>
  <div class="fprev" id="fprev"></div><div class="tools"><button id="frs">Сбросить шрифт</button></div>
  <p class="mut">Тема и шрифт сохраняются в этом браузере, поэтому у каждого свои. Без интернета шрифты, которые ещё не загружались, заменятся системными.</p>`;
  const pv=()=>{$('#fprev').innerHTML=`<div class="fs-he heb" lang="he">שלום</div><div class="heb" lang="he">שָׁלוֹם, בֹּקֶר טוֹב</div><p>Так будет выглядеть текст: шалом значит «привет» и «мир».</p>`;$('#ots').textContent=pct(ui.ts,85,130)+'%';$('#ohs').textContent=pct(ui.hs,85,150)+'%'},upd=()=>{saveU();applyLook();pv()};
  document.querySelector('.tgrid').onclick=e=>{const b=e.target.closest('[data-th]');if(!b)return;ui.theme=b.dataset.th;document.querySelectorAll('[data-th]').forEach(x=>x.setAttribute('aria-pressed',x===b));upd()};
- $('#sqtr').onchange=e=>{ui.qtr=e.target.checked?1:0;saveU()};$('#sfu').onchange=e=>{ui.fu=e.target.value;upd()};$('#sfh').onchange=e=>{ui.fh=e.target.value;upd()};
+ $('#sfu').onchange=e=>{ui.fu=e.target.value;upd()};$('#sfh').onchange=e=>{ui.fh=e.target.value;upd()};
  $('#sts').oninput=e=>{ui.ts=+e.target.value;upd()};$('#shs').oninput=e=>{ui.hs=+e.target.value;upd()};
  $('#frs').onclick=()=>{ui.fu=ui.fh='';ui.ts=ui.hs=100;saveU();applyLook();render()};
  pv();
