@@ -173,6 +173,15 @@ html[data-theme=arcade] .sl{animation-name:larc;animation-duration:.7s;animation
 html:is([data-theme=console],[data-theme=quest],[data-theme=dusk]) .sl{animation-name:lpx;animation-timing-function:steps(5,end);animation-duration:.5s}html:is([data-theme=console],[data-theme=quest],[data-theme=dusk]) .home .map path{animation-timing-function:steps(28,end)}html:is([data-theme=console],[data-theme=quest],[data-theme=dusk]) .home .map{animation-timing-function:steps(4,end)}@keyframes lpx{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
 html[data-theme=quest] .shalom{animation:qhop .4s steps(2,end) 2.6s 2 alternate}@keyframes qhop{to{transform:translateY(-6px)}}
 @media(prefers-reduced-motion:reduce){.home .map,.home .map path,.sl,html[data-theme=city] body::before,html[data-theme=quest] .shalom{animation:none!important}.home .map path{stroke-dashoffset:0}}
+.hw{display:block;width:calc(clamp(64px,22vw,150px)*2.35*var(--hs));max-width:92vw;height:auto;overflow:visible}
+.hw path{fill:none;stroke:currentColor;stroke-width:var(--hw,11);stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1 2;stroke-dashoffset:1.01;animation:hwd calc(var(--d)*var(--k,1)) cubic-bezier(.55,.1,.35,1) calc(1.25s + var(--o)*var(--k,1)) forwards}
+@keyframes hwd{to{stroke-dashoffset:0}}
+html:is([data-theme=white],[data-theme=graphite],[data-theme=glass]) .hw{--hw:9}
+html[data-theme=glass] .hw{filter:drop-shadow(0 2px 6px rgba(20,35,63,.18))}
+html[data-theme=city] .hw{--hw:18;--k:.7}html[data-theme=city] .hw path{stroke-linecap:square;stroke-linejoin:miter}
+html[data-theme=stone] .hw{--hw:10;--k:1.35}
+html[data-theme=arcade] .hw{--hw:10;filter:drop-shadow(0 0 6px var(--ac))}
+@media(prefers-reduced-motion:reduce){.hw path{animation:none!important;stroke-dashoffset:0}}
 </style></head><body>
 <header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="test">Практика</button><button data-v="words">Слова</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
 <main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog><dialog id="dq" aria-label="Настройки теста"></dialog>
@@ -432,7 +441,7 @@ function plan(){const m=todayM(),map=allMap(),t=dayNo(),due=[];for(const k in sr
 function rate(it,ok){const k=sk(it),m=todayM();let e=srs.c[k];if(!e){e={b:1,d:0};m.newN++}
  e.b=ok?Math.min(e.b+1,5):1;e.d=dayNo()+INT[e.b];srs.c[k]=e;m.revN++;saveR();rec(it,ok)}
 function homeView(){
- $('#app').innerHTML=`<div class="home"><svg class="map" viewBox="-5 -5 154 410" aria-hidden="true"><path pathLength="1" d="M76.5 31.0 L73.9 47.0 L64.6 57.0 L61.2 80.0 L57.8 100.0 L51.0 125.0 L45.9 140.0 L37.4 158.0 L30.6 174.0 L28.9 184.0 L21.2 190.0 L12.7 200.0 L1.7 210.0 L6.0 218.0 L17.0 260.0 L29.7 300.0 L49.3 340.0 L58.6 391.0 L63.7 385.0 L68.0 355.0 L76.5 315.0 L85.0 280.0 L89.2 255.0 L102.0 235.0 L106.2 210.0 L108.8 185.0 L114.7 165.0 L114.7 135.0 L114.7 100.0 L115.6 80.0 L116.4 70.0 L123.2 72.0 L140.2 65.0 L137.7 35.0 L140.2 10.0 L117.3 13.0 L106.2 31.0 L93.5 32.0Z"/></svg><div class="shalom" lang="he" aria-label="שלום">${[...'שלום'].map((c,i)=>`<span class="sl" style="--i:${i}" aria-hidden="true">${c}</span>`).join('')}</div></div>`;
+ $('#app').innerHTML=`<div class="home"><svg class="map" viewBox="-5 -5 154 410" aria-hidden="true"><path pathLength="1" d="M76.5 31.0 L73.9 47.0 L64.6 57.0 L61.2 80.0 L57.8 100.0 L51.0 125.0 L45.9 140.0 L37.4 158.0 L30.6 174.0 L28.9 184.0 L21.2 190.0 L12.7 200.0 L1.7 210.0 L6.0 218.0 L17.0 260.0 L29.7 300.0 L49.3 340.0 L58.6 391.0 L63.7 385.0 L68.0 355.0 L76.5 315.0 L85.0 280.0 L89.2 255.0 L102.0 235.0 L106.2 210.0 L108.8 185.0 L114.7 165.0 L114.7 135.0 L114.7 100.0 L115.6 80.0 L116.4 70.0 L123.2 72.0 L140.2 65.0 L137.7 35.0 L140.2 10.0 L117.3 13.0 L106.2 31.0 L93.5 32.0Z"/></svg><div class="shalom" lang="he" role="img" aria-label="שלום">${isPx()?[...'שלום'].map((c,i)=>`<span class="sl" style="--i:${i}" aria-hidden="true">${c}</span>`).join(''):shalomSvg()}</div></div>`;
 }
 function session(q){
  let i=0;const queue=[...q],retry=new Set(),box=$('#quiz'),done0={n:0,w:0};
@@ -598,6 +607,7 @@ function openDaily(){const d=$('#dq'),nw=v=>{ui.nw=Math.max(0,Math.min(50,+v||0)
  d.onchange=e=>{const t=e.target;if(t.id==='dtr'){ui.qtr=t.checked?1:0;saveU()}else if(t.id==='dnw'){nw(t.value);draw()}};
  d.onclose=()=>{const s=$('#md span');if(s)s.textContent=dailyLine()};
  if(!d.open)d.showModal();d.tabIndex=-1;d.focus()}
+const HWP=[['M380 28V84q0 26-26 26H316q-26 0-26-26V28',.55,0],['M336 30l3 78',.25,.6],['M228 -4V30h40q12 0 10 14l-6 66',.5,.95],['M190 32h16v78',.3,1.5],['M76 30h72q14 0 14 14v66H72V30',.6,1.85]],shalomSvg=()=>`<svg class="hw" viewBox="58 -16 336 140" aria-hidden="true">${HWP.map(([d,du,o])=>`<path pathLength="1" d="${d}" style="--d:${du}s;--o:${o}s"/>`).join('')}</svg>`;
 const THEMES=[{id:'white',n:'Чистый белый',d:'Воздух и один акцент'},{id:'graphite',n:'Графит',d:'Чёрный и спокойный'},{id:'glass',n:'Стекло',d:'Матовые карточки'},{id:'city',n:'Белый город',d:'Баухаус и плакат'},{id:'stone',n:'Камень и закат',d:'Тёплый и спокойный'},{id:'arcade',n:'Ночная аркада',d:'Тёмный и яркий'},{id:'console',n:'Карманная консоль',d:'Зелёный экран',px:1},{id:'quest',n:'Гранатовый квест',d:'Пиксельная RPG',px:1},{id:'dusk',n:'Пиксельный закат',d:'Город на закате',px:1}];
 const FU=[['','Как в теме',''],['sys','Системный','"Segoe UI",system-ui,sans-serif'],['inter','Inter','Inter,"Segoe UI",sans-serif'],['rubik','Rubik','Rubik,"Segoe UI",sans-serif'],['jost','Jost','Jost,"Segoe UI",sans-serif'],['ptserif','PT Serif','"PT Serif",Georgia,serif'],['exo','Exo 2','"Exo 2","Segoe UI",sans-serif'],['comfortaa','Comfortaa','Comfortaa,"Segoe UI",sans-serif'],['pixel','Tiny5 (пиксельный)','Tiny5,Consolas,monospace']];
 const FH=[['','Как в теме',''],['heebo','Heebo','Heebo,Arial,sans-serif'],['rubik','Rubik','Rubik,Arial,sans-serif'],['assistant','Assistant','Assistant,Arial,sans-serif'],['alef','Alef','Alef,Arial,sans-serif'],['frank','Frank Ruhl Libre','"Frank Ruhl Libre","Times New Roman",serif'],['david','David Libre','"David Libre",David,"Times New Roman",serif'],['arial','Arial','Arial,sans-serif']];
