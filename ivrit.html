@@ -158,6 +158,9 @@ html[data-pf] .qf button{font-size:calc(18px*var(--ts))}html[data-theme=glass] #
 .dsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.dsum div{padding:10px 6px;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--bg);text-align:center}.dsum b{display:block;font-size:calc(26px*var(--ts));line-height:1.15}.dsum span{display:block;font-size:calc(13px*var(--ts));color:var(--mut);line-height:1.3}
 .dst{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.dst div{padding:6px 2px;border-radius:var(--r-i);background:color-mix(in srgb,var(--ac) 14%,transparent);text-align:center}.dst b{display:block}.dst span{display:block;font-size:calc(11px*var(--ts));color:var(--mut);line-height:1.2}
 @media(max-width:520px){.launch{grid-template-columns:minmax(0,1fr)}}
+.gfw input{flex:1 1 260px}.gfx{margin-top:8px}.gfe{font-family:var(--u-he,var(--t-he));font-size:calc(17px*var(--hs))}#gfr{margin-top:10px}.gfr{margin:0}.gf{min-width:420px}.gf td .heb{font-size:calc(26px*var(--hs));display:block}.gfh{background:color-mix(in srgb,var(--ac) 18%,transparent)}.gfn{color:var(--bad-t,var(--bad))}
+.gf{min-width:0}@media(max-width:520px){.gf td .heb{font-size:calc(20px*var(--hs))}.gf th,.gf td{padding:8px 3px}.gf th small{font-size:11px}}
+@media(max-width:520px){.gf thead{display:none}.gf,.gf tbody{display:block}.gf tbody tr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.gf td{display:block;padding:10px 4px}.gf td::before{content:attr(data-l);display:block;margin-bottom:2px;font-size:11px;color:var(--mut)}.gf td .heb{overflow-wrap:anywhere}}
 </style></head><body>
 <header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="test">Практика</button><button data-v="words">Слова</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
 <main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog><dialog id="dq" aria-label="Настройки теста"></dialog>
@@ -281,6 +284,91 @@ const GEXP=`<p>За основу берём форму для одного му�
 <li><b>Исключения:</b> окончание не всегда совпадает с родом: ${hw('שולחן','шульхан, м.р.')} → ${hw('שולחנות','шульханот')}, ${hw('עיר','ир, ж.р.')} → ${hw('ערים','арим')}. Некоторые слова меняются полностью: ${hw('איש','иш')} → ${hw('אנשים','анашим')}, ${hw('אישה','иша')} → ${hw('נשים','нашим')}.</li>
 </ul>
 <div class="gwrap"><table class="gt gx" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th class="rl"></th></tr></thead><tbody>${GX.map(([ru,s])=>`<tr>${s.split('|').map(x=>{const [he,tr]=x.split(';');return `<td><span class="heb">${he}</span><small class="mut">${tr}</small></td>`}).join('')}<td class="rl" dir="ltr">${ru}</td></tr>`).join('')}</tbody></table></div>`;
+const GFS=`хороший|טוב,тов|טובה,това|טובים,товим|טובות,товот
+большой|גדול,гадоль|גדולה,гдола|גדולים,гдолим|גדולות,гдолот
+маленький|קטן,катан|קטנה,ктана|קטנים,ктаним|קטנות,ктанот
+новый|חדש,хадаш|חדשה,хадаша|חדשים,хадашим|חדשות,хадашот
+красивый|יפה,яфе|יפה,яфа|יפים,яфим|יפות,яфот
+плохой|רע,ра|רעה,раа|רעים,раим|רעות,раот
+горячий, жаркий|חם,хам|חמה,хама|חמים,хамим|חמות,хамот
+холодный|קר,кар|קרה,кара|קרים,карим|קרות,карот
+дорогой|יקר,якар|יקרה,йекара|יקרים,йекарим|יקרות,йекарот
+дешёвый|זול,золь|זולה,зола|זולים,золим|זולות,золот
+здоровый|בריא,бари|בריאה,бриа|בריאים,бриим|בריאות,бриот
+больной|חולה,холе|חולה,хола|חולים,холим|חולות,холот
+радостный|שמח,самеах|שמחה,смеха|שמחים,смехим|שמחות,смехот
+грустный|עצוב,ацув|עצובה,ацува|עצובים,ацувим|עצובות,ацувот
+уставший|עייף,айеф|עייפה,айефа|עייפים,айефим|עייפות,айефот
+голодный|רעב,раэв|רעבה,реэва|רעבים,реэвим|רעבות,реэвот
+испытывающий жажду|צמא,цамэ|צמאה,цмеа|צמאים,цмеим|צמאות,цмеот
+сердитый|כועס,коэс|כועסת,коэсет|כועסים,коасим|כועסות,коасот
+важный|חשוב,хашув|חשובה,хашува|חשובים,хашувим|חשובות,хашувот
+лёгкий|קל,каль|קלה,кала|קלים,калим|קלות,калот
+трудный|קשה,каше|קשה,каша|קשים,кашим|קשות,кашот
+возможный|אפשרי,эфшари|אפשרית,эфшарит|אפשריים,эфшариим|אפשריות,эфшариёт
+уверенный, безопасный|בטוח,батуах|בטוחה,бтуха|בטוחים,бтухим|בטוחות,бтухот
+опасный|מסוכן,месукан|מסוכנת,месукенет|מסוכנים,месуканим|מסוכנות,месуканот
+верный, правильный|נכון,нахон|נכונה,нехона|נכונים,нехоним|נכונות,нехонот
+свободный|חופשי,хофши|חופשית,хофшит|חופשיים,хофшиим|חופשיות,хофшиёт
+занятый|עסוק,асук|עסוקה,асука|עסוקים,асуким|עסוקות,асукот
+незанятый|פנוי,пануй|פנויה,пнуя|פנויים,пнуим|פנויות,пнуёт
+готовый|מוכן,мухан|מוכנה,мухана|מוכנים,муханим|מוכנות,муханот
+ответственный|אחראי,ахраи|אחראית,ахраит|אחראיים,ахраиим|אחראיות,ахраиёт
+израильтянин, израильский|ישראלי,исраэли|ישראלית,исраэлит|ישראלים,исраэлим|ישראליות,исраэлиёт
+красный|אדום,адом|אדומה,адума|אדומים,адумим|אדומות,адумот
+синий|כחול,кахоль|כחולה,кхула|כחולים,кхулим|כחולות,кхулот
+зелёный|ירוק,ярок|ירוקה,йерука|ירוקים,йеруким|ירוקות,йерукот
+жёлтый|צהוב,цаhов|צהובה,цеhуба|צהובים,цеhубим|צהובות,цеhубот
+чёрный|שחור,шахор|שחורה,шхора|שחורים,шхорим|שחורות,шхорот
+белый|לבן,лаван|לבנה,левана|לבנים,леваним|לבנות,леванот
+учится|לומד,ломед|לומדת,ломедет|לומדים,ломдим|לומדות,ломдот
+говорит|מדבר,медабер|מדברת,медаберет|מדברים,медабрим|מדברות,медаброт
+живёт|גר,гар|גרה,гара|גרים,гарим|גרות,гарот
+хочет|רוצה,роце|רוצה,роца|רוצים,роцим|רוצות,роцот
+пьёт|שותה,шоте|שותה,шота|שותים,шотим|שותות,шотот
+делает|עושה,осе|עושה,оса|עושים,осим|עושות,осот
+видит|רואה,роэ|רואה,роа|רואים,роим|רואות,роот
+идёт|הולך,hолех|הולכת,hолехет|הולכים,hолхим|הולכות,hолхот
+приходит|בא,ба|באה,баа|באים,баим|באות,баот
+знает|יודע,ёдеа|יודעת,ёдаат|יודעים,ёдим|יודעות,ёдот
+слышит|שומע,шомеа|שומעת,шомаат|שומעים,шомим|שומעות,шомот
+любит|אוהב,оhев|אוהבת,оhевет|אוהבים,оhавим|אוהבות,оhавот
+читает|קורא,коре|קוראת,корет|קוראים,корим|קוראות,корот
+пишет|כותב,котев|כותבת,котевет|כותבים,котвим|כותבות,котвот
+работает|עובד,овед|עובדת,оведет|עובדים,овдим|עובדות,овдот
+говорит (сообщает)|אומר,омер|אומרת,омерет|אומרים,омрим|אומרות,омрот
+даёт|נותן,нотен|נותנת,нотенет|נותנים,нотним|נותנות,нотнот
+берёт|לוקח,локеах|לוקחת,локахат|לוקחים,локхим|לוקחות,локхот
+сидит|יושב,ёшев|יושבת,ёшевет|יושבים,ёшвим|יושבות,ёшвот
+стоит|עומד,омед|עומדת,омедет|עומדים,омдим|עומדות,омдот
+спит|ישן,яшен|ישנה,йешена|ישנים,йешеним|ישנות,йешенот|«Старый» пишется так же, но читается яшан, йешана, йешаним, йешанот.
+понимает|מבין,мевин|מבינה,мевина|מבינים,мевиним|מבינות,мевинот
+должен, нужно|צריך,царих|צריכה,цриха|צריכים,црихим|צריכות,црихот
+может|יכול,яхоль|יכולה,йехола|יכולים,йехолим|יכולות,йехолот
+боится|מפחד,мефахед|מפחדת,мефахедет|מפחדים,мефахадим|מפחדות,мефахадот
+лектор, читает лекции|מרצה,марце|מרצה,марца|מרצים,марцим|מרצות,марцот
+ученик, ученица|תלמיד,талмид|תלמידה,талмида|תלמידים,талмидим|תלמידות,талмидот
+учитель, учительница|מורה,море|מורה,мора|מורים,морим|מורות,морот
+друг, подруга|חבר,хавер|חברה,хавера|חברים,хаверим|חברות,хаверот
+турист, туристка|תייר,таяр|תיירת,таерет|תיירים,таярим|תיירות,таярот
+ребёнок, мальчик, девочка|ילד,йелед|ילדה,йальда|ילדים,йеладим|ילדות,йеладот
+врач|רופא,рофе|רופאה,рофа|רופאים,рофим|רופאות,рофот
+водитель|נהג,наhаг|נהגת,наhегет|נהגים,наhагим|נהגות,наhагот
+студент, студентка|סטודנט,студент|סטודנטית,студентит|סטודנטים,студентим|סטודנטיות,студентиёт
+руководитель|מנהל,менаhель|מנהלת,менаhелет|מנהלים,менаhалим|מנהלות,менаhалот
+гражданин, гражданка|אזרח,эзрах|אזרחית,эзрахит|אזרחים,эзрахим|אזרחיות,эзрахиёт
+житель, жительница|תושב,тошав|תושבת,тошевет|תושבים,тошавим|תושבות,тошавот
+дядя, тётя|דוד,дод|דודה,дода|דודים,додим|דודות,додот
+новый репатриант, новая репатриантка|עולה חדש,оле хадаш|עולה חדשה,ола хадаша|עולים חדשים,олим хадашим|עולות חדשות,олот хадашот
+мужчина, женщина, люди|איש,иш|אישה,иша|אנשים,анашим|נשים,нашим|Формы меняются полностью.
+брат, сестра|אח,ах|אחות,ахот|אחים,ахим|אחיות,ахайот|Сестра и сёстры — другая основа.
+сын, дочь|בן,бен|בת,бат|בנים,баним|בנות,банот|Дочь и дочери — другая основа.`;
+const GFD=GFS.split('\n').map(l=>{const p=l.split('|');return{ru:p[0],f:p.slice(1,5).map(x=>x.split(',')),note:p[5]||''}}),GFIN={'ם':'מ','ן':'נ','ץ':'צ','ף':'פ','ך':'כ'};
+function gfGuess(w){const one=x=>{if(/ה$/.test(x)){const s=x.slice(0,-1);return [x,x,s+'ים',s+'ות']}if(/י$/.test(x))return [x,x+'ת',x+'ים',x+'ות'];const b=x.replace(/[םןץףך]$/,c=>GFIN[c]);return [x,b+'ה',b+'ים',b+'ות']},ws=w.split(/\s+/).map(one);return [0,1,2,3].map(i=>[ws.map(f=>f[i]).join(' '),''])}
+function gfFind(q){q=q.trim().replace(/[֑-ׇ]/g,'').replace(/\s+/g,' ');if(!q)return null;if(/[א-ת]/.test(q)){const r=GFD.find(x=>x.f.some(y=>y[0]===q));return r?{r,hit:q}:/^[א-ת ]+$/.test(q)?{guess:q}:{none:1}}const s=q.toLowerCase(),parts=x=>x.ru.toLowerCase().split(/,\s*/);const r=GFD.find(x=>parts(x).includes(s))||GFD.find(x=>parts(x).some(t=>t.startsWith(s)))||(s.length>2&&GFD.find(x=>x.ru.toLowerCase().includes(s)));return r?{r}:{none:1}}
+const GFH=[['יחיד','ед. ч., м.р.'],['יחידה','ед. ч., ж.р.'],['רבים','мн. ч., м.р.'],['רבות','мн. ч., ж.р.']],gfTable=(f,hit)=>`<div class="gwrap" dir="rtl"><table class="gt gf" dir="rtl"><thead><tr>${GFH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}</tr></thead><tbody><tr>${f.map(([he,tr],i)=>`<td data-l="${GFH[i][1]}"${he===hit?' class="gfh"':''}><span class="heb">${esc(he)}</span>${tr?`<small class="mut">${esc(tr)}</small>`:''}</td>`).join('')}</tr></tbody></table></div>`;
+function gfHtml(q){const x=gfFind(q);if(!x)return '';if(x.none)return '<p class="mut">Такого слова нет в списке. Попробуйте написать его на иврите в мужском роде.</p>';if(x.guess)return `<p class="gfn">Этого слова нет в списке, поэтому формы ниже — догадка по общему правилу, без чтения. Гласные и окончания у многих слов меняются, а у многих существительных женской формы нет вовсе.</p>${gfTable(gfGuess(x.guess),'')}<p><a href="https://www.pealim.com/search/?q=${encodeURIComponent(x.guess)}" target="_blank" rel="noopener">Проверить на Pealim</a></p>`;return `<p class="gfr"><b>${esc(x.r.ru)}</b></p>${gfTable(x.r.f,x.hit||'')}${x.r.note?`<p class="mut">${esc(x.r.note)}</p>`:''}`}
+function bindGF(){const i=$('#gfq'),out=()=>{$('#gfr').innerHTML=gfHtml(i.value)};i.oninput=out;document.querySelectorAll('[data-gfe]').forEach(b=>b.onclick=()=>{i.value=b.dataset.gfe;out()})}
 let gnk=false,gcur=false,grd=true;
 const gby=he=>GP.find(x=>x.he===he);
 function gtable(fill){
@@ -293,6 +381,10 @@ function gramView(){
  <div class="row"><button id="gnk" class="${gnk?'pri':''}">Огласовки</button><button id="gcu" class="${gcur?'pri':''}">Письменные буквы</button><button id="grd" class="${grd?'pri':''}">Чтение</button></div>
  <div id="gt" class="gwrap">${gtable(false)}</div>
  <p class="mut">Таблица читается справа налево, как в тетради. В 1-м лице форма для мужчины и женщины одна и та же. Кнопка «Чтение» скрывает подписи, чтобы проверить себя.</p>
+ <h2>Формы слова</h2><p class="mut">Напишите слово на иврите или по-русски, и появятся его формы: мужской и женский род, единственное и множественное число.</p>
+ <div class="row gfw"><input id="gfq" list="gfl" placeholder="Например, טוב или хороший" aria-label="Слово" autocomplete="off"><datalist id="gfl">${GFD.map(x=>`<option value="${x.f[0][0]}">${esc(x.ru)}</option>`).join('')}</datalist></div>
+ <div class="chips gfx" aria-label="Примеры">${['טוב','לומד','תלמיד','רוצה','ישראלי','אח'].map(w=>`<button type="button" class="chip gfe" lang="he" data-gfe="${w}">${w}</button>`).join('')}</div>
+ <div id="gfr" aria-live="polite"></div>
  <h2>Потренироваться</h2>
  <div class="row"><button id="ghelp" aria-expanded="false" aria-controls="gexp">Как менять род и число<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="gopen" class="pri">Начать тест</button><button id="gfill">Заполнить таблицу</button></div>
  <div id="gexp" class="gexp" hidden>${GEXP}</div>
@@ -304,6 +396,7 @@ function gramView(){
  $('#grd').onclick=()=>{grd=!grd;$('#grd').classList.toggle('pri',grd);redraw()};
  $('#out').onclick=render;
  const gbegin=()=>{$('#gbody').hidden=true;$('#bar').hidden=false};
+ bindGF();
  $('#ghelp').onclick=()=>{const open=$('#gexp').hidden;$('#gexp').hidden=!open;$('#ghelp').setAttribute('aria-expanded',open)};
  $('#gopen').onclick=()=>openQ('gram',c=>{gbegin();startGram(c)});
  $('#gfill').onclick=()=>{gbegin();$('#quiz').innerHTML=`<p class="mut">Выберите форму для каждой клетки. Колонки идут справа налево.</p><div class="gwrap">${gtable(true)}</div><div class="tools"><button id="gchk" class="pri">Проверить</button><button id="gagain">Заново</button></div><p id="gres" aria-live="polite"></p>`;
