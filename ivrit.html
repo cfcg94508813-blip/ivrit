@@ -154,8 +154,12 @@ html[data-pf] header nav{order:2;flex-basis:100%}html[data-pf] .accb{order:1}
 @media(max-width:520px){.qs{grid-template-columns:minmax(0,1fr)}.ql{padding-top:0}.qsum{flex:1 1 100%}.stp .chips{margin-left:0}}
 .qd h2{overflow-wrap:anywhere}
 html[data-pf] .qf button{font-size:calc(18px*var(--ts))}html[data-theme=glass] #dq,html[data-theme=glass] .qf{background:#eef3fb}
+.launch{grid-template-columns:repeat(2,minmax(0,1fr))}.bigd{border-color:var(--ac)}.bigd b{color:var(--ac)}.nudge{margin-top:14px}
+.dsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.dsum div{padding:10px 6px;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--bg);text-align:center}.dsum b{display:block;font-size:calc(26px*var(--ts));line-height:1.15}.dsum span{display:block;font-size:calc(13px*var(--ts));color:var(--mut);line-height:1.3}
+.dst{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}.dst div{padding:6px 2px;border-radius:var(--r-i);background:color-mix(in srgb,var(--ac) 14%,transparent);text-align:center}.dst b{display:block}.dst span{display:block;font-size:calc(11px*var(--ts));color:var(--mut);line-height:1.2}
+@media(max-width:520px){.launch{grid-template-columns:minmax(0,1fr)}}
 </style></head><body>
-<header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="today">На сегодня</button><button data-v="words">Слова</button><button data-v="test">Тест</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
+<header><h1>Иврит: мои слова</h1><nav class="row"><button data-v="test">Практика</button><button data-v="words">Слова</button><button data-v="gram">Грамматика</button><button data-v="set">Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></header>
 <main id="app"></main><dialog id="dacc" aria-label="Аккаунт"></dialog><dialog id="dq" aria-label="Настройки теста"></dialog>
 <script>
 const K='ivrit_v1';
@@ -196,12 +200,11 @@ const saveU=()=>{try{localStorage.setItem(K+'u',JSON.stringify(ui))}catch(e){}},
 const isCur=w=>curAll!==curW.has(w.he+'|'+w.ru);
 let armed=null,armT;const disarm=()=>{clearTimeout(armT);armed=null;document.querySelectorAll('.arm').forEach(b=>{b.classList.remove('arm');if(b.classList.contains('ad'))b.textContent='+ в свои'})};
 const rows=()=>{disarm();const s=q.toLowerCase();return cur().map((w,i)=>[w,i]).filter(([w])=>(w.he+w.tr+w.ru).toLowerCase().includes(s)&&(!tg||w.tag===tg)).map(([w,i])=>`<tr><td class="heb${isCur(w)?' cur':''}" data-cur data-w="${esc(w.he+'|'+w.ru)}" title="Нажмите: печатные и письменные буквы">${esc(nk&&w.nk?w.nk:w.he)}</td><td class="c-tr">${esc(w.tr)}</td><td class="c-ru">${esc(w.ru)}${w.note?`<small class="mut n-note">${esc(w.note)}</small>`:''}${w.tag?`<small class="mut n-tag">${esc(w.tag)}</small>`:''}</td><td class="c-pc">${pc(w)===null?'—':pc(w)+'%'}</td><td class="act">${lv==='m'?`<button data-ed="${i}" aria-label="Изменить слово ${esc(w.ru)}" title="Изменить слово">⚙</button> <button class="del" data-del="${i}" aria-label="Удалить слово ${esc(w.ru)}" title="Нажмите дважды, чтобы удалить">×</button>`:`${words.some(x=>x.he===w.he&&x.ru===w.ru)?'<span class="added" role="img" aria-label="Уже в ваших словах" title="Уже в ваших словах">✓</span>':`<button class="ad" data-add="${i}" aria-label="Добавить в свои слова" title="Нажмите дважды, чтобы добавить">+ в свои</button>`}`}</td></tr>`).join('')||'<tr><td colspan="5" class="mut">Ничего не найдено. Добавьте слово выше.</td></tr>'};
-function render(){clearInterval(timer);
+function render(){clearInterval(timer);if(view==='today')view='test';
  document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-current',b.dataset.v===view));
  if(view==='set'){setView();return}
  if(view==='gram'){gramView();return}
  if(view==='home'){homeView();return}
- if(view==='today'){todayView();return}
  $('#app').innerHTML=view==='words'?`
  <div class="wl pos-${ui.pos}"><div class="vb"><button id="addb" class="pri"${lv==='m'?'':' disabled'}>+ Добавить слова</button><button id="all" class="${curAll?'pri':''}">Печатные ↔ письменные</button><button id="nkb" class="${nk?'pri':''}">Огласовки</button><button id="gear">⚙ Настроить вид</button></div><div class="wmain">
  <div class="row seg" role="group" aria-label="Список слов">${[['m','Свои слова'],['a','Алеф'],['b','Бет'],['g','Гимель']].map(([k,n])=>`<button data-lv="${k}" aria-pressed="${lv===k}" class="${lv===k?'pri':''}">${n}${k==='m'?'':' ('+LV(k).length+')'}</button>`).join('')}<button id="addall"${lv==='m'?' hidden':''}>+ Весь уровень в свои слова</button></div>
@@ -221,8 +224,8 @@ function render(){clearInterval(timer);
  <div class="row"><b>Столбцы:</b><label><input type="checkbox" data-c="tr"> читается</label><label><input type="checkbox" data-c="ru"> перевод</label><label><input type="checkbox" data-c="note"> зацепка</label><label><input type="checkbox" data-c="tag"> тема</label><label><input type="checkbox" data-c="pc"> знаю (%)</label></div>
  <div class="row"><b>Кнопки вида:</b><select id="upos" aria-label="Где держать кнопки"><option value="top">сверху</option><option value="bottom">снизу</option><option value="right">справа сбоку</option></select></div>
  <div class="row end"><button data-close class="pri">Готово</button></div></div></dialog>`
- :`<div class="launch"><button class="big" id="mt"><b>Тест</b><span>Ответ виден сразу после каждого вопроса</span></button><button class="big" id="me"><b>Экзамен</b><span>Своё время и вопросы, результат только в конце</span></button><button class="big" id="mc"><b>Карточки</b><span>Листайте и отмечайте «знаю» или «не знаю»</span></button></div>
- <div id="resume"></div>
+ :`<div class="launch"><button class="big bigd" id="md"><b>На сегодня</b><span>${dailyLine()}</span></button><button class="big" id="mt"><b>Тест</b><span>Ответ виден сразу после каждого вопроса</span></button><button class="big" id="me"><b>Экзамен</b><span>Своё время и вопросы, результат только в конце</span></button><button class="big" id="mc"><b>Карточки</b><span>Листайте и отмечайте «знаю» или «не знаю»</span></button></div>
+ <div id="resume"></div>${acc?'':'<p class="mut nudge"><button class="lnk" data-acc type="button">Войдите в аккаунт</button>, чтобы слова были на всех устройствах.</p>'}
  <div id="bar" hidden><button id="out">← К выбору</button></div>
  <div id="quiz" aria-live="polite"></div>`;
  view==='words'?bindWords():bindTest();
@@ -326,29 +329,10 @@ function rate(it,ok){const k=sk(it),m=todayM();let e=srs.c[k];if(!e){e={b:1,d:0}
 function homeView(){
  $('#app').innerHTML=`<div class="home"><svg class="map" viewBox="-5 -5 154 410" aria-hidden="true"><path d="M76.5 31.0 L73.9 47.0 L64.6 57.0 L61.2 80.0 L57.8 100.0 L51.0 125.0 L45.9 140.0 L37.4 158.0 L30.6 174.0 L28.9 184.0 L21.2 190.0 L12.7 200.0 L1.7 210.0 L6.0 218.0 L17.0 260.0 L29.7 300.0 L49.3 340.0 L58.6 391.0 L63.7 385.0 L68.0 355.0 L76.5 315.0 L85.0 280.0 L89.2 255.0 L102.0 235.0 L106.2 210.0 L108.8 185.0 L114.7 165.0 L114.7 135.0 L114.7 100.0 L115.6 80.0 L116.4 70.0 L123.2 72.0 L140.2 65.0 L137.7 35.0 L140.2 10.0 L117.3 13.0 L106.2 31.0 L93.5 32.0Z"/></svg><div class="shalom" lang="he">שלום</div></div>`;
 }
-function todayView(){
- const p=plan(),n=p.due.length+p.fresh.length,map=allMap(),bx=[0,0,0,0,0,0];for(const k in srs.c)if(map.has(k))bx[srs.c[k].b]++;
- $('#app').innerHTML=`<div id="gbody"><h2>На сегодня</h2>${acc?'':'<p class="mut"><button class="lnk" data-acc type="button">Войдите в аккаунт</button>, чтобы слова были на всех устройствах.</p>'}
- <p>К повторению: <b>${p.due.length}</b> · Новых слов: <b>${p.fresh.length}</b> <span class="mut">(лимит ${p.lim} в день, сегодня уже ${p.m.newN})</span></p>
- <div class="row"><button id="tgo" class="pri"${n?'':' disabled'}>${n?'Начать ('+n+')':'На сегодня всё'}</button></div>
- ${n?'':'<p class="mut">Всё повторено. Возвращайтесь завтра: слова вернутся по расписанию. Если хочется ещё, поднимите лимит новых слов ниже.</p>'}
- <h2>Настройки</h2>
- <div class="row"><label>Новые слова брать из: <select id="tsl" aria-label="Откуда новые слова">${LSEL('tsl0').replace(/^<select id="tsl0"[^>]*>/,'').replace('</select>','')}</select></label><label>Новых в день <input id="tnw" type="number" min="0" max="50" value="${p.lim}" style="width:80px"></label></div>
- <div class="row">${qrSw('ttr','Показывать транскрипцию на карточках')}</div>
- <p class="mut">Осталось новых в этом списке: ${p.pool}. Слова идут по порядку списка.</p>
- <h2>Как идёт</h2>
- <p class="mut">В работе: ${bx[1]+bx[2]+bx[3]+bx[4]+bx[5]} слов. Начинаю учить: ${bx[1]} · пару дней: ${bx[2]} · неделя: ${bx[3]} · две недели: ${bx[4]} · месяц: ${bx[5]}. Повторено сегодня: ${p.m.revN}.</p>
- <p class="mut">Верно: слово вернётся через 3, 7, 14, 30 дней. Неверно: вернётся завтра.</p></div>
- <div id="bar" hidden><button id="out">← К экрану «На сегодня»</button></div><div id="quiz" aria-live="polite"></div>`;
- $('#tsl').value=ui.sl||'m';$('#tsl').onchange=e=>{ui.sl=e.target.value;saveU();render()};
- $('#ttr').onchange=e=>{ui.qtr=e.target.checked?1:0;saveU()};$('#tnw').onchange=e=>{ui.nw=Math.max(0,Math.min(+e.target.value||0,50));saveU();render()};
- $('#out').onclick=render;
- $('#tgo').onclick=()=>{$('#gbody').hidden=true;$('#bar').hidden=false;session([...p.due,...p.fresh])};
-}
 function session(q){
  let i=0;const queue=[...q],retry=new Set(),box=$('#quiz'),done0={n:0,w:0};
  function show(){
-  if(i>=queue.length){const m=todayM();box.innerHTML=`<div class="score">На сегодня всё</div><p>Повторено слов: ${q.length}. Всего за сегодня: новых ${m.newN}, ответов ${m.revN}.</p><div class="tools"><button id="back" class="pri">К экрану «На сегодня»</button></div>`;$('#back').onclick=render;return}
+  if(i>=queue.length){const m=todayM();box.innerHTML=`<div class="score">На сегодня всё</div><p>Повторено слов: ${q.length}. Всего за сегодня: новых ${m.newN}, ответов ${m.revN}.</p><div class="tools"><button id="back" class="pri">К практике</button></div>`;$('#back').onclick=render;return}
   const it=queue[i],k=sk(it),isNew=!srs.c[k]&&!retry.has(k);
   box.innerHTML=`<p class="mut">${isNew?'Новое слово':retry.has(k)?'Ещё раз':'Повторение'} · ${i+1} из ${queue.length}. Нажмите на карточку, чтобы перевернуть.</p><button class="card" id="cd"><span class="heb">${esc(it.he)}</span>${qrC(it)}</button><div class="tools" id="kb" hidden><button id="no">Не знаю</button><button id="yes" class="pri">Знаю</button></div>`;
   $('#cd').onclick=()=>{$('#cd').innerHTML=`<span class="heb">${esc(it.nk||it.he)}</span><br>${esc(it.tr)}<br><b>${esc(it.ru)}</b>${it.note?'<br><small class="mut">'+esc(it.note)+'</small>':''}`;$('#kb').hidden=false};
@@ -362,7 +346,7 @@ const qt=(it,from,to)=>QT[from+'>'+to][letters.includes(it)?1:0];
 function loadX(){try{const o=JSON.parse(localStorage.getItem(K+'x'));if(!o||!Array.isArray(o.qs)||!o.qs.length)return null;const all=[...words,...LIB.a,...LIB.b,...LIB.g],qs=[];for(const x of o.qs){const it=x.t==='l'?letters.find(l=>l.he===x.he):x.t==='p'?pairs.find(p=>p.m===x.he):all.find(w=>w.he===x.he&&w.ru===x.ru);if(!it)return null;qs.push({it,from:x.from,to:x.to,pick:x.pick,cur:x.cur,opts:x.opts})}return{qs,secs:o.secs,end:o.end,i:o.i||0}}catch(e){return null}}
 function begin(){document.querySelectorAll('dialog').forEach(d=>d.close());document.querySelector('.launch').hidden=true;$('#resume').hidden=true;$('#bar').hidden=false}
 function bindTest(){
- $('#mt').onclick=()=>openQ('test',c=>{begin();startTest(c)});$('#me').onclick=()=>openQ('exam',c=>{begin();startExam(c)});
+ $('#md').onclick=openDaily;$('#mt').onclick=()=>openQ('test',c=>{begin();startTest(c)});$('#me').onclick=()=>openQ('exam',c=>{begin();startExam(c)});
  document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
  $('#out').onclick=render;
  const sx=loadX();if(sx){const lf=sx.secs?Math.max(0,Math.round((sx.end-Date.now())/1000)):0;$('#resume').innerHTML=`<div class="resume"><p><b>Есть незавершённый экзамен:</b> вопрос ${sx.i+1} из ${sx.qs.length}${sx.secs?', осталось '+Math.floor(lf/60)+':'+String(lf%60).padStart(2,'0'):''}</p><div class="row"><button id="rx" class="pri">Продолжить</button><button id="dx">Сбросить</button></div></div>`;
@@ -494,6 +478,21 @@ function startTest(c){const P=qPool(c),all=smart(c.src.flatMap(s=>P[s])),n=qEff(
 function startExam(c){const P=qPool(c),all=smart(c.src.flatMap(k=>P[k].map(it=>[it,P[k]])),x=>x[0]),df=qDirFn(c),qs=[];for(let j=0;j<c.n;j++){const [it,p]=all[j%all.length],[from,to]=df(it),ans=it[to];qs.push({it,from,to,pick:-1,cur:c.sty==='c'||c.sty==='m'&&Math.random()<.5,opts:shuffle([ans,...shuffle([...new Set(p.filter(y=>!twin(it,y)).map(x=>x[to]).filter(x=>x!==ans))]).slice(0,3)])})}exam(qs,c.min*60)}
 function startCards(c){const P=qPool(c);cards(smart(c.src.flatMap(s=>P[s])).slice(0,c.n),c.sty)}
 function startGram(c){let its=smart(GP);while(its.length<c.n)its=its.concat(smart(GP));run(its.slice(0,c.n),GP,qDirFn(c),null,c.sty)}
+const DST=['Учу','Пара дней','Неделя','2 недели','Месяц'];
+function dailyLine(){const p=plan(),n=p.due.length+p.fresh.length;return n?`${p.due.length} повторить · ${p.fresh.length} новых`:'Всё повторено, загляните завтра'}
+function dailyHtml(){const p=plan(),n=p.due.length+p.fresh.length,map=allMap(),bx=[0,0,0,0,0,0];for(const k in srs.c)if(map.has(k))bx[srs.c[k].b]++;const S=(l,b)=>`<div class="qs"><div class="ql">${l}</div><div>${b}</div></div>`,left=v=>LV(v).filter(w=>!srs.c[sk(w)]).length,u=['карточка','карточки','карточек'];
+ return `<div class="dlg qd"><button class="aclose" type="button" data-cl aria-label="Закрыть">×</button><h2>На сегодня</h2><p class="mut">Слова по расписанию. Верно — слово вернётся через 3, 7, 14 и 30 дней, неверно — завтра.</p><div class="dsum"><div><b>${p.due.length}</b><span>повторить</span></div><div><b>${p.fresh.length}</b><span>новых</span></div><div><b>${p.m.revN}</b><span>ответов сегодня</span></div></div>`
+ +S('Новые слова',qChips('sl',QLV.map(([v,t])=>[v,`${t} <small>${left(v)}</small>`]),v=>(ui.sl||'m')===v)+'<small class="mut qh">Число — сколько слов ещё не начато. Новые идут по порядку списка.</small>')
+ +S('Новых в день',`<div class="stp"><button type="button" class="sb" data-st="-5" aria-label="Меньше">−</button><input id="dnw" type="number" inputmode="numeric" min="0" max="50" value="${p.lim}" aria-label="Новых в день"><button type="button" class="sb" data-st="5" aria-label="Больше">+</button>${qChips('nw',[[0,'0'],[5,'5'],[10,'10'],[20,'20']],v=>p.lim===+v)}</div><small class="mut qh">Сегодня уже начато: ${p.m.newN}.</small>`)
+ +S('Подсказка',qrSw('dtr','Показывать транскрипцию'))
+ +S('Как идёт',`<div class="dst">${DST.map((l,i)=>`<div><b>${bx[i+1]}</b><span>${l}</span></div>`).join('')}</div>`)
+ +(n?'':'<p class="mut">На сегодня всё повторено. Возвращайтесь завтра или добавьте новых слов в день.</p>')
+ +`<div class="qf"><span class="qsum">${n?n+' '+pl(n,u):'На сегодня всё'}</span><button type="button" data-cl>Закрыть</button><button type="button" id="qgo" class="pri"${n?'':' disabled'}>Начать</button></div></div>`}
+function openDaily(){const d=$('#dq'),nw=v=>{ui.nw=Math.max(0,Math.min(50,+v||0));saveU()},draw=()=>{const st=d.scrollTop,f=document.activeElement&&document.activeElement.dataset?document.activeElement.dataset.f:'';d.innerHTML=dailyHtml();d.scrollTop=st;if(f){const e=d.querySelector(`[data-f="${f}"]`);if(e)e.focus()}};draw();
+ d.onclick=e=>{if(e.target===d||e.target.closest('[data-cl]')){d.close();const s=$('#md span');if(s)s.textContent=dailyLine();return}if(e.target.closest('#qgo')){const p=plan(),items=[...p.due,...p.fresh];if(!items.length)return;d.close();begin();session(items);return}const st=e.target.closest('[data-st]');if(st){nw((+ui.nw||0)+(+st.dataset.st));draw();return}const b=e.target.closest('.chip');if(!b)return;if(b.dataset.g==='sl'){ui.sl=b.dataset.v;saveU()}else if(b.dataset.g==='nw')nw(b.dataset.v);draw()};
+ d.onchange=e=>{const t=e.target;if(t.id==='dtr'){ui.qtr=t.checked?1:0;saveU()}else if(t.id==='dnw'){nw(t.value);draw()}};
+ d.onclose=()=>{const s=$('#md span');if(s)s.textContent=dailyLine()};
+ if(!d.open)d.showModal();d.tabIndex=-1;d.focus()}
 const THEMES=[{id:'white',n:'Чистый белый',d:'Воздух и один акцент'},{id:'graphite',n:'Графит',d:'Чёрный и спокойный'},{id:'glass',n:'Стекло',d:'Матовые карточки'},{id:'city',n:'Белый город',d:'Баухаус и плакат'},{id:'stone',n:'Камень и закат',d:'Тёплый и спокойный'},{id:'arcade',n:'Ночная аркада',d:'Тёмный и яркий'},{id:'console',n:'Карманная консоль',d:'Зелёный экран',px:1},{id:'quest',n:'Гранатовый квест',d:'Пиксельная RPG',px:1},{id:'dusk',n:'Пиксельный закат',d:'Город на закате',px:1}];
 const FU=[['','Как в теме',''],['sys','Системный','"Segoe UI",system-ui,sans-serif'],['inter','Inter','Inter,"Segoe UI",sans-serif'],['rubik','Rubik','Rubik,"Segoe UI",sans-serif'],['jost','Jost','Jost,"Segoe UI",sans-serif'],['ptserif','PT Serif','"PT Serif",Georgia,serif'],['exo','Exo 2','"Exo 2","Segoe UI",sans-serif'],['comfortaa','Comfortaa','Comfortaa,"Segoe UI",sans-serif'],['pixel','Tiny5 (пиксельный)','Tiny5,Consolas,monospace']];
 const FH=[['','Как в теме',''],['heebo','Heebo','Heebo,Arial,sans-serif'],['rubik','Rubik','Rubik,Arial,sans-serif'],['assistant','Assistant','Assistant,Arial,sans-serif'],['alef','Alef','Alef,Arial,sans-serif'],['frank','Frank Ruhl Libre','"Frank Ruhl Libre","Times New Roman",serif'],['david','David Libre','"David Libre",David,"Times New Roman",serif'],['arial','Arial','Arial,sans-serif']];
