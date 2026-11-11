@@ -428,6 +428,32 @@ html[data-theme] body{background-attachment:scroll!important}
 .lgbgs button[aria-pressed=true] :is(.lgpv-blobs,.lgpv-waves::before){animation:none}
 }
 select{max-width:100%}.row>select{flex:1 1 140px;min-width:0}
+.gtabs{position:relative;display:inline-flex;max-width:100%;gap:2px;margin:16px 0 6px;padding:4px;border:var(--bw) solid var(--line);border-radius:var(--r);background:var(--card)}
+html:root .gtabs button[data-gs]{position:relative;z-index:1;flex:1 1 auto;min-width:0;padding:9px 20px;border:0;border-color:transparent;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:var(--r);color:var(--mut);font-weight:600;white-space:nowrap;transition:color .25s}
+html:root .gtabs button[data-gs][aria-selected=true]{color:var(--on-ac)}html:root .gtabs button[data-gs]:hover{color:var(--fg)}html:root .gtabs button[data-gs][aria-selected=true]:hover{color:var(--on-ac)}
+.gtd{position:absolute;z-index:0;border-radius:var(--r);background:var(--ac);box-shadow:0 6px 16px -8px var(--ac);pointer-events:none}
+#gpane.gin{animation:gin .35s cubic-bezier(.3,.7,.2,1)}@keyframes gin{from{opacity:0;transform:translateY(6px)}}
+html[data-pf] .gtabs button[data-gs]{font-size:calc(18px*var(--ts));line-height:1.2}
+html:is([data-theme=console],[data-theme=quest],[data-theme=dusk]) #gpane.gin{animation-timing-function:steps(3,end)}html[data-theme=quest] .gtabs{box-shadow:inset 0 0 0 2px var(--card),inset 0 0 0 4px var(--line)}
+html[data-theme=brut] .gtabs{box-shadow:4px 4px 0 var(--line)}html[data-theme=brut] .gtd{background:#ff5ca8;border:3px solid #141414;box-shadow:none}html:root[data-theme=brut] .gtabs button[data-gs][aria-selected=true]{color:#141414}
+html[data-theme=news] .gtabs{gap:20px;padding:0;border:0;border-bottom:1px solid var(--line);background:none}html:root[data-theme=news] .gtabs button[data-gs]{padding:8px 2px;text-transform:uppercase;letter-spacing:.12em;font-size:calc(13px*var(--ts))}html[data-theme=news] .gtd{background:none;border-radius:0;box-shadow:inset 0 -3px 0 #b3141b}html:root[data-theme=news] .gtabs button[data-gs][aria-selected=true]{color:var(--fg)}
+html[data-theme=paper] .gtabs{background:none;border-color:transparent}html[data-theme=paper] .gtd{background:linear-gradient(transparent 48%,#ffe27a 48%,#ffe27a 90%,transparent 90%);box-shadow:none}html:root[data-theme=paper] .gtabs button[data-gs]{font-family:Caveat,cursive;font-size:calc(25px*var(--ts));padding:4px 16px}html:root[data-theme=paper] .gtabs button[data-gs][aria-selected=true]{color:var(--fg)}
+html[data-theme=arcade] .gtd{box-shadow:0 0 14px color-mix(in srgb,var(--ac) 60%,transparent)}
+html[data-theme=clay] .gtabs{box-shadow:inset 0 3px 7px rgba(76,52,180,.16)}html[data-theme=clay] .gtd{background:linear-gradient(#8e72ff,#6c4cf5);box-shadow:inset 0 3px 5px rgba(255,255,255,.45),0 8px 16px -8px rgba(108,76,245,.7)}
+html[data-theme=desert] .gtd{background:linear-gradient(180deg,#f6c98a,#f0b46a)}
+html[data-lg] .gtabs{background:var(--gc);-webkit-backdrop-filter:blur(10px) saturate(180%);backdrop-filter:blur(10px) saturate(180%);border-color:var(--gline);box-shadow:inset 0 1.5px 0 var(--ghl),0 8px 22px -12px var(--gsh)}
+html[data-lg] .gtd{background:var(--gsel);border:1px solid var(--ghl2);box-shadow:inset 0 1.5px 0 var(--ghl),0 6px 16px -8px var(--gsh)}html[data-lg] .gtd::after{content:"";position:absolute;inset:1px;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 55%)}
+html:root[data-lg] .gtabs button[data-gs][aria-selected=true],html:root[data-lg] .gtabs button[data-gs][aria-selected=true]:hover{color:var(--fg)}
+.vt{min-width:640px}.vt td .heb{font-size:calc(24px*var(--hs))}.vt td.vru{width:150px;text-align:left;color:var(--fg);font-size:calc(14px*var(--ts))}.vt th.rl{text-align:left}.vt .vx{width:46px}.vt .vx button{padding:4px 10px}
+.vempty{padding:16px;border:var(--bw) dashed var(--line);border-radius:var(--r-l);text-align:center}
+.vadd{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding:14px 16px;border:var(--bw) solid var(--line);border-radius:var(--r-l);background:var(--card)}.vadd>.row{margin:0}.vadd #vq{flex:1 1 220px}.vadd p:empty{display:none}
+html[data-lg] .vadd{background:var(--gc);-webkit-backdrop-filter:blur(10px) saturate(180%);backdrop-filter:blur(10px) saturate(180%);border-color:var(--gline);box-shadow:inset 0 1.5px 0 var(--ghl),0 10px 26px -14px var(--gsh)}
+html[data-theme=brut] .vadd{box-shadow:6px 6px 0 var(--line)}html[data-theme=quest] .vadd{box-shadow:inset 0 0 0 2px var(--card),inset 0 0 0 4px var(--line)}
+.vman summary{color:var(--ac);font-weight:600}.vman>p{margin:8px 0 0}.vmg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:8px 0}.vmg input{min-width:0;font-size:calc(18px*var(--hs))}
+.qsub{margin:-14px 0 14px;text-align:center;color:var(--mut);font-size:calc(14px*var(--ts))}.qrp+.qsub{margin-top:-6px}
+@media(max-width:600px){.gtabs{display:flex;width:100%}html:root .gtabs button[data-gs]{padding:9px 6px;font-size:calc(14px*var(--ts))}html:root[data-pf] .gtabs button[data-gs]{font-size:calc(16px*var(--ts))}
+.vt{min-width:0}.vt thead{display:none}.vt,.vt tbody{display:block}.vt tr{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:8px 0;border-bottom:1px solid var(--hair)}.gt.vt td{display:block;border:0;padding:6px 4px;text-align:center}.vt td::before{content:attr(data-l);display:block;font-size:11px;color:var(--mut)}.gt.vt td.vru{grid-column:1/-1;grid-row:1;width:auto;padding:2px 44px;text-align:center;font-weight:600}.vt td.vru::before,.vt td.vx::before{content:none}.vt td[data-l="инфинитив"]{grid-column:1/-1}.gt.vt td.vx{position:absolute;left:0;top:4px;width:auto;padding:0}.vt td .heb{font-size:calc(22px*var(--hs));overflow-wrap:anywhere}.vmg{grid-template-columns:repeat(2,minmax(0,1fr))}.vmg input:last-child{grid-column:1/-1}}
+@media(max-width:600px){html:root .gtabs button[data-gs]{white-space:normal;line-height:1.2}html:root[data-theme=paper] .gtabs button[data-gs]{font-size:calc(19px*var(--ts));padding:4px 6px}html:root[data-theme=news] .gtabs button[data-gs]{text-transform:none;letter-spacing:0;font-size:calc(14px*var(--ts))}html[data-theme=news] .gtabs{gap:10px}}
 </style></head><body>
 <header><div class="hd"><h1>Иврит: мои слова</h1><nav class="row"><button data-v="test"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="12" height="14.5" rx="2"/><path d="M8 3.5h10.5a2 2 0 0 1 2 2V17"/></svg>Практика</button><button data-v="words"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5h11M9 12h11M9 17.5h11"/><circle class="dot" cx="4.5" cy="6.5" r="1.1"/><circle class="dot" cx="4.5" cy="12" r="1.1"/><circle class="dot" cx="4.5" cy="17.5" r="1.1"/></svg>Слова</button><button data-v="gram"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 19.5 8.5 5l5 14.5M5.4 14h6.2"/><path d="M15 9.5h5.5M17.75 9.5v10"/></svg>Грамматика</button><button data-v="set"><svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9.5M18.5 7H20M4 17h3.5M12.5 17H20"/><circle cx="16" cy="7" r="2.5"/><circle cx="10" cy="17" r="2.5"/></svg>Настройки</button></nav><button id="accb" class="accb" type="button" aria-label="Аккаунт" title="Аккаунт" aria-haspopup="dialog"></button></div></header>
 <main id="app"></main><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><filter id="lgf" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="11" result="n"/><feGaussianBlur in="n" stdDeviation="3" result="nb"/><feDisplacementMap in="SourceGraphic" in2="nb" scale="40" xChannelSelector="R" yChannelSelector="G"/></filter></svg><dialog id="dacc" aria-label="Аккаунт"></dialog><dialog id="dq" aria-label="Настройки теста"></dialog>
@@ -652,8 +678,7 @@ function gtable(fill){
  const cell=he=>fill?`<td data-a="${he}"><select class="gs" aria-label="Форма">${'<option value="">?</option>'+opts}</select></td>`:`<td><span class="heb${gcur?' cur':''}">${esc(gnk?gby(he).nk:he)}</span><small class="rd mut">${esc(gby(he).tr)}</small></td>`;
  return `<table class="gt${grd?'':' nord'}" dir="rtl"><thead><tr>${GH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th></th></tr></thead><tbody>${GROWS.map((r,i)=>`<tr>${r.map(cell).join('')}<td class="rl" dir="ltr">${GL[i]}</td></tr>`).join('')}</tbody></table>`;
 }
-function gramView(){
- $('#app').innerHTML=`<div id="gbody"><h2>Личные местоимения <span class="heb">שמות גוף</span></h2>
+const pronHtml=()=>`<h2>Личные местоимения <span class="heb">שמות גוף</span></h2>
  <div class="row"><button id="gnk" class="${gnk?'pri':''}">Огласовки</button><button id="gcu" class="${gcur?'pri':''}">Письменные буквы</button><button id="grd" class="${grd?'pri':''}">Чтение</button></div>
  <div id="gt" class="gwrap">${gtable(false)}</div>
  <p class="mut">Таблица читается справа налево, как в тетради. В 1-м лице форма для мужчины и женщины одна и та же. Кнопка «Чтение» скрывает подписи, чтобы проверить себя.</p>
@@ -663,22 +688,169 @@ function gramView(){
  <div id="gfr" aria-live="polite"></div>
  <h2>Потренироваться</h2>
  <div class="row"><button id="ghelp" aria-expanded="false" aria-controls="gexp">Как менять род и число<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="gopen" class="pri">Начать тест</button><button id="gfill">Заполнить таблицу</button></div>
- <div id="gexp" class="gexp" hidden>${GEXP}</div>
- </div>
- <div id="bar" hidden><button id="out">← К правилу</button></div><div id="quiz" aria-live="polite"></div>`;
+ <div id="gexp" class="gexp" hidden>${GEXP}</div>`;
+function bindPron(gbegin){
  const redraw=()=>{$('#gt').innerHTML=gtable(false)};
  $('#gnk').onclick=()=>{gnk=!gnk;$('#gnk').classList.toggle('pri',gnk);redraw()};
  $('#gcu').onclick=()=>{gcur=!gcur;$('#gcu').classList.toggle('pri',gcur);redraw()};
  $('#grd').onclick=()=>{grd=!grd;$('#grd').classList.toggle('pri',grd);redraw()};
- $('#out').onclick=render;
- const gbegin=()=>{$('#gbody').hidden=true;$('#bar').hidden=false};
  bindGF();
  $('#ghelp').onclick=()=>{const open=$('#gexp').hidden;$('#gexp').hidden=!open;$('#ghelp').setAttribute('aria-expanded',open)};
  $('#gopen').onclick=()=>openQ('gram',c=>{gbegin();startGram(c)});
  $('#gfill').onclick=()=>{gbegin();$('#quiz').innerHTML=`<p class="mut">Выберите форму для каждой клетки. Колонки идут справа налево.</p><div class="gwrap">${gtable(true)}</div><div class="tools"><button id="gchk" class="pri">Проверить</button><button id="gagain">Заново</button></div><p id="gres" aria-live="polite"></p>`;
   $('#gchk').onclick=()=>{let ok=0,all=0;document.querySelectorAll('td[data-a]').forEach(td=>{all++;const g=td.querySelector('select').value===td.dataset.a;if(g)ok++;td.classList.toggle('okc',g);td.classList.toggle('badc',!g)});$('#gres').textContent='Верно: '+ok+' из '+all+(ok===all?'. Отлично!':'. Неверные клетки подсвечены.')};
-  $('#gagain').onclick=()=>$('#gfill').onclick()};
-}
+  $('#gagain').onclick=()=>$('#gfill').onclick()}}
+const VBS=`учиться|ללמוד,лилмод|לומד,ломед|לומדת,ломедет|לומדים,ломдим|לומדות,ломдот|pa
+писать|לכתוב,ликтов|כותב,котев|כותבת,котевет|כותבים,котвим|כותבות,котвот|pa
+читать|לקרוא,ликро|קורא,коре|קוראת,корет|קוראים,корим|קוראות,корот|pa
+работать|לעבוד,лаавод|עובד,овед|עובדת,оведет|עובדים,овдим|עובדות,овдот|pa
+знать|לדעת,ладаат|יודע,ёдеа|יודעת,ёдаат|יודעים,ёдим|יודעות,ёдот|pa
+слышать|לשמוע,лишмоа|שומע,шомеа|שומעת,шомаат|שומעים,шомим|שומעות,шомот|pa
+любить|לאהוב,леэhов|אוהב,оhев|אוהבת,оhевет|אוהבים,оhавим|אוהבות,оhавот|pa
+идти|ללכת,лалехет|הולך,hолех|הולכת,hолехет|הולכים,hолхим|הולכות,hолхот|pa
+приходить|לבוא,лаво|בא,ба|באה,баа|באים,баим|באות,баот|pa
+жить|לגור,лагур|גר,гар|גרה,гара|גרים,гарим|גרות,гарот|pa
+хотеть|לרצות,лирцот|רוצה,роце|רוצה,роца|רוצים,роцим|רוצות,роцот|pa
+пить|לשתות,лиштот|שותה,шоте|שותה,шота|שותים,шотим|שותות,шотот|pa
+делать|לעשות,лаасот|עושה,осе|עושה,оса|עושים,осим|עושות,осот|pa
+видеть|לראות,лиръот|רואה,роэ|רואה,роа|רואים,роим|רואות,роот|pa
+говорить|לדבר,ледабер|מדבר,медабер|מדברת,медаберет|מדברים,медабрим|מדברות,медаброт|pi
+понимать|להבין,леhавин|מבין,мевин|מבינה,мевина|מבינים,мевиним|מבינות,мевинот|hi
+говорить (сообщать)|לומר,ломар|אומר,омер|אומרת,омерет|אומרים,омрим|אומרות,омрот|pa
+давать|לתת,латет|נותן,нотен|נותנת,нотенет|נותנים,нотним|נותנות,нотнот|pa
+брать|לקחת,лакахат|לוקח,локеах|לוקחת,локахат|לוקחים,локхим|לוקחות,локхот|pa
+сидеть|לשבת,лашевет|יושב,ёшев|יושבת,ёшевет|יושבים,ёшвим|יושבות,ёшвот|pa
+стоять|לעמוד,лаамод|עומד,омед|עומדת,омедет|עומדים,омдим|עומדות,омдот|pa
+спать|לישון,лишон|ישן,яшен|ישנה,йешена|ישנים,йешеним|ישנות,йешенот|pa
+есть (кушать)|לאכול,леэхоль|אוכל,охель|אוכלת,охелет|אוכלים,охлим|אוכלות,охлот|pa
+ехать|לנסוע,линсоа|נוסע,носеа|נוסעת,носаат|נוסעים,носим|נוסעות,носот|pa
+покупать|לקנות,ликнот|קונה,коне|קונה,кона|קונים,коним|קונות,конот|pa
+продавать|למכור,лимкор|מוכר,мохер|מוכרת,мохерет|מוכרים,мохрим|מוכרות,мохрот|pa
+платить|לשלם,лешалем|משלם,мешалем|משלמת,мешалемет|משלמים,мешалмим|משלמות,мешалмот|pi
+искать|לחפש,лехапес|מחפש,мехапес|מחפשת,мехапесет|מחפשים,мехапсим|מחפשות,мехапсот|pi
+находить|למצוא,лимцо|מוצא,моце|מוצאת,моцет|מוצאים,моцим|מוצאות,моцот|pa
+открывать|לפתוח,лифтоах|פותח,потеах|פותחת,потахат|פותחים,потхим|פותחות,потхот|pa
+закрывать|לסגור,лисгор|סוגר,согер|סוגרת,согерет|סוגרים,согрим|סוגרות,согрот|pa
+спрашивать|לשאול,лишоль|שואל,шоэль|שואלת,шоэлет|שואלים,шоалим|שואלות,шоалот|pa
+отвечать|לענות,лаанот|עונה,оне|עונה,она|עונים,оним|עונות,онот|pa
+помогать|לעזור,лаазор|עוזר,озер|עוזרת,озерет|עוזרים,озрим|עוזרות,озрот|pa
+ждать|לחכות,лехакот|מחכה,мехаке|מחכה,мехака|מחכים,мехаким|מחכות,мехакот|pi
+думать|לחשוב,лахшов|חושב,хошев|חושבת,хошевет|חושבים,хошвим|חושבות,хошвот|pa
+помнить|לזכור,лизкор|זוכר,зохер|זוכרת,зохерет|זוכרים,зохрим|זוכרות,зохрот|pa
+забывать|לשכוח,лишкоах|שוכח,шохеах|שוכחת,шохахат|שוכחים,шохехим|שוכחות,шохехот|pa
+начинать|להתחיל,леhатхиль|מתחיל,матхиль|מתחילה,матхила|מתחילים,матхилим|מתחילות,матхилот|hi
+заканчивать|לגמור,лигмор|גומר,гомер|גומרת,гомерет|גומרים,гомрим|גומרות,гомрот|pa
+играть|לשחק,лесахек|משחק,месахек|משחקת,месахекет|משחקים,месахаким|משחקות,месахакот|pi
+готовить (еду)|לבשל,левашель|מבשל,мевашель|מבשלת,мевашелет|מבשלים,мевашлим|מבשלות,мевашлот|pi
+убирать|לנקות,ленакот|מנקה,менаке|מנקה,менака|מנקים,менаким|מנקות,менакот|pi
+отправлять|לשלוח,лишлоах|שולח,шолеах|שולחת,шолахат|שולחים,шолхим|שולחות,шолхот|pa
+получать|לקבל,лекабель|מקבל,мекабель|מקבלת,мекабелет|מקבלים,мекаблим|מקבלות,мекаблот|pi
+петь|לשיר,лашир|שר,шар|שרה,шара|שרים,шарим|שרות,шарот|pa
+бежать|לרוץ,ларуц|רץ,рац|רצה,раца|רצים,рацим|רצות,рацот|pa
+лететь|לטוס,латус|טס,тас|טסה,таса|טסים,тасим|טסות,тасот|pa
+вставать|לקום,лакум|קם,кам|קמה,кама|קמים,камим|קמות,камот|pa
+звонить|להתקשר,леhиткашер|מתקשר,миткашер|מתקשרת,миткашерет|מתקשרים,миткашрим|מתקשרות,миткашрот|hit
+одеваться|להתלבש,леhитлабеш|מתלבש,митлабеш|מתלבשת,митлабешет|מתלבשים,митлабшим|מתלבשות,митлабшот|hit
+танцевать|לרקוד,лиркод|רוקד,рокед|רוקדת,рокедет|רוקדים,рокдим|רוקדות,рокдот|pa
+носить (одежду)|ללבוש,лильбош|לובש,ловеш|לובשת,ловешет|לובשים,ловшим|לובשות,ловшот|pa
+мыть|לרחוץ,лирхоц|רוחץ,рохец|רוחצת,рохецет|רוחצים,рохацим|רוחצות,рохацот|pa
+приносить|להביא,леhави|מביא,меви|מביאה,мевиа|מביאים,мевиим|מביאות,мевиот|hi
+выходить|לצאת,лацет|יוצא,ёце|יוצאת,ёцет|יוצאים,ёцим|יוצאות,ёцот|pa
+входить|להיכנס,леhиканес|נכנס,нихнас|נכנסת,нихнесет|נכנסים,нихнасим|נכנסות,нихнасот|ni
+возвращаться|לחזור,лахзор|חוזר,хозер|חוזרת,хозерет|חוזרים,хозрим|חוזרות,хозрот|pa
+прибывать|להגיע,леhагиа|מגיע,магиа|מגיעה,магиа|מגיעים,магиим|מגיעות,магиот|hi
+отдыхать|לנוח,лануах|נח,нах|נחה,наха|נחים,нахим|נחות,нахот|pa
+бояться|לפחד,лефахед|מפחד,мефахед|מפחדת,мефахедет|מפחדים,мефахадим|מפחדות,мефахадот|pi
+просить|לבקש,левакеш|מבקש,мевакеш|מבקשת,мевакешет|מבקשים,мевакшим|מבקשות,мевакшот|pi
+решать|להחליט,леhахлит|מחליט,махлит|מחליטה,махлита|מחליטים,махлитим|מחליטות,махлитот|hi
+объяснять|להסביר,леhасбир|מסביר,масбир|מסבירה,масбира|מסבירים,масбирим|מסבירות,масбирот|hi
+пробовать|לנסות,ленасот|מנסה,менасе|מנסה,менаса|מנסים,менасим|מנסות,менасот|pi
+преуспевать|להצליח,леhацлиах|מצליח,мацлиах|מצליחה,мацлиха|מצליחים,мацлихим|מצליחות,мацлихот|hi
+чувствовать|להרגיש,леhаргиш|מרגיש,маргиш|מרגישה,маргиша|מרגישים,маргишим|מרגישות,маргишот|hi
+встречать|לפגוש,лифгош|פוגש,погеш|פוגשת,погешет|פוגשים,погшим|פוגשות,погшот|pa
+заканчивать (завершать)|לסיים,лесайем|מסיים,месайем|מסיימת,месайемет|מסיימים,месаймим|מסיימות,месаймот|pi
+готовиться|להתכונן,леhитконен|מתכונן,митконен|מתכוננת,митконенет|מתכוננים,митконеним|מתכוננות,митконенот|hit
+возвращать|להחזיר,леhахзир|מחזיר,махзир|מחזירה,махзира|מחזירים,махзирим|מחזירות,махзирот|hi
+проверять|לבדוק,ливдок|בודק,бодек|בודקת,бодекет|בודקים,бодким|בודקות,бодкот|pa
+исправлять|לתקן,летакен|מתקן,метакен|מתקנת,метакенет|מתקנים,метакним|מתקנות,метакнот|pi
+выбирать|לבחור,ливхор|בוחר,бохер|בוחרת,бохерет|בוחרים,бохарим|בוחרות,бохарот|pa
+заказывать, приглашать|להזמין,леhазмин|מזמין,мазмин|מזמינה,мазмина|מזמינים,мазминим|מזמינות,мазминот|hi
+отменять|לבטל,леватель|מבטל,меватель|מבטלת,мевателет|מבטלים,меватлим|מבטלות,меватлот|pi
+менять|לשנות,лешанот|משנה,мешане|משנה,мешана|משנים,мешаним|משנות,мешанот|pi
+пользоваться|להשתמש,леhиштамеш|משתמש,миштамеш|משתמשת,миштамешет|משתמשים,миштамшим|משתמשות,миштамшот|hit
+продолжать|להמשיך,леhамших|ממשיך,мамших|ממשיכה,мамшиха|ממשיכים,мамшихим|ממשיכות,мамшихот|hi
+прекращать|להפסיק,леhафсик|מפסיק,мафсик|מפסיקה,мафсика|מפסיקים,мафсиким|מפסיקות,мафсикот|hi
+соглашаться|להסכים,леhаским|מסכים,маским|מסכימה,маскима|מסכימים,маскимим|מסכימות,маскимот|hi
+обещать|להבטיח,леhавтиах|מבטיח,мавтиах|מבטיחה,мавтиха|מבטיחים,мавтихим|מבטיחות,мавтихот|hi
+жаловаться|להתלונן,леhитлонен|מתלונן,митлонен|מתלוננת,митлоненет|מתלוננים,митлоненим|מתלוננות,митлоненот|hit
+привыкать|להתרגל,леhитрагель|מתרגל,митрагель|מתרגלת,митрагелет|מתרגלים,митраглим|מתרגלות,митраглот|hit
+подписывать|לחתום,лахтом|חותם,хотем|חותמת,хотемет|חותמים,хотмим|חותמות,хотмот|pa
+заполнять|למלא,лемале|ממלא,мемале|ממלאת,мемалет|ממלאים,мемалим|ממלאות,мемалот|pi
+регистрироваться|להירשם,леhирашем|נרשם,ниршам|נרשמת,ниршемет|נרשמים,ниршамим|נרשמות,ниршамот|ni
+плавать|לשחות,лисхот|שוחה,сохе|שוחה,соха|שוחים,сохим|שוחות,сохот|pa
+рисовать|לצייר,лецайер|מצייר,мецайер|מציירת,мецайерет|מציירים,мецайрим|מציירות,мецайрот|pi
+фотографировать|לצלם,лецалем|מצלם,мецалем|מצלמת,мецалемет|מצלמים,мецалмим|מצלמות,мецалмот|pi
+считать|לספור,лиспор|סופר,софер|סופרת,соферет|סופרים,софрим|סופרות,софрот|pa
+гулять, путешествовать|לטייל,летайель|מטייל,метайель|מטיילת,метайелет|מטיילים,метайлим|מטיילות,метайлот|pi
+преподавать|ללמד,леламед|מלמד,меламед|מלמדת,меламедет|מלמדים,меламдим|מלמדות,меламдот|pi`;
+const VBD=VBS.trim().split('\n').map(l=>{const p=l.split('|');return{ru:p[0],i:p[1].split(','),f:p.slice(2,6).map(x=>x.split(',')),b:p[6]||''}}),VH=[['יחיד','ед., м.р.'],['יחידה','ед., ж.р.'],['רבים','мн., м.р.'],['רבות','мн., ж.р.'],['שם הפועל','инфинитив']],VDEF=['ללמוד','לדבר','לגור','לרצות','להבין','להתלבש'],VQ=['мужской род','женский род','мн. число, м.р.','мн. число, ж.р.'],VSL=['м.р.','ж.р.','мн. м.р.','мн. ж.р.'];
+let vcur=false,vrd=true,vArm='',vArmT;
+const vbList=()=>Array.isArray(srs.vb)?srs.vb:VDEF.map(k=>({k})),vbGet=e=>e&&(e.c?{ru:e.c.ru,i:e.c.i,f:e.c.f,b:'',own:1}:VBD.find(v=>v.i[0]===e.k)),vbSave=a=>{srs.vb=a;TRM=null;saveR()},vbFlat=()=>VBD.flatMap(v=>[{he:v.i[0],tr:v.i[1]},...v.f.map(x=>({he:x[0],tr:x[1]}))]);
+function vbFind(q){q=hnorm(q);if(!q)return null;if(/[א-ת]/.test(q))return VBD.find(v=>v.i[0]===q||v.f.some(x=>x[0]===q))||null;const s=q.toLowerCase(),ru=v=>v.ru.toLowerCase().split(/,\s*/).map(x=>x.replace(/\s*\(.*\)$/,''));return VBD.find(v=>ru(v).includes(s))||VBD.find(v=>ru(v).some(t=>t.startsWith(s)))||(s.length>2&&VBD.find(v=>v.ru.toLowerCase().includes(s)))||null}
+function vbTable(){const L=vbList().map(e=>[e,vbGet(e)]).filter(x=>x[1]);if(!L.length)return '<p class="mut vempty">Таблица пока пустая. Добавьте глагол ниже или нажмите «Добавить все глаголы из «Своих слов»».</p>';
+ const cell=(x,l)=>`<td data-l="${l}"><span class="heb${vcur?' cur':''}">${esc(x[0])}</span>${x[1]?`<small class="rd mut">${esc(x[1])}</small>`:''}</td>`;
+ return `<div class="gwrap"><table class="gt vt${vrd?'':' nord'}" dir="rtl"><thead><tr>${VH.map(([h,r])=>`<th><span class="heb">${h}</span><small class="mut" dir="ltr">${r}</small></th>`).join('')}<th class="rl" dir="ltr">Перевод</th><th class="vx"></th></tr></thead><tbody>${L.map(([e,v])=>`<tr>${v.f.map((x,i)=>cell(x,VH[i][1])).join('')}${cell(v.i,'инфинитив')}<td class="rl vru" dir="ltr">${esc(v.ru)}</td><td class="vx"><button type="button" class="del" data-vdel="${esc(e.k)}" aria-label="Убрать глагол ${esc(v.ru)}" title="Нажмите дважды, чтобы убрать">×</button></td></tr>`).join('')}</tbody></table></div>`}
+const VEXP=`<p>В настоящем времени у глагола 4 формы: по роду и числу. Лицо не важно: ${hw('אני')}, ${hw('אתה')} и ${hw('הוא')} — все ${hw('לומד','ломед')}.</p>
+<ul class="gr">
+<li><b>Окончания почти всегда одни и те же:</b> м.р. — без окончания, ж.р. — ${hw('ת')} (-ет, -ат) или ${hw('ה')} (-а), мн. м.р. — ${hw('ים')} (-им), мн. ж.р. — ${hw('ות')} (-от).</li>
+<li><b>Паъаль, обычные глаголы:</b> ${hw('לומד','ломед')} → ${hw('לומדת','ломедет')} → ${hw('לומדים','ломдим')} → ${hw('לומדות','ломдот')}. Инфинитив: ${hw('ללמוד','лилмод')}. Во множественном числе гласная в середине часто выпадает: ломед → ломдим.</li>
+<li><b>Корень кончается на ${hw('ה')}:</b> ${hw('רוצה','роце')} → ${hw('רוצה','роца')} → ${hw('רוצים','роцим')} → ${hw('רוצות','роцот')}. М.р. и ж.р. пишутся одинаково, отличается только чтение. Инфинитив на ${hw('ות')}: ${hw('לרצות','лирцот')}.</li>
+<li><b>Короткие глаголы (в корне ${hw('ו')} или ${hw('י')} посередине):</b> ${hw('גר','гар')} → ${hw('גרה','гара')} → ${hw('גרים','гарим')} → ${hw('גרות','гарот')}. Инфинитив: ${hw('לגור','лагур')}.</li>
+<li><b>В конце ${hw('ע')} или ${hw('ח')}:</b> ж.р. звучит на -аат, -ахат: ${hw('שומע','шомеа')} → ${hw('שומעת','шомаат')}, ${hw('לוקח','локеах')} → ${hw('לוקחת','локахат')}.</li>
+<li><b>Пиэль</b> — начинается на ${hw('מ')} (ме-): ${hw('מדבר','медабер')} → ${hw('מדברת','медаберет')} → ${hw('מדברים','медабрим')}. В инфинитиве ${hw('מ')} нет: ${hw('לדבר','ледабер')}.</li>
+<li><b>hифъиль</b> — тоже на ${hw('מ')} (ма-, ме-), а ж.р. на ${hw('ה')}: ${hw('מתחיל','матхиль')} → ${hw('מתחילה','матхила')}, ${hw('מבין','мевин')} → ${hw('מבינה','мевина')}. Инфинитив на ${hw('לה')}: ${hw('להתחיל','леhатхиль')}.</li>
+<li><b>hитпаэль</b> — начинается на ${hw('מת')} (мит-): ${hw('מתלבש','митлабеш')} → ${hw('מתלבשת','митлабешет')} → ${hw('מתלבשים','митлабшим')}. Инфинитив на ${hw('להת')}: ${hw('להתלבש','леhитлабеш')}.</li>
+<li><b>Нифъаль</b> — начинается на ${hw('נ')} (ни-): ${hw('נכנס','нихнас')} → ${hw('נכנסת','нихнесет')}. Инфинитив на ${hw('להי')}: ${hw('להיכנס','леhиканес')}.</li>
+<li><b>Как угадать группу:</b> посмотрите на начало формы м.р. и инфинитива. ${hw('מ')} в начале — пиэль или hифъиль, ${hw('מת')} — hитпаэль, ${hw('נ')} — нифъаль, без приставки — паъаль. А дальше окончания по правилу выше.</li>
+</ul>`;
+const vbHtml=()=>`<h2>Глаголы в настоящем времени <span class="heb">הווה</span></h2>
+ <p class="mut">Таблица читается справа налево: четыре формы, инфинитив и перевод. Это ваша таблица: добавляйте нужные глаголы и убирайте лишние.</p>
+ <div class="row"><button id="vcu" class="${vcur?'pri':''}">Письменные буквы</button><button id="vrd" class="${vrd?'pri':''}">Чтение</button></div>
+ <div id="vt">${vbTable()}</div>
+ <div class="vadd"><div class="row"><input id="vq" list="vbl" placeholder="Глагол: ללמוד, לומד или «учиться»" autocomplete="off" aria-label="Глагол"><datalist id="vbl">${VBD.map(v=>`<option value="${v.i[0]}">${esc(v.ru)}</option>`).join('')}</datalist><button id="vadd" class="pri">Добавить</button></div>
+ <div class="row"><button id="vall">Добавить все глаголы из «Своих слов»</button></div><p id="vmsg" class="mut" aria-live="polite"></p>
+ <details id="vman" class="vman"><summary>Добавить свой глагол вручную</summary><p class="mut">Если глагола нет в словаре приложения. Формы можно посмотреть на <a href="https://www.pealim.com/ru/" target="_blank" rel="noopener">Pealim</a>.</p><div class="vmg" dir="rtl"><input id="vm0" class="heb" placeholder="м.р." aria-label="Форма м.р."><input id="vm1" class="heb" placeholder="ж.р." aria-label="Форма ж.р."><input id="vm2" class="heb" placeholder="мн. м.р." aria-label="Форма мн. м.р."><input id="vm3" class="heb" placeholder="мн. ж.р." aria-label="Форма мн. ж.р."><input id="vmi" class="heb" placeholder="инфинитив" aria-label="Инфинитив"></div><div class="row"><input id="vmr" placeholder="Перевод, например «рисовать»" aria-label="Перевод"><button id="vmok">Добавить в таблицу</button></div><p id="vmm" class="qerr" aria-live="polite"></p></details></div>
+ <h2>Потренироваться</h2>
+ <div class="row"><button id="vhelp" aria-expanded="false" aria-controls="vexp">Как менять форму глаголов<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button id="vgo" class="pri">Потренироваться</button></div>
+ <div id="vexp" class="gexp" hidden>${VEXP}</div>`;
+function bindVb(gbegin){const msg=t=>{$('#vmsg').textContent=t},redraw=()=>{$('#vt').innerHTML=vbTable()},has=k=>vbList().some(e=>e.k===k);
+ $('#vcu').onclick=()=>{vcur=!vcur;$('#vcu').classList.toggle('pri',vcur);redraw()};
+ $('#vrd').onclick=()=>{vrd=!vrd;$('#vrd').classList.toggle('pri',vrd);redraw()};
+ const add=()=>{const q=$('#vq').value.trim();if(!q){msg('Напишите глагол: инфинитив, форму или перевод.');return}const v=vbFind(q);if(!v){msg('Такого глагола нет в словаре приложения. Добавьте его вручную ниже.');$('#vman').open=true;if(/[א-ת]/.test(q))$('#vmi').value=hnorm(q);return}if(has(v.i[0])){msg('Уже в таблице: '+v.i[0]+' — '+v.ru+'.');return}vbSave([...vbList(),{k:v.i[0]}]);redraw();$('#vq').value='';msg('Добавлено: '+v.i[0]+' — '+v.ru+'.')};
+ $('#vadd').onclick=add;$('#vq').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();add()}};
+ $('#vall').onclick=()=>{const found=[];for(const w of words){const h=hnorm(w.he),v=VBD.find(x=>x.i[0]===h||x.f.some(y=>y[0]===h));if(v&&!has(v.i[0])&&!found.includes(v.i[0]))found.push(v.i[0])}if(!found.length){msg('В «Своих словах» не нашлось новых глаголов: все, что есть, уже в таблице.');return}vbSave([...vbList(),...found.map(k=>({k}))]);redraw();msg('Добавлено глаголов: '+found.length+' ('+found.join(', ')+').')};
+ $('#vmok').onclick=()=>{const g=id=>hnorm($('#'+id).value),f=['vm0','vm1','vm2','vm3'].map(g),i=g('vmi'),ru=$('#vmr').value.trim(),okh=x=>/^[א-ת ]+$/.test(x);if(!f.every(okh)||!okh(i)||!ru){$('#vmm').textContent='Заполните на иврите все 4 формы и инфинитив, а ещё перевод.';return}if(has(i)){$('#vmm').textContent='Этот глагол уже в таблице.';return}const known=VBD.find(v=>v.i[0]===i);vbSave([...vbList(),known?{k:i}:{k:i,c:{ru,i:[i,''],f:f.map(x=>[x,''])}}]);redraw();['vm0','vm1','vm2','vm3','vmi','vmr'].forEach(id=>$('#'+id).value='');$('#vmm').textContent='';msg('Добавлено: '+i+' — '+(known?known.ru:ru)+'.')};
+ $('#vt').onclick=e=>{const b=e.target.closest('[data-vdel]');if(!b)return;const k=b.dataset.vdel;if(vArm!==k||!b.classList.contains('arm')){clearTimeout(vArmT);document.querySelectorAll('[data-vdel].arm').forEach(x=>x.classList.remove('arm'));vArm=k;b.classList.add('arm');msg('Нажмите × ещё раз, чтобы убрать глагол из таблицы.');vArmT=setTimeout(()=>{vArm='';b.classList.remove('arm')},3000);return}vArm='';vbSave(vbList().filter(x=>x.k!==k));redraw();msg('Убрано из таблицы.')};
+ $('#vhelp').onclick=()=>{const open=$('#vexp').hidden;$('#vexp').hidden=!open;$('#vhelp').setAttribute('aria-expanded',open)};
+ $('#vgo').onclick=()=>openQ('verb',c=>{gbegin();startVerb(c)})}
+function vbItem(v,d,all){const F=v.f,R=v.ru,oth=all.filter(x=>x!==v);
+ if(d==='vr')return{p:R,a:v.i[0],ah:1,at:v.i[1],q:'Как это будет в инфинитиве?',he:v.i[0],tr:v.i[1],ru:R+' · инфинитив',_pool:oth.map(x=>({a:x.i[0]}))};
+ if(d==='vt')return{p:v.i[0],ph:1,pt:v.i[1],sub:'инфинитив',a:R,q:'Как переводится?',he:v.i[0],tr:v.i[1],ru:R+' · перевод',_pool:oth.map(x=>({a:x.ru}))};
+ const j=Math.random()*4|0,T=F[j];let S=v.i,sl='инфинитив';
+ if(d==='vf'){const c=[0,1,2,3].filter(i=>i!==j&&F[i][0]!==T[0]);if(c.length){const i=c[Math.random()*c.length|0];S=F[i];sl=VSL[i]}}
+ const own=[...new Set([...F.map(x=>x[0]),v.i[0]])].filter(x=>x!==T[0]),more=own.length<3?oth.map(x=>x.f[j][0]).filter(x=>x!==T[0]&&!own.includes(x)):[];
+ return{p:S[0],ph:1,pt:S[1],sub:sl,a:T[0],ah:1,at:T[1],q:'Какая форма: '+VQ[j]+'?',he:T[0],tr:T[1],ru:R+' · '+VSL[j],_pool:[...own,...shuffle(more)].map(a=>({a}))}}
+function startVerb(c){const all=vbList().map(vbGet).filter(Boolean),qs=[];let last=null;for(let k=0;k<c.n;k++){let v=all[Math.random()*all.length|0];if(all.length>1&&v===last)v=all[(all.indexOf(v)+1)%all.length];last=v;qs.push(vbItem(v,c.dirs[Math.random()*c.dirs.length|0],all))}run(qs,it=>it._pool,'p','a',c.sty)}
+function segSlide(c,anim){const d=c&&c.querySelector('.gtd'),b=c&&c.querySelector('[aria-selected=true]');if(!d||!b||!b.offsetWidth)return;const r={l:b.offsetLeft,t:b.offsetTop,w:b.offsetWidth,h:b.offsetHeight},o=d._r,f=x=>({left:x.l+'px',top:x.t+'px',width:x.w+'px',height:x.h+'px'});d._r=r;Object.assign(d.style,f(r));if(!anim||!o||!d.animate||matchMedia('(prefers-reduced-motion: reduce)').matches||o.l===r.l)return;
+ const L=Math.min(o.l,r.l),R=Math.max(o.l+o.w,r.l+r.w),mid={l:L,t:r.t+r.h*.1,w:R-L,h:r.h*.8},jel={l:r.l-r.w*.04,t:r.t+r.h*.04,w:r.w*1.08,h:r.h*.92};if(d._a)d._a.cancel();d._a=d.animate([Object.assign(f(o),{easing:'cubic-bezier(.5,0,.75,.7)'}),Object.assign(f(mid),{offset:.4,easing:'cubic-bezier(.25,.75,.35,1)'}),Object.assign(f(jel),{offset:.75,easing:'ease-in-out'}),f(r)],{duration:560})}
+addEventListener('resize',()=>segSlide(document.querySelector('.gtabs'),false));
+function gramView(){const sub=ui.gsub==='verb'?'verb':'pron';
+ $('#app').innerHTML=`<div id="gbody"><div class="gtabs" role="tablist" aria-label="Разделы грамматики"><span class="gtd" aria-hidden="true"></span><button type="button" role="tab" data-gs="pron" aria-selected="${sub==='pron'}">Местоимения</button><button type="button" role="tab" data-gs="verb" aria-selected="${sub==='verb'}">Форма глаголов</button></div><div id="gpane" role="tabpanel">${sub==='verb'?vbHtml():pronHtml()}</div></div>
+ <div id="bar" hidden><button id="out">← К правилу</button></div><div id="quiz" aria-live="polite"></div>`;
+ const gbegin=()=>{$('#gbody').hidden=true;$('#bar').hidden=false},bindPane=s=>s==='verb'?bindVb(gbegin):bindPron(gbegin),tabs=$('.gtabs');
+ $('#out').onclick=render;bindPane(sub);segSlide(tabs,false);if(document.fonts)document.fonts.ready.then(()=>segSlide(tabs,false));
+ tabs.onclick=e=>{const b=e.target.closest('[data-gs]');if(!b||b.getAttribute('aria-selected')==='true')return;ui.gsub=b.dataset.gs;saveU();tabs.querySelectorAll('[data-gs]').forEach(x=>x.setAttribute('aria-selected',x===b));segSlide(tabs,true);const p=$('#gpane');p.innerHTML=ui.gsub==='verb'?vbHtml():pronHtml();p.classList.remove('gin');void p.offsetWidth;p.classList.add('gin');bindPane(ui.gsub)};
+ tabs.onkeydown=e=>{if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;e.preventDefault();const bs=[...tabs.querySelectorAll('[data-gs]')],i=bs.findIndex(x=>x.getAttribute('aria-selected')==='true'),n=bs[(i+1)%bs.length];n.focus();n.click()}}
 const INT=[0,1,3,7,14,30];
 let srs={m:{day:0,newN:0,revN:0},c:{},h:{}};try{const o=JSON.parse(localStorage.getItem(K+'r'));if(o&&o.c)srs=Object.assign(srs,o)}catch(e){}
 const saveR=()=>{try{localStorage.setItem(K+'r',JSON.stringify(srs))}catch(e){}cloudTouch()};
@@ -717,7 +889,7 @@ const wHint=it=>ui.qtr&&!letters.includes(it)&&it.tr?`<div class="qrp">${qr(it.t
 const wrHtml=chk=>`<div class="wr"><input id="wa" class="wa heb" dir="rtl" lang="he" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"${coarse()?' inputmode="none"':''} aria-label="Ответ на иврите">${chk?'<p id="whl" class="mut whl" aria-live="polite"></p><div class="wrb"><button type="button" id="whn">Первая буква</button><button type="button" id="wno">Не знаю</button><button type="button" id="wok" class="pri">Проверить</button></div>':''}<div class="kb" dir="ltr" role="group" aria-label="Клавиатура иврита">${KBR.map(r=>`<div class="kbr">${[...r].map(c=>`<button type="button" class="kbk" data-kc="${c}" lang="he">${c}</button>`).join('')}</div>`).join('')}<div class="kbr"><button type="button" class="kbk kbs" data-kc=" ">пробел</button><button type="button" class="kbk kbw" data-kc="⌫" aria-label="Стереть">⌫</button></div></div>${coarse()?'':'<small class="mut kbt">Можно печатать и обычной клавиатурой: буквы встанут по раскладке иврита.</small>'}</div>`;
 function kbIns(inp,ch){if(inp.readOnly)return;const n=inp.value.length,s=inp.selectionStart==null?n:inp.selectionStart,e=inp.selectionEnd==null?s:inp.selectionEnd;if(ch==='⌫'){if(s!==e)inp.setRangeText('',s,e,'end');else if(s>0)inp.setRangeText('',s-1,s,'end')}else inp.setRangeText(ch,s,e,'end');inp.dispatchEvent(new Event('input'))}
 function bindWr(box,enter){const inp=box.querySelector('#wa');box.querySelector('.kb').onclick=e=>{const b=e.target.closest('[data-kc]');if(!b)return;kbIns(inp,b.dataset.kc);if(!coarse())inp.focus()};inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();enter();return}if(e.ctrlKey||e.metaKey||e.altKey||e.isComposing)return;const h=KC[e.code];if(h&&!/[א-ת]/.test(e.key)){e.preventDefault();kbIns(inp,h)}};if(!coarse())setTimeout(()=>inp.focus(),0);return inp}
-const qt=(it,from,to)=>QT[from+'>'+to][letters.includes(it)?1:0];
+const qt=(it,from,to)=>it.q||QT[from+'>'+to][letters.includes(it)?1:0];
 function loadX(){try{const o=JSON.parse(localStorage.getItem(K+'x'));if(!o||!Array.isArray(o.qs)||!o.qs.length)return null;const all=[...words,...LIB.a,...LIB.b,...LIB.g,...LIB.f],qs=[];for(const x of o.qs){const it=x.t==='l'?letters.find(l=>l.he===x.he):x.t==='p'?pairs.find(p=>p.m===x.he):all.find(w=>w.he===x.he&&w.ru===x.ru);if(!it)return null;qs.push({it,from:x.from,to:x.to,pick:x.pick,cur:x.cur,opts:x.opts||[],ans:x.ans||''})}return{qs,secs:o.secs,end:o.end,i:o.i||0}}catch(e){return null}}
 function begin(){document.querySelectorAll('dialog').forEach(d=>d.close());document.querySelector('.launch').hidden=true;$('#resume').hidden=true;document.querySelectorAll('#stk,.nudge').forEach(e=>e.hidden=true);$('#bar').hidden=false}
 function bindTest(){
@@ -762,7 +934,7 @@ function cards(items,sty){
 }
 function run(items,pool,from0,to0,sty){
  let i=0,wrong=[],locked=false;const box=$('#quiz');
- let cur=false;const isH=k=>k==='cu'?' heb cur':['he','m','f'].includes(k)?' heb'+(cur?' cur':''):'';const fb=it=>`<b class="heb">${esc(it.nk||it.he)}</b>${it.f?' ↔ <b class="heb">'+esc(it.f)+'</b>':''} — ${[it.tr,it.ru].filter(Boolean).map(esc).join(' — ')}${it.note?' · '+esc(it.note):''}`;
+ let cur=false;const isH=(k,it)=>k==='cu'?' heb cur':(['he','m','f'].includes(k)||it&&(k==='p'&&it.ph||k==='a'&&it.ah))?' heb'+(cur?' cur':''):'';const fb=it=>`<b class="heb">${esc(it.nk||it.he)}</b>${it.f?' ↔ <b class="heb">'+esc(it.f)+'</b>':''} — ${[it.tr,it.ru].filter(Boolean).map(esc).join(' — ')}${it.note?' · '+esc(it.note):''}`;
  function next(){
   if(i>=items.length)return done();
   const it=items[i],d=typeof from0==='function'?from0(it):[from0,to0],from=d[0],to=d[1],P=typeof pool==='function'?pool(it):pool,ans=it[to];locked=false;cur=from!=='cu'&&to!=='cu'&&(sty==='c'||sty==='m'&&Math.random()<.5);
@@ -772,7 +944,7 @@ function run(items,pool,from0,to0,sty){
     $('#fb').innerHTML=`${ok?'Верно.':give?'Ответ:':near?'Почти: посмотрите на конечные буквы ך ם ן ף ץ.':'Неверно.'}${!ok&&v?' Вы написали <bdi class="hi" lang="he">'+esc(inp.value.trim())+'</bdi>.':''} ${fb(it)} <button id="nx">${i+1<items.length?'Дальше':'Результат'}</button>`;$('#nx').focus();$('#nx').onclick=()=>{i++;next()}};
    $('#wok').onclick=()=>chk(false);$('#wno').onclick=()=>chk(true);$('#whn').onclick=()=>{$('#whl').textContent='Начинается на «'+[...hnorm(it.he)][0]+'»';$('#whn').disabled=true;if(!coarse())inp.focus()};return}
   const opts=mkOpts(it,to,P,from);
-  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from)}">${esc(it[from])}</div>${qrP(it,from,to)}<div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to)}" data-k="${k}">${esc(o)}${qrO(o,it,from,to)}</button>`).join('')}</div><p id="fb"></p>`;
+  box.innerHTML=`<p class="mut">Вопрос ${i+1} из ${items.length}</p><div class="qt">${qt(it,from,to)}</div><div class="prompt${isH(from,it)}">${esc(it[from])}</div>${qrP(it,from,to)}${it.sub?`<p class="qsub">${esc(it.sub)}</p>`:''}<div class="opts">${opts.map((o,k)=>`<button class="opt${isH(to,it)}" data-k="${k}">${esc(o)}${qrO(o,it,from,to)}</button>`).join('')}</div><p id="fb"></p>`;
   box.querySelector('.opts').onclick=e=>{
    const b=e.target.closest('.opt');if(!b||locked)return;locked=true;
    const ok=opts[b.dataset.k]===ans;rec(it,ok);
@@ -807,7 +979,8 @@ function merge3(b,l,r){
  const lm=(l.srs&&l.srs.m)||{day:0,newN:0,revN:0},rm=(r.srs&&r.srs.m)||{day:0,newN:0,revN:0},M=lm.day===rm.day?{day:lm.day,newN:Math.max(lm.newN,rm.newN),revN:Math.max(lm.revN,rm.revN)}:lm.day>rm.day?lm:rm;
  const Hh={},lh=(l.srs&&l.srs.h)||{},rh=(r.srs&&r.srs.h)||{},bh=(b&&b.srs&&b.srs.h)||{};for(const k of new Set([...Object.keys(lh),...Object.keys(rh)])){const x=lh[k]||0,y=rh[k]||0,v=b?Math.max(x,y,x+y-(bh[k]||0)):Math.max(x,y);if(v>0)Hh[k]=v}
  const lG=l.srs&&l.srs.g,rG=r.srs&&r.srs.g;let Gm=null;if(lG||rG){const w=rG&&(!lG||(+rG.t||0)>(+lG.t||0))?rG:lG;Gm={gh:w.gh,t:w.t,x:[...new Set([...((lG&&lG.x)||[]),...((rG&&rG.x)||[])])].sort((a,b)=>a-b)}}
- return{v:1,words:[...W.values()],st:S,srs:Object.assign({m:M,c:C},(l.srs&&l.srs.h)||(r.srs&&r.srs.h)?{h:Hh}:{},Gm?{g:Gm}:{})}}
+ const vbm=a=>new Map((Array.isArray(a)?a:[]).map(x=>[x.k,x])),lvb=l.srs&&l.srs.vb,rvb=r.srs&&r.srs.vb,bvb=b&&b.srs&&b.srs.vb;let V=null;if(Array.isArray(lvb)||Array.isArray(rvb)){const Lm=vbm(lvb),Rm=vbm(rvb),Bm=Array.isArray(bvb)?vbm(bvb):null;V=[];for(const k of new Set([...Lm.keys(),...Rm.keys()])){const x=Lm.get(k),y=Rm.get(k);let v;if(!b)v=y||x;else{const z=Bm?Bm.get(k):undefined;v=same(x,z)?y:same(y,z)?x:x||y}if(v)V.push(v)}}
+ return{v:1,words:[...W.values()],st:S,srs:Object.assign({m:M,c:C},(l.srs&&l.srs.h)||(r.srs&&r.srs.h)?{h:Hh}:{},Gm?{g:Gm}:{},V?{vb:V}:{})}}
 function applyCloud(m){quiet=1;words=m.words;st=m.st||{};srs=m.srs||{m:{day:0,newN:0,revN:0},c:{}};save();saveS();saveR();quiet=0;const qz=$('#quiz');if(['today','words'].includes(view)&&!(qz&&qz.children.length))render()}
 async function authCall(m,b){let r;try{r=await fetch(CLOUD.auth+m+'?key='+CLOUD.key,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})}catch(e){throw new Error('NET')}const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error((d.error&&d.error.message)||'ERR');return d}
 async function token(){if(acc.tok&&Date.now()<acc.exp-60000)return acc.tok;let r;try{r=await fetch(CLOUD.token+'?key='+CLOUD.key,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=refresh_token&refresh_token='+encodeURIComponent(acc.ref)})}catch(e){throw new Error('NET')}if(r.status===400||r.status===401||r.status===403)throw new Error('AUTH');if(!r.ok)throw new Error('ERR');const d=await r.json();setAcc(Object.assign(acc,{tok:d.id_token,ref:d.refresh_token,exp:Date.now()+(+d.expires_in)*1000}));return acc.tok}
@@ -847,14 +1020,14 @@ function bindAcc(){const d=$('#dacc'),msg=t=>{$('#amsg').textContent=t};d.queryS
  $('#atg').onclick=()=>{const em=$('#aem').value,pw=$('#apw').value;aMode=aMode==='up'?'in':'up';openAcc();$('#aem').value=em;$('#apw').value=pw};
  const fg=$('#afg');if(fg)fg.onclick=async()=>{const email=$('#aem').value.trim();if(!email){msg('Введите почту, и я отправлю письмо для сброса пароля.');return}msg('Подождите…');const sent='Если такой аккаунт есть, письмо для сброса пароля уже в пути. Проверьте и папку «Спам».';try{await authCall('sendOobCode',{requestType:'PASSWORD_RESET',email});msg(sent)}catch(err){const m=String(err.message).split(' ')[0];msg(m==='NET'||m==='INVALID_EMAIL'||m==='TOO_MANY_ATTEMPTS_TRY_LATER'?aerr(m):sent)}}}
 document.addEventListener('visibilitychange',()=>{if(!acc)return;if(document.hidden){if(firstD)syncNow()}else if(Date.now()-lastS>30000)syncNow()});addEventListener('online',()=>{if(acc)syncNow()});
-const HK=['he','m','f'];let TRM=null;const trOf=he=>{const u=words.find(w=>w.he===he);if(u&&u.tr)return u.tr;if(!TRM){TRM=new Map();[...DEF,...LIB.a,...LIB.b,...LIB.g,...LIB.f,...letters,...GP].forEach(w=>{if(w.tr&&!TRM.has(w.he))TRM.set(w.he,w.tr)})}return TRM.get(he)||''},rdOf=(v,it,k)=>(v===it[k]&&it.tr)||trOf(v),qr=t=>t?`<small class="qr">${esc(t)}</small>`:'',qrP=(it,from,to)=>ui.qtr&&!letters.includes(it)&&HK.includes(from)&&to!=='tr'?`<div class="qrp">${qr(rdOf(it[from],it,from))}</div>`:'',qrO=(o,it,from,to)=>ui.qtr&&!letters.includes(it)&&HK.includes(to)&&from!=='tr'?qr(rdOf(o,it,to)):'',qrC=it=>ui.qtr?qr(it.tr||trOf(it.he)):'',qrA=(v,it,k)=>HK.includes(k)?qr(rdOf(v,it,k)):'';
-const QDIR=[['he>ru','Иврит → перевод'],['ru>he','Перевод → иврит'],['he>tr','Иврит → чтение'],['tr>he','Чтение → иврит']],QDIRL=[['he>ru','Буква → название'],['ru>he','Название → буква'],['he>tr','Буква → звук'],['tr>he','Звук → буква'],['he>cu','Печатная → письменная'],['cu>he','Письменная → печатная'],['ru>wr','Название → напиши сам']],QGEN=[['m>f','Муж. → жен.'],['f>m','Жен. → муж.']],isGen=d=>'mf'.includes(d[0]),QU=['вопрос','вопроса','вопросов'],QSRCG=[['g','Местоимения'],['p','Мужской и женский род']],EXD=['he>ru','ru>he','he>tr','tr>he','ru>wr'];
-const QK={test:{t:'Тест',d:'Только слова. Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:100,lv:1,qtr:1,dl:()=>QDIR,def:{src:['w'],dirs:['he>ru'],n:10},pre:[10,20,30,50]},exam:{t:'Экзамен',d:'Свои слова и все виды вопросов, в том числе «напиши сам». Результат только в конце.',go:'Начать экзамен',cnt:'Вопросов',unit:QU,max:200,timer:1,def:{src:['w'],n:20,min:10},pre:[10,20,50,100]},cards:{t:'Карточки',d:'Слабые слова попадаются первыми.',go:'Начать',cnt:'Карточек',unit:['карточка','карточки','карточек'],max:100,lv:1,qtr:1,def:{src:['w'],n:10},pre:[10,20,30,50]},write:{t:'Напиши сам',d:'Видите перевод и пишете слово на иврите. Клавиатура иврита будет на экране.',go:'Начать',cnt:'Слов',unit:WU,max:100,lv:1,qtr:1,qtrT:'Подсказывать, как читается',nosty:1,def:{src:['w'],n:10},pre:[5,10,20,30]},abc:{t:'Алфавит',d:'Только буквы. Ответ виден сразу после каждого вопроса.',go:'Начать',cnt:'Вопросов',unit:QU,max:100,set:1,dl:()=>QDIRL,def:{src:['l'],set:'all',dirs:['he>ru','ru>he'],n:15},pre:[10,15,27,50]},gram:{t:'Тест',d:'Грамматика. Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:30,qtr:1,src:QSRCG,dl:c=>[...(c.src.includes('g')?QDIR:[]),...(c.src.includes('p')?QGEN:[])],def:{src:['g'],dirs:['he>ru'],n:10},pre:[5,10,20,30]}},QMIN=[[0,'Без таймера'],[5,'5 мин'],[10,'10 мин'],[15,'15 мин'],[30,'30 мин'],[60,'60 мин']],QSTY=[['p','Печатные'],['c','Письменные'],['m','Вперемешку']],QLV=[['m','Свои'],['a','Алеф'],['b','Бет'],['g','Гимель'],['f','Фразы'],['all','Все']];
+const HK=['he','m','f'];let TRM=null;const trOf=he=>{const u=words.find(w=>w.he===he);if(u&&u.tr)return u.tr;if(!TRM){TRM=new Map();[...DEF,...LIB.a,...LIB.b,...LIB.g,...LIB.f,...letters,...GP,...vbFlat()].forEach(w=>{if(w.tr&&!TRM.has(w.he))TRM.set(w.he,w.tr)})}return TRM.get(he)||''},rdOf=(v,it,k)=>(v===it[k]&&(it[k+'t']||it.tr))||trOf(v),qr=t=>t?`<small class="qr">${esc(t)}</small>`:'',qrP=(it,from,to)=>ui.qtr&&!letters.includes(it)&&(HK.includes(from)||from==='p'&&it.ph)&&to!=='tr'?`<div class="qrp">${qr(rdOf(it[from],it,from))}</div>`:'',qrO=(o,it,from,to)=>ui.qtr&&!letters.includes(it)&&(HK.includes(to)||to==='a'&&it.ah)&&from!=='tr'?qr(rdOf(o,it,to)):'',qrC=it=>ui.qtr?qr(it.tr||trOf(it.he)):'',qrA=(v,it,k)=>HK.includes(k)?qr(rdOf(v,it,k)):'';
+const QDIR=[['he>ru','Иврит → перевод'],['ru>he','Перевод → иврит'],['he>tr','Иврит → чтение'],['tr>he','Чтение → иврит']],QDIRL=[['he>ru','Буква → название'],['ru>he','Название → буква'],['he>tr','Буква → звук'],['tr>he','Звук → буква'],['he>cu','Печатная → письменная'],['cu>he','Письменная → печатная'],['ru>wr','Название → напиши сам']],QGEN=[['m>f','Муж. → жен.'],['f>m','Жен. → муж.']],isGen=d=>'mf'.includes(d[0]),QU=['вопрос','вопроса','вопросов'],QSRCG=[['g','Местоимения'],['p','Мужской и женский род']],QVB=[['vf','Форма → форма'],['vi','Инфинитив → форма'],['vr','Перевод → инфинитив'],['vt','Инфинитив → перевод']],EXD=['he>ru','ru>he','he>tr','tr>he','ru>wr'];
+const QK={test:{t:'Тест',d:'Только слова. Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:100,lv:1,qtr:1,dl:()=>QDIR,def:{src:['w'],dirs:['he>ru'],n:10},pre:[10,20,30,50]},exam:{t:'Экзамен',d:'Свои слова и все виды вопросов, в том числе «напиши сам». Результат только в конце.',go:'Начать экзамен',cnt:'Вопросов',unit:QU,max:200,timer:1,def:{src:['w'],n:20,min:10},pre:[10,20,50,100]},cards:{t:'Карточки',d:'Слабые слова попадаются первыми.',go:'Начать',cnt:'Карточек',unit:['карточка','карточки','карточек'],max:100,lv:1,qtr:1,def:{src:['w'],n:10},pre:[10,20,30,50]},write:{t:'Напиши сам',d:'Видите перевод и пишете слово на иврите. Клавиатура иврита будет на экране.',go:'Начать',cnt:'Слов',unit:WU,max:100,lv:1,qtr:1,qtrT:'Подсказывать, как читается',nosty:1,def:{src:['w'],n:10},pre:[5,10,20,30]},abc:{t:'Алфавит',d:'Только буквы. Ответ виден сразу после каждого вопроса.',go:'Начать',cnt:'Вопросов',unit:QU,max:100,set:1,dl:()=>QDIRL,def:{src:['l'],set:'all',dirs:['he>ru','ru>he'],n:15},pre:[10,15,27,50]},verb:{t:'Глаголы',d:'Формы настоящего времени из вашей таблицы. Ответ виден сразу после каждого вопроса.',go:'Начать',cnt:'Вопросов',unit:QU,max:100,qtr:1,dl:()=>QVB,def:{src:['v'],dirs:['vf','vi'],n:10},pre:[5,10,20,30]},gram:{t:'Тест',d:'Грамматика. Ответ виден сразу после каждого вопроса.',go:'Начать тест',cnt:'Вопросов',unit:QU,max:30,qtr:1,src:QSRCG,dl:c=>[...(c.src.includes('g')?QDIR:[]),...(c.src.includes('p')?QGEN:[])],def:{src:['g'],dirs:['he>ru'],n:10},pre:[5,10,20,30]}},QMIN=[[0,'Без таймера'],[5,'5 мин'],[10,'10 мин'],[15,'15 мин'],[30,'30 мин'],[60,'60 мин']],QSTY=[['p','Печатные'],['c','Письменные'],['m','Вперемешку']],QLV=[['m','Свои'],['a','Алеф'],['b','Бет'],['g','Гимель'],['f','Фразы'],['all','Все']];
 let qk='',qc=null,qgo=null;
 const pl=(n,u)=>{const a=n%100,b=n%10;return u[a>10&&a<20?2:b===1?0:b>1&&b<5?1:2]},qPool=c=>({w:pickW(c.lv,c.tg),l:LSET[c.set]||letters,p:pairs,g:GP}),qAvail=c=>{const P=qPool(c);return (c.src||[]).reduce((s,k)=>s+P[k].length,0)},qN=(n,k)=>Math.max(3,Math.min(+n||QK[k].def.n,QK[k].max));
 const qrSw=(id,t)=>`<label class="sw"><input type="checkbox" id="${id}"${ui.qtr?' checked':''}><span class="swt"></span><span>${t}</span></label>`;
-function qEff(k,c){if(k==='gram'||k==='exam'||k==='abc'||(k==='test'&&c.sty==='m'))return c.n;return Math.min(c.n,qAvail(c))}
-function qErr(k,c){const K=QK[k];if(!c.src.length)return 'Выберите, что спрашивать.';const P=qPool(c);if(c.src.includes('w')&&!P.w.length)return k==='exam'?'В своих словах пока пусто. Добавьте слова в разделе «Слова».':'В этом списке пока нет слов. Выберите другой или добавьте слова.';if(k==='cards'||k==='write')return '';
+function qEff(k,c){if(k==='verb'||k==='gram'||k==='exam'||k==='abc'||(k==='test'&&c.sty==='m'))return c.n;return Math.min(c.n,qAvail(c))}
+function qErr(k,c){const K=QK[k];if(k==='verb'){const n=vbList().filter(vbGet).length;if(!c.dirs.length)return 'Выберите, как спрашивать.';if(!n)return 'Сначала добавьте глаголы в таблицу.';if(n<4&&c.dirs.some(d=>d==='vr'||d==='vt'))return 'Для вопросов с переводом нужно хотя бы 4 глагола в таблице.';return ''}if(!c.src.length)return 'Выберите, что спрашивать.';const P=qPool(c);if(c.src.includes('w')&&!P.w.length)return k==='exam'?'В своих словах пока пусто. Добавьте слова в разделе «Слова».':'В этом списке пока нет слов. Выберите другой или добавьте слова.';if(k==='cards'||k==='write')return '';
  if(k==='exam')return ['he','ru','tr'].some(f=>new Set(P.w.map(x=>x[f])).size<4)?'Для экзамена нужно хотя бы 4 разных своих слова. Добавьте слова в разделе «Слова».':'';
  const al=K.dl(c);for(const s of c.src){const ds=c.dirs.filter(d=>(s==='p')===isGen(d)&&al.some(x=>x[0]===d));if(!ds.length)return s==='p'?'Для пар выберите, какую форму спрашивать.':'Выберите, как спрашивать.';for(const d of ds){const to=d.split('>')[1];if(to!=='wr'&&new Set(P[s].map(x=>x[to])).size<4)return 'Нужно хотя бы 4 разных ответа. Добавьте слова или выберите другой список.'}}return ''}
 const qChips=(g,a,on)=>'<div class="chips">'+a.map(([v,t])=>`<button type="button" class="chip" data-g="${g}" data-v="${v}" data-f="${g}:${v}" aria-pressed="${!!on(v)}">${t}</button>`).join('')+'</div>';
